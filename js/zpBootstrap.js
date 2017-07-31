@@ -21,6 +21,9 @@ jQuery(document).ready(function($) {
 		.wrapInner('<a href="#"></a>')
 		.addClass('active');
 
+	/* favorites button */
+	$('.favorites input[type="submit"]').addClass('btn btn-inverse');
+
 	/* images */
 	$('#rating form').addClass('bottom-margin-reset');
 	$('#rating input[type="button"]').addClass('btn btn-inverse');
@@ -33,12 +36,12 @@ jQuery(document).ready(function($) {
 	$('ul.sub-nav li a.active').parent().addClass('active');
 
 	/* contact form */
-	$('form#mailform input#code').addClass('input-mini');
-	$('form#confirm').addClass('form-horizontal');
-	$('form#confirm, form#discard').wrapAll('<div class="form-actions"></div>');
-	$('form#confirm input[type="submit"]').addClass('btn btn-inverse');
-	$('form#discard').addClass('form-horizontal');
-	$('form#discard input[type="submit"]').addClass('btn btn-inverse');
+	$('#mailform input#code').addClass('input-mini');
+	$('#confirm, #discard').wrapAll('<div class="form-actions"></div>');
+	$('#confirm').addClass('form-horizontal');
+	$('#confirm input[type="submit"]').addClass('btn btn-inverse');
+	$('#discard').addClass('form-horizontal');
+	$('#discard input[type="submit"]').addClass('btn btn-inverse');
 
 	/* password & connexion & admin */
 	$('.post #passwordform')
@@ -52,12 +55,18 @@ jQuery(document).ready(function($) {
 	$('#passwordform')
 		.removeAttr('id')
 		.attr('id', 'zpB_login_passwordform');
-	$('#zpB_login_passwordform').addClass('modal hide');
+	if ($('#zpB_login_passwordform .errorbox').length) {
+		$('#zpB_login_passwordform').addClass('modal');
+		$('#zpB_login_passwordform').modal({show: true});
+	} else {
+		$('#zpB_login_passwordform').addClass('modal hide');
+	}
 
 	$('#admin h3 a')
 		.removeAttr('href')
 		.attr('href', '#admin_data')
 		.attr('data-toggle', 'modal')
+		.addClass('admin')
 		.unwrap()
 		.unwrap();
 	$('#admin_data ul')
@@ -66,25 +75,54 @@ jQuery(document).ready(function($) {
 		.parent().removeAttr('style').addClass('modal hide')
 		.wrapInner('<fieldset id="f_admin_data">');
 
+	/* register */
+	$('#registration_form label#strength, #registration_form input#pass')
+		.unwrap()
+		.wrapAll('<div class="control-group"></div>');
+	$('#registration_form label#strength').addClass('control-label');
+	$('#registration_form input#pass')
+		.wrap('<div class="controls"></div>')
+		.addClass('input-large');
+	$('#registration_form label[for="disclose_password"], #registration_form input#disclose_password')
+		.unwrap()
+		.wrapAll('<div class="control-group"></div>');
+	$('#registration_form label[for="disclose_password"]').addClass('control-label');
+	$('#registration_form input#disclose_password')
+		.wrap('<div class="controls"></div>');
+	$('#registration_form label#match, #registration_form input#pass_r')
+		.unwrap()
+		.wrapAll('<div class="control-group password_field_"></div>');
+	$('#registration_form label#match').addClass('control-label');
+	$('#registration_form input#pass_r')
+		.wrap('<div class="controls"></div>')
+		.addClass('input-large');
+
 	/* search form */
-	$('form#search_form').addClass('navbar-search');
-	$('input#search_input').addClass('search-query input-medium');
-	$('form#search_form input[type="submit"]')
+	$('#search_form').addClass('navbar-search');
+	$('#search_input').addClass('search-query input-medium');
+	$('#search_form input[type="submit"]')
 		.addClass('btn btn-inverse');
 	$('#search').addClass('pull-right');
 	$('#searchfields_icon').replaceWith('<i class="icon-list icon-white" title="options de recherche"></i>');
 
 	/* google map */
 	$('#googlemap_toggle').remove();
-	$('.google_map').remove();
+	$('.google_map')
+		.addClass('accordion-toggle')
+		.prepend('<i class="icon-map-marker"></i>');
 	$('#googlemap_data')
 		.removeAttr('id')
 		.attr('id', 'zpB_googlemap_data')
 		.removeClass('hidden_map');
-	$('.google_map').remove();
+	if ($('#gmap_accordion #zB_show').length){
+		$('#zpB_googlemap_data').collapse('show');
+	}
+	if ($('#gmap_accordion #zB_hide').length){
+		$('#zpB_googlemap_data').collapse('hide');
+	}
 
 	/* comment form */
-	$('form#commentform input#code').addClass('input-mini');
+	$('#commentform input#code').addClass('input-mini');
 	$('#commentcontent h3').remove();
 	$('#commentcontent').addClass('row');
 	$('#commentcontent #comments').addClass('span6');

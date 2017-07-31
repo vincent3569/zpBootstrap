@@ -4,7 +4,7 @@
 								<span class="day"><?php echo strftime('%d', strtotime($_zp_current_zenpage_news->getDateTime())); ?></span>
 								<span class="year"><?php echo strftime('%Y', strtotime($_zp_current_zenpage_news->getDateTime())); ?></span>
 							</div>
-							<h3 class="post-title"><?php printNewsTitleLink(); ?></h3>
+							<h3 class="post-title"><?php printNewsURL(); ?></h3>
 							<div class="post-meta"><?php printNewsCategories('', '', 'nav nav-label'); ?></div>
 							<div class="post-content clearfix">
 								<?php

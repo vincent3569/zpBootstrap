@@ -17,13 +17,13 @@ Scripts used:
 
 The theme supports the following ZenPhoto plugins:
 
-- comment_form, contact_form, dynamic-locale, flag_thumbnail, GoogleMap, rating, register_user, user_login-out, zenpage
+- cacheManager (**new**), colorbox, comment_form, contact_form, dynamic-locale, favoritesHandler (**new**), flag_thumbnail, GoogleMap (**colorbox option not supported**), rating, register_user, slideshow (**new, only colorbox option supported**), user_login-out, zenpage
 
 The theme does not support the following ZenPhoto plugins:
-- colorbox and slideshow (zpBoostrap uses and configures it's own colorbox and modal plugins)
+- colorbox and slideshow (zpBootstrap uses and configures it's own colorbox and modal plugins)
 
 ### Important
-To use the release **1.4.3** of the theme, you must have **ZenPhoto 1.4.3 or more**.
+To use the release **1.4.6** of the theme, you must have **ZenPhoto 1.4.6 or more**.
 If you use another release of ZenPhoto, see [archives of zpBootstrape on Github](https://github.com/vincent3569/zpBootstrap/releases).
 
 Report issues on the [ZenPhoto forum](http://www.zenphoto.org/support/) or create a new issue on [GitHub](https://github.com/vincent3569/zpBootstrap/issues) and I will fix it as soon as possible (only the latest version is supported).
@@ -32,7 +32,7 @@ Please note that the ZenPhoto team advise to regulary upgrade its site with the 
 
 ### Installation
 - Upload the zip file to your computer,
-- Unzip the downloaded zip file locally, and upload the zpBoostrap folder to the directory /themes/ of your ZenPhoto site,
+- Unzip the downloaded zip file locally, and upload the zpBootstrap folder to the directory /themes/ of your ZenPhoto site,
 - In ZenPhoto administration, go to the Themes tab and activate the zpBootstrap theme,
 - Navigate to Options>Theme to view and configure the available options for zpBootstrap.
 

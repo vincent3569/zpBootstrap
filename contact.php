@@ -1,4 +1,7 @@
-<?php include('inc_header.php'); ?>
+<?php 
+if (!extensionEnabled('contact_form')) die();
+include('inc_header.php');
+?>
 
 	<!-- wrap -->
 		<!-- container -->
@@ -9,13 +12,7 @@
 			<div class="row">
 				<div class="span10 offset1">
 					<div class="post">
-						<?php
-						if (function_exists('printContactForm')) {
-							printContactForm();
-						} else {
-							echo '<p>' . gettext('The Contact Form plugin has not been activated.' . '</p>');
-						}
-						?>
+						<?php printContactForm(); ?>
 					</div>
 				</div>
 			</div>

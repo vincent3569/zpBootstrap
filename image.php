@@ -19,24 +19,24 @@
 			</div>
 
 			<div class="center">
-				<?php if (getOption('zpB_slideshow') <> 'none') { ?>
-				<ul class="pager hidden-phone pull-right">
+				<?php if (extensionEnabled('slideshow')) { ?>
+				<ul class="pager hidden-phone pull-right"> <!--hidden-phone -->
 					<li>
-						<?php zpB_printSlideShowLink(gettext('Slideshow')); ?>
+						<?php printSlideShowLink(gettext('Slideshow')); ?>
 					</li>
 				</ul>
 				<?php } ?>
 
 				<ul class="pager">
 				<?php if (hasPrevImage()) { ?>
-					<li><a href="<?php echo html_encode(getPrevImageURL()); ?>" title="<?php echo gettext('Previous Image'); ?>">&laquo; <?php echo gettext('prev'); ?></a></li>
+					<li><a href="<?php echo html_encode(getPrevImageURL()); ?>" title="<?php echo gettext('Previous Image'); ?>">&larr; <?php echo gettext('prev'); ?></a></li>
 				<?php } else { ?>
-					<li class="disabled"><a href="#">&laquo; <?php echo gettext('prev'); ?></a></li>
+					<li class="disabled"><a href="#">&larr; <?php echo gettext('prev'); ?></a></li>
 				<?php } ?>
 				<?php if (hasNextImage()) { ?>
-					<li><a href="<?php echo html_encode(getNextImageURL()); ?>" title="<?php echo gettext('Next Image'); ?>"><?php echo gettext('next'); ?> &raquo;</a></li>
+					<li><a href="<?php echo html_encode(getNextImageURL()); ?>" title="<?php echo gettext('Next Image'); ?>"><?php echo gettext('next'); ?> &rarr;</a></li>
 				<?php } else { ?>
-					<li class="disabled"><a href="#"><?php echo gettext('next'); ?> &raquo;</a></li>
+					<li class="disabled"><a href="#"><?php echo gettext('next'); ?> &rarr;</a></li>
 				<?php } ?>
 				</ul>
 			</div>
@@ -49,7 +49,7 @@
 				<div class="span3 offset2">
 					<h4>
 						<?php if ((getOption('zpB_show_exif')) && (getImageMetaData())) { ?>
-						<a href="#exif_data" data-toggle="modal"><i class="icon-info-sign"></i></a>
+							<a href="#exif_data" data-toggle="modal"><i class="icon-info-sign"></i></a>
 						<?php } ?>
 						<?php printImageTitle(true); ?>
 					</h4>
@@ -69,7 +69,7 @@
 				</div>
 			</div>
 
-			<?php if (getOption('zpB_show_tags') || function_exists('printRating')) { ?>
+			<?php if (getOption('zpB_show_tags') || extensionEnabled('rating')) { ?>
 			<div class="row photo-description">
 				<?php if (getOption('zpB_show_tags')) { ?>
 				<div class="span8 offset2">
@@ -77,7 +77,11 @@
 				</div>
 				<?php } ?>
 
-				<?php if (function_exists('printRating')) { ?>
+			<?php if ((zp_loggedin()) && (extensionEnabled('favoritesHandler'))) { ?>
+				<div class="span8 offset2 favorites"><?php printAddToFavorites($_zp_current_image); ?></div>
+			<?php } ?>
+
+				<?php if (extensionEnabled('rating')) { ?>
 				<div id="rating" class="span8 offset2">
 					<div><?php printRating(); ?></div>
 				</div>
@@ -85,6 +89,8 @@
 			</div>
 			<?php } ?>
 
-			<?php include('inc_print_comment.php'); ?>
+			<?php if (extensionEnabled('comment_form')) { ?>
+				<?php include('inc_print_comment.php'); ?>
+			<?php } ?>
 
 <?php include('inc_footer.php'); ?>

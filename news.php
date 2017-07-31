@@ -1,4 +1,7 @@
-<?php include('inc_header.php'); ?>
+<?php
+if (!$_zenpage_enabled) die();
+include('inc_header.php');
+?>
 
 	<!-- wrap -->
 		<!-- container -->
@@ -26,7 +29,7 @@
 
 			<div class="row">
 				<div class="span9">
-					<?php include ('inc_print_news.php'); ?>
+					<?php include('inc_print_news.php'); ?>
 				</div>
 
 				<div class="span3">
@@ -40,7 +43,9 @@
 				</div>
 			</div>
 
-			<?php include('inc_print_comment.php'); ?>
+			<?php if (extensionEnabled('comment_form')) { ?>
+				<?php include('inc_print_comment.php'); ?>
+			<?php } ?>
 
 		<?php } else {
 			// news article loop ?>
@@ -53,7 +58,7 @@
 				<div class="span9">
 					<div class="list-post">
 					<?php while (next_news()) { ?>
-						<?php include ('inc_print_news.php'); ?>
+						<?php include('inc_print_news.php'); ?>
 					<?php } ?>
 					</div>
 				</div>

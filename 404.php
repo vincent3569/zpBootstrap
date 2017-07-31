@@ -7,7 +7,8 @@
 			</div> <!-- / header -->
 
 			<h4>
-			<?php echo gettext('The Zenphoto object you are requesting cannot be found.');
+			<?php
+			echo gettext('The Zenphoto object you are requesting cannot be found.');
 			if (isset($album)) {
 				echo '<br />'.sprintf(gettext('Album: %s'), html_encode($album));
 			}
@@ -16,7 +17,8 @@
 			}
 			if (isset($obj)) {
 				echo '<br />'.sprintf(gettext('Page: %s'), html_encode(substr(basename($obj), 0, -4)));
-			} ?>
+			}
+			?>
 			</h4>
 
 <?php include('inc_footer.php'); ?>

@@ -8,9 +8,9 @@
 
 			<table id="archives" class="table">
 				<thead>
-					<th><h4 class="center"><?php echo gettext('Gallery Archive'); ?></h4></th>
-					<?php if (function_exists('printNewsArchive')) { ?>
-					<th><h4 class="center"><?php echo gettext_th('News archive'); ?></h4></th>
+					<th><h4 class="center"><?php echo gettext('Gallery archive'); ?></h4></th>
+					<?php if ($_zenpage_enabled) { ?>
+					<th><h4 class="center"><?php echo gettext('News archive'); ?></h4></th>
 					<?php } ?>
 				</thead>
 				<tbody>
@@ -18,7 +18,7 @@
 						<td>
 							<?php printAllDates('unstyled', 'year', 'nav nav-pills', 'desc'); ?>
 						</td>
-						<?php if (function_exists('printNewsArchive')) { ?>
+						<?php if ($_zenpage_enabled) { ?>
 						<td id="newsarchives">
 							<?php printNewsArchive('unstyled', 'year', 'nav nav-pills', null, false, 'desc'); ?>
 						</td>

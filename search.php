@@ -60,11 +60,11 @@
 					}
 				}
 
-				if (getOption('zpB_slideshow') <> 'none') {
+				if (extensionEnabled('slideshow')) {
 				?>
-				<ul class="pager hidden-phone pull-right">
+				<ul class="pager hidden-phone pull-right"> <!--hidden-phone -->
 					<li>
-						<?php zpB_printSlideShowLink(gettext('Slideshow')); ?>
+						<?php printSlideShowLink(gettext('Slideshow')); ?>
 					</li>
 				</ul>
 				<?php
@@ -82,12 +82,12 @@
 				printPageListWithNav('«', '»', false, true, 'pagination', NULL, true, 7);
 				
 				if ($_zp_page == 1) { //test of zenpage searches
+
 					if ($numnews > 0) { ?>
 						<ul class="nav top-margin search-item"><li><h4><?php printf(gettext('Articles (%s)'), $numnews); ?></h4></li></ul>
-
-						<?php while (next_news('date', 'desc')) { ?>
+						<?php while (next_news()) { ?>
 							<div class="news-truncate clearfix">
-								<h3 class="search-title"><?php printNewsTitleLink(); ?></h3>
+								<h3 class="search-title"><?php printNewsURL(); ?></h3>
 								<div class="search-content clearfix">
 									<?php echo shortenContent(strip_tags(getNewsContent()), 120, getOption("zenpage_textshorten_indicator")); ?>
 								</div>

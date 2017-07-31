@@ -1,4 +1,7 @@
-<?php include('inc_header.php'); ?>
+<?php
+if (!$_zenpage_enabled) die();
+include('inc_header.php');
+?>
 
 	<!-- wrap -->
 		<!-- container -->
@@ -24,6 +27,8 @@
 				</div>
 			</div>
 
-			<?php include('inc_print_comment.php'); ?>
+			<?php if (extensionEnabled('comment_form')) { ?>
+				<?php include('inc_print_comment.php'); ?>
+			<?php } ?>
 
 <?php include('inc_footer.php'); ?>
