@@ -11,22 +11,18 @@ Description
 Scripts used:
 - Bootstrap (HTML, CSS, and JS toolkit for Responsive WebSite)
 - Flexslider (a fully responsive jQuery slider plugin)
+- FancyBox (lightbox jQuery plugin for displaying images. Touch enabled, responsive and fully customizable)
 - AddThis (snippet to add sharing tools to your site)
-- Colorbox (lightweight customizable lightbox plugin for jQuery)
 - script for navigation with the arrow keys.
 
 The theme supports the following ZenPhoto plugins:
-
-- cacheManager (**new**), colorbox, comment_form, contact_form, dynamic-locale, favoritesHandler (**new**), flag_thumbnail, GoogleMap (**colorbox option not supported**), rating, register_user, slideshow (**new, only colorbox option supported**), user_login-out, zenpage
-
-The theme does not support the following ZenPhoto plugins:
-- colorbox and slideshow (zpBootstrap uses and configures it's own colorbox and modal plugins)
+- cacheManager, comment_form, contact_form, dynamic-locale, favoritesHandler, flag_thumbnail, GoogleMap (**colorbox option not supported**), rating, register_user, user_login-out, zenpage
 
 ### Important
-To use the release **1.4.6** of the theme, you must have **ZenPhoto 1.4.6 or more**.
+To use the release **2.0** of the theme, you must have **ZenPhoto 1.4.14 or more**.
 If you use another release of ZenPhoto, see [archives of zpBootstrape on Github](https://github.com/vincent3569/zpBootstrap/releases).
 
-Report issues on the [ZenPhoto forum](http://www.zenphoto.org/support/) or create a new issue on [GitHub](https://github.com/vincent3569/zpBootstrap/issues) and I will fix it as soon as possible (only the latest version is supported).
+Please report issues on [GitHub](https://github.com/vincent3569/zpBootstrap/issues) (only the latest version is supported).
 
 Please note that the ZenPhoto team advise to regulary upgrade its site with the latest version of ZenPhoto to benefit from the latest features of the application, to solve the various security holes, and to benefit from the support of the ZenPhoto team.
 
@@ -42,7 +38,7 @@ Please note that the ZenPhoto team advise to regulary upgrade its site with the 
 
 ### Tips
 - Enter the title and url of your website, the title and description of your gallery in admin>options>gallery.
-- Make responsive images in news and pages : to do that, edit the html source of news and pages and add class="remove-attributes" on each image (the result should be < img class="remove-attributes" src="the_path_to_your_image" />)
+- Make responsive images in news and pages : to do that, edit the html source of news and pages and add class="remove-attributes img-responsive" on each image (the result should be < img class="remove-attributes img-responsive" src="the_path_to_your_image" />)
 
 ### ChangeLog
-Please, read [changelog.txt](https://github.com/vincent3569/zpBootstrap/blob/master/changelog.txt)
+Please, read [changelog.txt](https://github.com/vincent3569/zpBootstrap/blob/2.x/changelog.txt)
