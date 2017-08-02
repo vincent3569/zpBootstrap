@@ -282,7 +282,7 @@ if ( !defined('WEBPATH') ) die();
 						<!--<a class="addthis_button_favorites"></a>-->
 						<a class="addthis_button_compact"></a>
 					</div>
-					<script type="text/javascript" src="http://s7.addthis.com/js/300/addthis_widget.js"></script>
+					<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js"></script>
 					<!-- AddThis Button END -->
 				</div>
 				<?php } ?>
