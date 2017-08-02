@@ -13,7 +13,7 @@ Scripts used:
 - Flexslider (a fully responsive jQuery slider plugin)
 - FancyBox (lightbox jQuery plugin for displaying images. Touch enabled, responsive and fully customizable)
 - AddThis (snippet to add sharing tools to your site)
-- script for navigation with the arrow keys.
+- script for navigation with the arrow keys on single news pages and images pages
 
 The theme supports the following ZenPhoto plugins:
 - cacheManager, comment_form, contact_form, dynamic-locale, favoritesHandler, flag_thumbnail, GoogleMap (**colorbox option not supported**), rating, register_user, user_login-out, zenpage
