@@ -33,10 +33,10 @@ class ThemeOptions {
 		setThemeOptionDefault('zpB_show_exif', true);
 		setThemeOptionDefault('zpB_use_isotope', false);
 
-	    // disable some zenphoto plugin
-	    enableExtension('colorbox_js', 0);
-	    enableExtension('slideshow', 0);
-	    enableExtension('slideshow2', 0);
+		// disable some zenphoto plugin
+		enableExtension('colorbox_js', 0);
+		enableExtension('slideshow', 0);
+		enableExtension('slideshow2', 0);
 
 		if (class_exists('cacheManager')) {
 			$me = basename(dirname(__FILE__));
