@@ -3,12 +3,13 @@
 
 if (!OFFSET_PATH) {
 
-	setOption('comment_form_toggle', false, true);		// override this option of comment_form, to avoid JS conflits
-	setOption('comment_form_pagination', false, true);	// override this option of comment_form, to avoid JS conflits
-	setOption('tinymce4_comments', null, true);			// force this option to disable tinyMCE for comment form
-	setOption('user_logout_login_form', 1);				//override this option called by user_login-out plugin
+	// override some options to avoid conflits
+	setOption('comment_form_toggle', false, true);
+	setOption('comment_form_pagination', false, true);
+	setOption('tinymce4_comments', null, true);
+	setOption('user_logout_login_form', 1, true);
 
-	// Check for mobile and tablets, set some options...
+	// Check for mobile and tablets, and set some options
 	require_once (SERVERPATH . '/' . ZENFOLDER . '/' . PLUGIN_FOLDER . '/mobileTheme/Mobile_Detect.php');
 	$detect = new Mobile_Detect;
 
@@ -24,17 +25,21 @@ if (!OFFSET_PATH) {
 	}
 
 	if ($isMobile) {
+		// set album thumb size and album thumb size for mobile device
 		setOption('zpB_album_thumb_width', 720, false);
 		setOption('zpB_album_thumb_height', 360, false);
-		// setOption('zpB_image_thumb_size', 350, false);					doesn't work : printCustomAlbumThumbImage() n'utilise pas la vignette définie dans l'admin
-		// setThemeOption('thumb_size', 350, NULL, 'zpBootstrap', false);	doesn't work : le cache ne bascule pas entre les tailles de vignettes
 
-		// setOption('image_size', 400, false);
+		setOption('thumb_size', 350, false);
+		setOption('thumb_crop_width', 350, false);
+		setOption('thumb_crop_height', 350, false);
 	} else {
+		// set album thumb size and album thumb size
 		setOption('zpB_album_thumb_width', 360, false);
 		setOption('zpB_album_thumb_height', 180, false);
-		// setOption('zpB_image_thumb_size', 220, false);					doesn't work : printCustomAlbumThumbImage() n'utilise pas la vignette définie dans l'admin
-		// setThemeOption('thumb_size', 220, NULL, 'zpBootstrap', false);	doesn't work : le cache ne bascule pas entre les tailles de vignettes
+		
+		setOption('thumb_size', 220, false);
+		setOption('thumb_crop_width', 220, false);
+		setOption('thumb_crop_height', 220, false);
 	}
 
 	$_zp_page_check = 'my_checkPageValidity';
@@ -101,5 +106,4 @@ function zpB_getRandomImages ($number = 5, $option = 'all', $album_filename = ''
 		return false;
 	}
 }
-
 ?>
