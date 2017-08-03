@@ -19,12 +19,12 @@ include('inc_header.php');
 			<ul class="pager margin-top-reset margin-bottom-reset">
 				<?php if (getPrevNewsURL()) { ?>
 				<li class="previous margin-bottom col-sm-6 pull-left">
-					<a href="<?php $article_url = getPrevNewsURL(); echo $article_url['link']; ?>" title="<?php echo $article_url['title']; ?>"> &larr; <?php echo shortenContent($article_url['title'], 30, ' (...)'); ?></a>
+					<a href="<?php $article_url = getPrevNewsURL(); echo $article_url['link']; ?>" title="<?php echo $article_url['title']; ?>"> &larr; <?php echo shortenContent($article_url['title'], $zpB_shorten_title_size, ' (...)'); ?></a>
 				</li>
 				<?php } ?>
 				<?php if (getNextNewsURL()) { ?>
 				<li class="next margin-bottom col-sm-6 pull-right">
-					<a href="<?php $article_url = getNextNewsURL(); echo $article_url['link']; ?>" title="<?php echo $article_url['title']; ?>"><?php echo shortenContent($article_url['title'], 30, ' (...)'); ?> &rarr; </a>
+					<a href="<?php $article_url = getNextNewsURL(); echo $article_url['link']; ?>" title="<?php echo $article_url['title']; ?>"><?php echo shortenContent($article_url['title'], $zpB_shorten_title_size, ' (...)'); ?> &rarr; </a>
 				</li>
 				<?php } ?>
 			</ul>

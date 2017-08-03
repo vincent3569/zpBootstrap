@@ -32,6 +32,9 @@ if (!OFFSET_PATH) {
 		setOption('thumb_size', 350, false);
 		setOption('thumb_crop_width', 350, false);
 		setOption('thumb_crop_height', 350, false);
+
+		// set shorten title size
+		$zpB_shorten_title_size = 26;
 	} else {
 		// set album thumb size and album thumb size
 		setOption('zpB_album_thumb_width', 360, false);
@@ -40,6 +43,9 @@ if (!OFFSET_PATH) {
 		setOption('thumb_size', 220, false);
 		setOption('thumb_crop_width', 220, false);
 		setOption('thumb_crop_height', 220, false);
+
+		// set shorten title size
+		$zpB_shorten_title_size = 50;
 	}
 
 	$_zp_page_check = 'my_checkPageValidity';
