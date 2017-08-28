@@ -15,22 +15,37 @@ if (!defined('WEBPATH')) die();
 	?>
 	<title>
 	<?php
-	echo getMainSiteName();
-	if (($_zp_gallery_page == 'index.php') && ($isHomePage)) {echo ' | ' . gettext('Home'); }
-	if (($_zp_gallery_page == 'index.php') && (!$isHomePage)) {echo ' | ' . gettext('Gallery'); }
-	if ($_zp_gallery_page == '404.php') {echo ' | ' . gettext('Object not found'); }
-	if ($_zp_gallery_page == 'album.php') {echo ' | ' . getBareAlbumTitle(); if ($_zp_page > 1) {echo ' [' . $_zp_page . ']'; }}
-	if ($_zp_gallery_page == 'archive.php') {echo ' | ' . gettext('Archive View'); }
-	if ($_zp_gallery_page == 'contact.php') {echo ' | ' . gettext('Contact'); }
-	if ($_zp_gallery_page == 'favorites.php') {echo ' | ' . gettext('My favorites'); if ($_zp_page > 1) {echo ' [' . $_zp_page . ']'; }}
-	if ($_zp_gallery_page == 'gallery.php') {echo ' | ' . gettext('Gallery'); if ($_zp_page > 1) {echo ' [' . $_zp_page . ']'; }}
-	if ($_zp_gallery_page == 'image.php') {echo ' | ' . getBareAlbumTitle() . ' | ' . getBareImageTitle(); }
-	if (($_zp_gallery_page == 'news.php') && (!is_NewsArticle())) {echo ' | ' . gettext('News'); if ($_zp_page > 1) {echo ' [' . $_zp_page . ']';} }
-	if (($_zp_gallery_page == 'news.php') && (is_NewsArticle())) {echo ' | ' . getBareNewsTitle(); }
-	if ($_zp_gallery_page == 'pages.php') {echo ' | ' . getBarePageTitle(); }
-	if ($_zp_gallery_page == 'password.php') {echo ' | ' . gettext('Password Required...'); }
-	if ($_zp_gallery_page == 'register.php') {echo ' | ' . gettext('Register'); }
-	if ($_zp_gallery_page == 'search.php') {echo ' | ' . gettext('Search'); if ($_zp_page > 1) {echo ' [' . $_zp_page . ']';} }
+	echo getMainSiteName() . ' | ';
+	switch ($_zp_gallery_page) {
+		case 'index.php':
+			if ($isHomePage) { echo gettext('Home'); break; }
+			if (!$isHomePage) { echo gettext('Gallery'); break; }
+		case '404.php':
+			echo gettext('Object not found'); break;
+		case 'album.php':
+			echo getBareAlbumTitle(); if ($_zp_page > 1) { echo ' [' . $_zp_page . ']'; }; break;
+		case 'archive.php':
+			echo gettext('Archive View'); break;
+		case 'contact.php':
+			echo gettext('Contact'); break;
+		case 'favorites.php':
+			echo gettext('My favorites'); if ($_zp_page > 1) { echo ' [' . $_zp_page . ']'; }; break;
+		case 'gallery.php':
+			echo gettext('Gallery'); if ($_zp_page > 1) { echo ' [' . $_zp_page . ']'; }; break;
+		case 'image.php':
+			echo getBareAlbumTitle() . ' | ' . getBareImageTitle(); break;
+		case 'news.php':
+			if (!is_NewsArticle()) { echo gettext('News'); if ($_zp_page > 1) { echo ' [' . $_zp_page . ']'; }; break; }
+			if (is_NewsArticle()) { echo getBareNewsTitle(); break; }
+		case 'pages.php':
+			echo getBarePageTitle(); break;
+		case 'password.php':
+			echo gettext('Password Required...'); break;
+		case 'register.php':
+			echo gettext('Register'); break;
+		case 'search.php':
+			echo gettext('Search'); if ($_zp_page > 1) { echo ' [' . $_zp_page . ']'; }; break;
+	}
 	?>
 	</title>
 
