@@ -1,10 +1,11 @@
 <?php
 // force UTF-8 Ø
-if ( !defined('WEBPATH') ) die();
+if (!defined('WEBPATH')) die();
 ?>
 <!DOCTYPE html>
 <html>
-<head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<head>
+	<meta charset="<?php echo getOption('charset'); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 	<?php
 	if ( !( (($_zp_gallery_page == 'pages.php') && ((getPageTitleLink() == 'map')) ) || ($_zp_gallery_page == 'album.php')) ) {
