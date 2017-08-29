@@ -49,6 +49,7 @@
 		</table>
 		<?php } ?>
 
+		<?php if ($_zenpage_and_news_enabled) { ?>
 		<table id="cat" class="table">
 			<thead>
 				<th><h4><?php echo gettext('News Categories'); ?></h4></th>
@@ -61,6 +62,7 @@
 				</tr>
 			</tbody>
 		</table>
+		<?php } ?>
 
 	</div><!-- /.container main -->
 
