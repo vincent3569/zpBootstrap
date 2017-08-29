@@ -44,7 +44,7 @@
 			</div>
 		<?php } ?>
 
-		<?php if(extensionEnabled('GoogleMap')) {
+		<?php if (extensionEnabled('GoogleMap')) {
 			// theme doesnot support colorbox option for googlemap plugin
 			if (getOption('gmap_display') == 'colorbox') { ?>
 				<div class="alert alert-danger">theme doesn't support colorbox option for googlemap plugin</div>
