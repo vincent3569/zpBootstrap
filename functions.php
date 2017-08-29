@@ -99,7 +99,7 @@ function zpB_getRandomImages ($number = 5, $option = 'all', $album_filename = ''
 				$randomImage = getRandomImagesAlbum($album_filename);
 				break;
 		}
-		if (is_object($randomImage) && $randomImage->exists) {
+		if ((is_object($randomImage)) && ($randomImage->exists)) {
 			if (array_search($randomImage, $randomImageList) === false) {
 				$randomImageList[] = $randomImage;
 				$i++;

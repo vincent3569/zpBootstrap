@@ -202,7 +202,7 @@ if (!defined('WEBPATH')) die();
 				<?php if ($_zp_gallery_page == 'index.php') { $galleryactive = true; } ?>
 					<li<?php if ($galleryactive) { ?> class="active"<?php } ?>><a href="<?php echo html_encode(getGalleryIndexURL()); ?>" title="<?php echo gettext('Gallery'); ?>"><?php echo gettext('Gallery'); ?></a></li>
 				<?php } ?>
-				<?php if (($_zenpage_and_news_enabled) && ((getNumNews(true)) > 0)) { ?>
+				<?php if ($_zenpage_and_news_enabled && (getNumNews(true) > 0)) { ?>
 					<li<?php if ($_zp_gallery_page == 'news.php') { ?> class="active"<?php } ?>><?php printNewsIndexURL(gettext('News'), '', gettext('News')); ?></li>
 				<?php } ?>
 				<?php if ($_zenpage_and_pages_enabled) { ?>
@@ -271,7 +271,7 @@ if (!defined('WEBPATH')) die();
 			<div class="col-sm-push-9 col-sm-3">
 				<?php if (extensionEnabled('rss')) {
 					$rss = false;
-					if (($_zenpage_and_news_enabled) && (getOption('RSS_articles'))) {
+					if ($_zenpage_and_news_enabled && (getOption('RSS_articles'))) {
 						$rss = true; $type = 'News';
 					} else if (getOption('RSS_album_image')) {
 						$rss = true; $type = 'Gallery';
