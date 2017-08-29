@@ -173,7 +173,8 @@ if (!defined('WEBPATH')) die();
 <?php
 	zp_apply_filter('theme_body_open');
 
-	if (($_zp_gallery_page == 'gallery.php') ||
+	if ( ((!getOption('zpB_homepage')) && ($_zp_gallery_page == 'index.php')) ||
+			($_zp_gallery_page == 'gallery.php') ||
 			($_zp_gallery_page == 'album.php') ||
 			($_zp_gallery_page == 'image.php')) {
 		$galleryactive = true;
@@ -191,17 +192,14 @@ if (!defined('WEBPATH')) die();
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="<?php echo html_encode(getMainSiteURL()); ?>" title="<?php echo gettext('Home'); ?>"><?php echo getMainSiteName(); ?></a>
+				<a class="navbar-brand" href="<?php echo html_encode(getSiteHomeURL()); ?>" title="<?php echo gettext('Home'); ?>"><?php echo getMainSiteName(); ?></a>
 			</div>
 			<div id="navbar" class="collapse navbar-collapse">
 				<ul class="nav navbar-nav pull-right">
 				<?php if (getOption('zpB_homepage')) { ?>
-					<li<?php if ((isset($isHomePage)) && ($isHomePage)) { ?> class="active"<?php } ?>><a href="<?php echo html_encode(getGalleryIndexURL()); ?>" title="<?php echo gettext('Home'); ?>"><?php echo gettext('Home'); ?></a></li>
-					<li<?php if ($galleryactive) { ?> class="active"<?php } ?>><?php printCustomPageURL(gettext('Gallery'), 'gallery'); ?></li>
-				<?php } else { ?>
-				<?php if ($_zp_gallery_page == 'index.php') { $galleryactive = true; } ?>
-					<li<?php if ($galleryactive) { ?> class="active"<?php } ?>><a href="<?php echo html_encode(getGalleryIndexURL()); ?>" title="<?php echo gettext('Gallery'); ?>"><?php echo gettext('Gallery'); ?></a></li>
+					<li<?php if ((isset($isHomePage)) && ($isHomePage)) { ?> class="active"<?php } ?>><a href="<?php echo html_encode(getSiteHomeURL()); ?>" title="<?php echo gettext('Home'); ?>"><?php echo gettext('Home'); ?></a></li>
 				<?php } ?>
+					<li<?php if ($galleryactive) { ?> class="active"<?php } ?>><?php printCustomPageURL(gettext('Gallery'), 'gallery'); ?></li>
 				<?php if ($_zenpage_and_news_enabled && (getNumNews(true) > 0)) { ?>
 					<li<?php if ($_zp_gallery_page == 'news.php') { ?> class="active"<?php } ?>><?php printNewsIndexURL(gettext('News'), '', gettext('News')); ?></li>
 				<?php } ?>
