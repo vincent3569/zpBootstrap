@@ -1,5 +1,5 @@
 <?php
-if (!$_zenpage_enabled) die();
+if (!$_zenpage_and_news_enabled) die();
 include('inc_header.php');
 ?>
 

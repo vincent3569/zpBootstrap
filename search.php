@@ -19,11 +19,14 @@
 			$numalbums = getNumAlbums();
 			$total_gallery = $numimages + $numalbums;
 
+			$numnews = $numpages = 0;
 			if ($_zenpage_enabled && !isArchive()) {
-				$numnews = getNumNews();
-				$numpages = getNumPages();
-			} else {
-				$numnews = $numpages = 0;
+				if ($_zenpage_and_news_enabled) {
+					$numnews = getNumNews();
+				}
+				if ($_zenpage_and_pages_enabled) {
+					$numpages = getNumPages();
+				}
 			}
 			$total = $total_gallery + $numnews + $numpages;
 
@@ -50,12 +53,12 @@
 			</div>
 
 			<?php
-			if (getOption('search_no_albums')) {		//test of images search
+			if (getOption('search_no_albums')) {				//test of images search
 				if ($numimages > 0) {
 					echo '<h4 class="margin-top-double margin-bottom-double"><strong>'; printf(gettext('Images (%s)'), $numimages); echo '</strong></h4>';
 				}
 			} else {
-				if (getOption('search_no_images')) {	//test of albums search
+				if (getOption('search_no_images')) {			//test of albums search
 					if ($numalbums > 0) {
 						echo '<h4 class="margin-top-double margin-bottom-double"><strong>'; printf(gettext('Albums (%s)'), $numalbums); echo '</strong></h4>';
 					}
@@ -66,6 +69,7 @@
 				}
 			}
 
+			/* TO DO : à revoir */
 			if (extensionEnabled('slideshow')) {
 			?>
 			<ul class="pager pull-right margin-top-reset hidden-phone"> <!--hidden-phone -->
@@ -87,8 +91,8 @@
 
 			printPageListWithNav('«', '»', false, true, 'pagination pagination-sm margin-top-reset', NULL, true, 7);
 
-			if ($_zp_page == 1) {						//test of zenpage searches
-				if ($numnews > 0) { ?>
+			if (($_zenpage_enabled) /*&& ($_zp_page == 1)*/) {		//test of zenpage searches
+				if ($_zenpage_and_news_enabled && ($numnews > 0)) { ?>
 					<h4 class="margin-top-double margin-bottom-double"><strong><?php printf(gettext('Articles (%s)'), $numnews); ?></strong></h4>
 					<?php while (next_news()) { ?>
 						<div class="list-post clearfix">
@@ -101,7 +105,7 @@
 					}
 				}
 
-				if ($numpages > 0) { ?>
+				if ($_zenpage_and_pages_enabled && ($numpages > 0)) { ?>
 					<h4 class="margin-top-double margin-bottom-double"><strong><?php printf(gettext('Pages (%s)'), $numpages); ?></strong></h4>
 					<?php while (next_page()) { ?>
 						<div class="list-post clearfix">

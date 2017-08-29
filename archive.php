@@ -16,7 +16,7 @@
 		<table id="archives" class="table">
 			<thead>
 				<th><h4><?php echo gettext('Gallery archive'); ?></h4></th>
-				<?php if ($_zenpage_enabled) { ?>
+				<?php if ($_zenpage_and_news_enabled) { ?>
 				<th><h4><?php echo gettext('News archive'); ?></h4></th>
 				<?php } ?>
 			</thead>
@@ -25,7 +25,7 @@
 					<td>
 						<?php printAllDates('list-unstyled', 'year', 'month nav nav-pills col-xs-offset-1', 'desc'); ?>
 					</td>
-					<?php if ($_zenpage_enabled) { ?>
+					<?php if ($_zenpage_and_news_enabled) { ?>
 					<td id="newsarchives">
 						<?php printNewsArchive('list-unstyled', 'year', 'month nav nav-pills col-xs-offset-1', null, false, 'desc'); ?>
 					</td>

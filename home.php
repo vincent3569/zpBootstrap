@@ -46,7 +46,7 @@
 
 		<div class="row site-description">
 			<?php
-			if (($_zenpage_enabled) && (getNumNews() > 0)) {
+			if (($_zenpage_and_news_enabled) && (getNumNews() > 0)) {
 				$col_sd = 'col-sm-offset-1 col-sm-6';
 			} else {
 				$col_sd = 'col-sm-offset-2 col-sm-8';
@@ -56,7 +56,7 @@
 				<h3><?php echo gettext('Home'); ?></h3>
 				<div><?php printGalleryDesc(); ?></div>
 			</div>
-			<?php if (($_zenpage_enabled) && (getNumNews() > 0)) { ?>
+			<?php if (($_zenpage_and_news_enabled) && (getNumNews() > 0)) { ?>
 			<div class="col-sm-5">
 				<h3><?php echo gettext_th('Latest news', 'zpBootstrap'); ?></h3>
 				<?php printLatestNews( 1, '', true, true, 200, false); ?>
