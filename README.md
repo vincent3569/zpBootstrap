@@ -22,7 +22,7 @@ The theme supports the following ZenPhoto plugins:
 To use the release **2.0** of the theme, you must have **ZenPhoto 1.4.14 or more**.
 If you use another release of ZenPhoto, see [archives of zpBootstrape on Github](https://github.com/vincent3569/zpBootstrap/releases).
 
-Please report issues on [GitHub](https://github.com/vincent3569/zpBootstrap/issues) (only the latest version is supported).
+You can report bugs on the [ZenPhoto forum](http://www.zenphoto.org/support/) or create an issue on [GitHub](https://github.com/vincent3569/zpBootstrap/issues), I will fix it as soon as possible (only the latest version is supported). You can also improve theme via Pull requests.
 
 Please note that the ZenPhoto team advise to regulary upgrade its site with the latest version of ZenPhoto to benefit from the latest features of the application, to solve the various security holes, and to benefit from the support of the ZenPhoto team.
 
