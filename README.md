@@ -37,8 +37,8 @@ Please note that the ZenPhoto team advise to regulary upgrade its site with the 
 - Only one RSS Feed is displayed: go to options>RSS and select the RSS feed to use (RSS Feed "All News" has priority over RSS Feed "Gallery").
 
 ### Tips
-- Enter the title and url of your website, the title and description of your gallery in admin>options>gallery.
-- Make responsive images in news and pages : to do that, edit the html source of news and pages and add class="remove-attributes img-responsive" on each image (the result should be < img class="remove-attributes img-responsive" src="the_path_to_your_image" />)
+- In admin>options>gallery, enter the title of your website, the title and description of your gallery
+- Make responsive images in news and pages: edit the html source of your news and pages and add class="remove-attributes img-responsive" on each image (the result should be < img class="remove-attributes img-responsive" src="the_path_to_your_image" />)
 
 ### ChangeLog
 Please, read [changelog.txt](https://github.com/vincent3569/zpBootstrap/blob/master/changelog.txt)
