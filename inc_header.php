@@ -18,8 +18,7 @@ if (!defined('WEBPATH')) die();
 	echo getMainSiteName() . ' | ';
 	switch ($_zp_gallery_page) {
 		case 'index.php':
-			if ($isHomePage) { echo gettext('Home'); break; }
-			if (!$isHomePage) { echo gettext('Gallery'); break; }
+			if ($isHomePage) { echo gettext('Home'); } else { echo gettext('Gallery'); }; break;
 		case '404.php':
 			echo gettext('Object not found'); break;
 		case 'album.php':
@@ -35,8 +34,7 @@ if (!defined('WEBPATH')) die();
 		case 'image.php':
 			echo getBareAlbumTitle() . ' | ' . getBareImageTitle(); break;
 		case 'news.php':
-			if (!is_NewsArticle()) { echo gettext('News'); if ($_zp_page > 1) { echo ' [' . $_zp_page . ']'; }; break; }
-			if (is_NewsArticle()) { echo getBareNewsTitle(); break; }
+			if (is_NewsArticle()) { echo getBareNewsTitle(); } else { echo gettext('News'); if ($_zp_page > 1) { echo ' [' . $_zp_page . ']'; }; }; break;
 		case 'pages.php':
 			echo getBarePageTitle(); break;
 		case 'password.php':
