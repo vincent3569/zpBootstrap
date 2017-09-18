@@ -5,6 +5,14 @@ zpBootstrap is a « Responsive » theme for [ZenPhoto CMS](http://www.zenphoto.o
 
 Feel free to download and use it, and thanks in advance for your feedback!
 
+### Important
+To use the release **2.0** of the theme, you must have **ZenPhoto 1.4.14 or more**.
+If you use another release of ZenPhoto, see [archives of zpBootstrape on Github](https://github.com/vincent3569/zpBootstrap/releases).
+
+You can report bugs on the [ZenPhoto forum](http://www.zenphoto.org/support/) or by creating an issue on [GitHub](https://github.com/vincent3569/zpBootstrap/issues), I will fix it as soon as possible (only the latest version is supported). You can also improve theme via [Pull requests](https://github.com/vincent3569/zpBootstrap/pulls).
+
+Please note that the ZenPhoto team advise to regulary upgrade its site with the latest version of ZenPhoto to benefit from the latest features of the application, to solve the various security holes, and to benefit from the support of the ZenPhoto team.
+
 Description
 -----------
 
@@ -17,14 +25,6 @@ Scripts used:
 
 The theme supports the following ZenPhoto plugins:
 - cacheManager, comment_form, contact_form, dynamic-locale, favoritesHandler, flag_thumbnail, GoogleMap (**colorbox option not supported**), rating, register_user, user_login-out, zenpage
-
-### Important
-To use the release **2.0** of the theme, you must have **ZenPhoto 1.4.14 or more**.
-If you use another release of ZenPhoto, see [archives of zpBootstrape on Github](https://github.com/vincent3569/zpBootstrap/releases).
-
-You can report bugs on the [ZenPhoto forum](http://www.zenphoto.org/support/) or create an issue on [GitHub](https://github.com/vincent3569/zpBootstrap/issues), I will fix it as soon as possible (only the latest version is supported). You can also improve theme via Pull requests.
-
-Please note that the ZenPhoto team advise to regulary upgrade its site with the latest version of ZenPhoto to benefit from the latest features of the application, to solve the various security holes, and to benefit from the support of the ZenPhoto team.
 
 ### Installation
 - Upload the zip file to your computer,
