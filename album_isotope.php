@@ -70,9 +70,9 @@ require_once (SERVERPATH . '/' . ZENFOLDER . '/' . PLUGIN_FOLDER . '/tag_extras.
 			<?php } ?>
 		</div>
 
-		<script type="text/javascript" src="/themes/zpBootstrap/js/imagesloaded.pkgd.min.js"></script>
-		<script type="text/javascript" src="/themes/zpBootstrap/js/isotope.pkgd.min.js"></script>
-		<script type="text/javascript" src="/themes/zpBootstrap/js/packery-mode.pkgd.min.js"></script>
+		<script type="text/javascript" src="<?php echo $_zp_themeroot; ?>/js/imagesloaded.pkgd.min.js"></script>
+		<script type="text/javascript" src="<?php echo $_zp_themeroot; ?>/js/isotope.pkgd.min.js"></script>
+		<script type="text/javascript" src="<?php echo $_zp_themeroot; ?>/js/packery-mode.pkgd.min.js"></script>
 
 		<script type="text/javascript">
 			// init Isotope
