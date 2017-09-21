@@ -38,7 +38,7 @@
 						<?php } ?>
 					</ul>
 				<?php } else { ?>
-					<img src="http://via.placeholder.com/800x400?text=<?php echo gettext('Slideshow'); ?> (800 x 400)">
+					<img class="img-responsive" src="http://via.placeholder.com/800x400?text=<?php echo gettext('Slideshow'); ?> (800 x 400)">
 				<?php } ?>
 				</div>
 			</div>
