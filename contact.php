@@ -1,6 +1,6 @@
 <?php 
-if (!extensionEnabled('contact_form')) die();
-include('inc_header.php');
+if (extensionEnabled('contact_form')) {
+	include ('inc_header.php');
 ?>
 
 	<!-- .container main -->
@@ -20,4 +20,10 @@ include('inc_header.php');
 
 	</div><!-- /.container main -->
 
-<?php include('inc_footer.php'); ?>
+<?php
+	include('inc_footer.php');
+
+} else {
+	include(SERVERPATH . '/' . ZENFOLDER . '/404.php');
+}
+?>

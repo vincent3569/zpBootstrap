@@ -1,6 +1,6 @@
-<?php 
-if (!extensionEnabled('register_user')) die();
-include('inc_header.php');
+<?php
+if (extensionEnabled('register_user')) {
+	include ('inc_header.php');
 ?>
 
 	<!-- .container -->
@@ -20,4 +20,10 @@ include('inc_header.php');
 
 	</div><!-- /.container main -->
 
-<?php include('inc_footer.php'); ?>
+<?php
+	include('inc_footer.php');
+
+} else {
+	include(SERVERPATH . '/' . ZENFOLDER . '/404.php');
+}
+?>
