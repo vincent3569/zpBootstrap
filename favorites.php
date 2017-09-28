@@ -12,12 +12,7 @@ if (extensionEnabled('favoritesHandler')) {
 
 		<div class="breadcrumb">
 			<h4>
-				<?php if (getOption('zpB_homepage')) { ?>
-					<?php printCustomPageURL(getGalleryTitle(), 'gallery'); ?>
-				<?php } else { ?>
-					<a href="<?php echo html_encode(getGalleryIndexURL()); ?>" title="<?php echo gettext('Albums Index'); ?>"><?php echo html_encode(getGalleryTitle()); ?></a>
-				<?php } ?>&raquo;
-				<?php printAlbumTitle(); ?>
+				<?php printCustomPageURL(getGalleryTitle(), 'gallery', '', '', ' » '); ?><?php printAlbumTitle(); ?>
 			</h4>
 		</div>
 
