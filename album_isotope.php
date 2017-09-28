@@ -16,7 +16,7 @@ require_once (SERVERPATH . '/' . ZENFOLDER . '/' . PLUGIN_FOLDER . '/tag_extras.
 		</div>
 
 		<div class="page-header margin-bottom-reset">
-			<?php printAlbumDesc(true); ?>
+			<?php printAlbumDesc(); ?>
 		</div>
 
 		<?php

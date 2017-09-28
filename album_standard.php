@@ -14,7 +14,7 @@
 		</div>
 
 		<div class="page-header margin-bottom-reset">
-			<?php printAlbumDesc(true); ?>
+			<?php printAlbumDesc(); ?>
 		</div>
 
 		<!-- TO DO : à revoir -->

@@ -46,7 +46,7 @@
 				</h4>
 			</div>
 			<div class="col-sm-offset-2 col-sm-8">
-				<?php printImageDesc(true); ?>
+				<?php printImageDesc(); ?>
 			</div>
 
 			<?php if ((getOption('zpB_show_exif')) && (getImageMetaData())) { ?>

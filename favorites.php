@@ -17,7 +17,7 @@ if (extensionEnabled('favoritesHandler')) {
 		</div>
 
 		<div class="page-header bottom-margin-reset">
-			<p><?php printAlbumDesc(true); ?></p>
+			<p><?php printAlbumDesc(); ?></p>
 		</div>
 
 		<!-- TO DO : à revoir -->
