@@ -24,6 +24,7 @@ class ThemeOptions {
 		setThemeOptionDefault('custom_index_page', 'gallery');
 
 		setThemeOptionDefault('zpB_homepage', true);
+		setThemeOptionDefault('zpB_latest_news_homepage', true);
 		setThemeOptionDefault('zpB_homepage_album_filename', '');
 		setThemeOptionDefault('zpB_homepage_random_pictures', 5);
 		setThemeOptionDefault('zpB_allow_search', true);
@@ -63,6 +64,11 @@ class ThemeOptions {
 				'key' => 'zpB_homepage',
 				'type' => OPTION_TYPE_CHECKBOX,
 				'desc' => gettext_th('Display a home page, with a slider of random pictures, the gallery description and the latest news.', 'zpBootstrap')),
+			gettext('Latest news on Homepage') => array(
+				'order' => 1.5,
+				'key' => 'zpB_latest_news_homepage',
+				'type' => OPTION_TYPE_CHECKBOX,
+				'desc' => gettext_th('Display the latest news on the home page (Homepage option have to selected too).', 'zpBootstrap')),
 			gettext('Homepage slider') => array(
 				'order' => 2,
 				'key' => 'zpB_homepage_album_filename',
