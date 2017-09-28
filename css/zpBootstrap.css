@@ -2,7 +2,7 @@
 Theme Name: zpBootstrap
 Author: Vincent3569
 Author URI: http://www.vincentbourganel.fr
-Version 2.0
+Version 2.1
 */
 
 /*------------------------------------
@@ -441,6 +441,29 @@ div.buttons button {
 }
 .fancybox-is-open .fancybox-bg {
 	opacity: 0.95;
+}
+.fancybox-thumbs > ul > li {
+	width: 100px;
+	height: 100px;
+}
+@media (min-width: 768px) {
+	.fancybox-thumbs {
+		top: 0;
+		width: 230px;
+		bottom: 0;
+		left: 0;
+		right : auto;
+		height: auto;
+		padding: 10px 0 0 5px;
+		box-sizing: border-box;
+		background: rgba(0, 0, 0, 0.1);
+	}
+	.fancybox-show-thumbs .fancybox-inner {
+		top:0;
+		right: 0;
+		bottom: 0;
+		left: 230px;
+	}
 }
 
 /*------------------------------------

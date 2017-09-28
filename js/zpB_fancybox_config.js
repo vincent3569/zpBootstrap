@@ -4,6 +4,7 @@ $(document).ready(function() {
 		loop : true,
 		infobar : true,
 		buttons : [
+			'thumbs',
 			'slideShow',
 			'close'
 		],
@@ -33,8 +34,9 @@ $(document).ready(function() {
 				'</div>' +
 			'</div>',
 		btnTpl : {
-			slideShow	: '<button data-fancybox-play class="fancybox-button fancybox-button--play" title="{{PLAY_START}}"></button>',
-			close		: '<button data-fancybox-close class="fancybox-button fancybox-button--close" title="{{CLOSE}}"></button>'
+			thumbs :	'<button data-fancybox-thumbs class="fancybox-button fancybox-button--thumbs" title="{{THUMBS}}"></button>',
+			slideShow :	'<button data-fancybox-play class="fancybox-button fancybox-button--play" title="{{PLAY_START}}"></button>',
+			close :		'<button data-fancybox-close class="fancybox-button fancybox-button--close" title="{{CLOSE}}"></button>'
 		},
 		touch : {
 			vertical : false
@@ -43,7 +45,7 @@ $(document).ready(function() {
 			autoStart : false,
 			speed : 3000
 		},
-		thumbs : false,
+		thumbs : true,
 		clickSlide : false,
 		clickOutside : false
 	});
