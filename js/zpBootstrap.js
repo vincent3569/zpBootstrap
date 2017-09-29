@@ -13,11 +13,10 @@ jQuery(document).ready(function() {
 		.removeAttr('height')
 		.addClass('img-responsive');
 
-	/* add attributes for Fancybox */
+	/* add attribute for fancybox called elsewhere than gallery */
 	$('.swipebox').each(function() {
 		$(this)
-			.attr('data-fancybox', 'fancybox')
-			.attr('data-caption', $(this).attr('title'));
+			.attr('data-fancybox', 'fancybox');
 	});
 
 	/* add icon to links going out of the site, except links with pictures */
@@ -233,6 +232,13 @@ jQuery(document).ready(function() {
 		if ($('#commentform .alert').length) {
 			$('#comment_collapse').collapse('show');
 		}
+		if ($('#guestbook').length) {
+			$('#comment_collapse').collapse('show');
+		}
+		// fix no focus when oppening comments
+		$('#comment_collapse').on('shown.bs.collapse', function() {
+			$(this).find('#name').focus();
+		});
 	}
 
 	//Scroll to top : thanks to: http://www.webtipblog.com/adding-scroll-top-button-website/

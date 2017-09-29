@@ -47,6 +47,13 @@ $(document).ready(function() {
 		},
 		thumbs : true,
 		clickSlide : false,
-		clickOutside : false
+		clickOutside : false,
+		caption : function(instance, item) {
+			if ($(this).find('.caption').length) {
+				return $(this).find('.caption').html();
+			} else {
+				return $(this).attr('title');
+			};
+		}
 	});
 });
