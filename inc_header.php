@@ -182,7 +182,7 @@ if (!defined('WEBPATH')) die();
 ?>
 
 	<nav id="menu" class="navbar navbar-inverse navbar-static-top">
-		<div class="container">
+		<div class="container"> <!-- class="navbar-inner" -->
 			<div class="navbar-header">
 				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
 					<span class="sr-only">Toggle navigation</span>
@@ -195,45 +195,77 @@ if (!defined('WEBPATH')) die();
 			<div id="navbar" class="collapse navbar-collapse">
 				<ul class="nav navbar-nav pull-right">
 				<?php if (getOption('zpB_homepage')) { ?>
-					<li<?php if ((isset($isHomePage)) && ($isHomePage)) { ?> class="active"<?php } ?>><a href="<?php echo html_encode(getSiteHomeURL()); ?>" title="<?php echo gettext('Home'); ?>"><?php echo gettext('Home'); ?></a></li>
+					<li<?php if ((isset($isHomePage)) && ($isHomePage)) { ?> class="active"<?php } ?>>
+						<a href="<?php echo html_encode(getSiteHomeURL()); ?>" title="<?php echo gettext('Home'); ?>"><?php echo gettext('Home'); ?></a>
+					</li>
 				<?php } ?>
-					<li<?php if ($galleryactive) { ?> class="active"<?php } ?>><?php printCustomPageURL(gettext('Gallery'), 'gallery'); ?></li>
+
+					<li<?php if ($galleryactive) { ?> class="active"<?php } ?>>
+						<?php printCustomPageURL(gettext('Gallery'), 'gallery'); ?>
+					</li>
+
 				<?php if ($_zenpage_and_news_enabled && (getNumNews(true) > 0)) { ?>
-					<li<?php if ($_zp_gallery_page == 'news.php') { ?> class="active"<?php } ?>><?php printNewsIndexURL(gettext('News'), '', gettext('News')); ?></li>
+					<li<?php if ($_zp_gallery_page == 'news.php') { ?> class="active"<?php } ?>>
+						<?php printNewsIndexURL(gettext('News'), '', gettext('News')); ?>
+					</li>
 				<?php } ?>
+
 				<?php if ($_zenpage_and_pages_enabled) { ?>
 					<?php printPageMenu('list-top', '', 'active', '', '', '', 0, false); ?>
 				<?php } ?>
+
 				<?php if ((zp_loggedin()) && (extensionEnabled('favoritesHandler'))) { ?>
-					<li<?php if ($_zp_gallery_page == 'favorites.php') { ?> class="active"<?php } ?>> <?php printFavoritesURL(); ?></li>
+					<li<?php if ($_zp_gallery_page == 'favorites.php') { ?> class="active"<?php } ?>>
+						<?php printFavoritesURL(); ?>
+					</li>
 				<?php } ?>
+
 				<?php if (extensionEnabled('contact_form')) { ?>
-					<li<?php if ($_zp_gallery_page == 'contact.php') { ?> class="active"<?php } ?>><?php printCustomPageURL(gettext('Contact'), 'contact'); ?></li>
+					<li<?php if ($_zp_gallery_page == 'contact.php') { ?> class="active"<?php } ?>>
+						<?php printCustomPageURL(gettext('Contact'), 'contact'); ?>
+					</li>
 				<?php } ?>
+
 				<?php if (getOption('zpB_allow_search')) { ?>
-					<li id="look"<?php if ($_zp_gallery_page == 'archive.php') { ?> class="active"<?php } ?>><a id="search-icon" class="text-center" href="<?php echo getCustomPageURL('archive'); ?>" title="<?php echo gettext('Search'); ?>"><span class="glyphicon glyphicon-search"></span></a></li>
+					<li id="look"<?php if ($_zp_gallery_page == 'archive.php') { ?> class="active"<?php } ?>>
+						<a id="search-icon" class="text-center" href="<?php echo getCustomPageURL('archive'); ?>" title="<?php echo gettext('Search'); ?>"><span class="glyphicon glyphicon-search"></span></a>
+					</li>
 				<?php } ?>
-				<?php if ((extensionEnabled('user_login-out')) || (extensionEnabled('register_user'))) { ?>
-					<?php if ((extensionEnabled('user_login-out')) && (zp_loggedin())) { ?>
-					<li id="admin"><?php printUserLogin_out(); ?></li>
-					<?php } else if ( (!zp_loggedin()) && ( ( (extensionEnabled('user_login-out')) && ($_zp_gallery_page <> 'password.php') && ($_zp_gallery_page <> 'register.php') ) || ( extensionEnabled('register_user') ) ) ) { ?>
-					<li id="admin" class="dropdown">
+
+				<?php if ((extensionEnabled('user_login-out')) && (!extensionEnabled('register_user'))) { ?>
+					<?php if (zp_loggedin()) { ?>
+					<li id="admin-single">
+						<?php printUserLogin_out(); ?>
+					</li>
+					<?php } else { ?>
+					<li id="admin-single">
+						<a href="#login-modal" class="logonlink-single" data-toggle="modal" title="<?php echo gettext('Login'); ?>"></a>
+					</li>
+					<?php } ?>
+				<?php } else if ((extensionEnabled('user_login-out')) || ((!zp_loggedin()) && (extensionEnabled('register_user')))) { ?>
+					<li class="dropdown">
 						<a href="#" class="dropdown-toggle text-center" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon glyphicon-user"></span>&nbsp;&nbsp;<span class="glyphicon glyphicon-chevron-down"></span></a>
 						<ul class="dropdown-menu">
-							<?php if ((!zp_loggedin()) && (extensionEnabled('user_login-out')) && ($_zp_gallery_page <> 'password.php') && ($_zp_gallery_page <> 'register.php')) { ?>
-							<li>
+						<?php if (extensionEnabled('user_login-out')) { ?>
+							<?php if (zp_loggedin()) { ?>
+							<li id="admin">
+								<?php printUserLogin_out(); ?>
+							</li>
+							<?php } else { ?>
+							<li id="admin">
 								<a href="#login-modal" class="logonlink" data-toggle="modal" title="<?php echo gettext('Login'); ?>"><?php echo gettext('Login'); ?></a>
 							</li>
 							<?php } ?>
-							<?php if ((!zp_loggedin()) && (extensionEnabled('register_user'))) { ?>
+						<?php } ?>
+						<?php if ((!zp_loggedin()) && (extensionEnabled('register_user'))) { ?>
 							<li>
 								<?php printRegisterURL(gettext('Register')); ?>
 							</li>
-							<?php } ?>
+						<?php } ?>
 						</ul>
 					</li>
-					<?php } ?>
 				<?php } ?>
+
 				<?php if (extensionEnabled('dynamic-locale')) { ?>
 					<li id="flags" class="dropdown">
 						<?php printLanguageSelector(); ?>

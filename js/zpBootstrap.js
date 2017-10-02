@@ -64,12 +64,18 @@ jQuery(document).ready(function() {
 	}
 
 	/* login & password & register */
-	$('#register_link').prepend('<span class="glyphicon glyphicon glyphicon-edit"></span>&nbsp;&nbsp;');
-	$('.logonlink').prepend('<span class="glyphicon glyphicon glyphicon-log-in"></span>&nbsp;&nbsp;');
-	$('.logoutlink')
+	$('.logonlink-single')
 		.addClass('text-center')
 		.text('')
+		.prepend('<span class="glyphicon glyphicon glyphicon-log-in"></span>');
+	$('#admin-single > .logoutlink')
+		.addClass('logoutlink-single text-center')
+		.removeClass('logoutlink')
+		.text('')
 		.prepend('<span class="glyphicon glyphicon glyphicon-log-out"></span>');
+	$('.logonlink').prepend('<span class="glyphicon glyphicon glyphicon-log-in"></span>&nbsp;&nbsp;');
+	$('.logoutlink').prepend('<span class="glyphicon glyphicon glyphicon-log-out"></span>&nbsp;&nbsp;');
+	$('#register_link').prepend('<span class="glyphicon glyphicon glyphicon-edit"></span>&nbsp;&nbsp;');
 
 	if ($('#loginform').length) {
 		$('#loginform form').addClass('form-horizontal');
@@ -232,9 +238,9 @@ jQuery(document).ready(function() {
 		if ($('#commentform .alert').length) {
 			$('#comment_collapse').collapse('show');
 		}
-		if ($('#guestbook').length) {
+		/* if ($('#guestbook').length) {
 			$('#comment_collapse').collapse('show');
-		}
+		} */
 		// fix no focus when oppening comments
 		$('#comment_collapse').on('shown.bs.collapse', function() {
 			$(this).find('#name').focus();
