@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: zpBootstrap\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-07-31 17:57+0200\n"
-"PO-Revision-Date: 2017-07-31 18:06+0200\n"
+"POT-Creation-Date: 2017-10-02 13:34+0200\n"
+"PO-Revision-Date: 2017-10-02 13:35+0200\n"
 "Last-Translator: Vincent Bourganel <vincent_bourganel@yahoo.fr>\n"
 "Language-Team: vincent3569 <vincent_bourganel@yahoo.fr>\n"
 "Language: fr_FR\n"
@@ -13,14 +13,14 @@ msgstr ""
 "X-Poedit-KeywordsList: ;gettext_th\n"
 "X-Poedit-Basepath: ../../..\n"
 "X-Poedit-SourceCharset: UTF-8\n"
-"X-Generator: Poedit 2.0.1\n"
+"X-Generator: Poedit 2.0.3\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: home.php:61
+#: home.php:60
 msgid "Latest news"
 msgstr "Dernière actualité"
 
-#: themeoptions.php:62
+#: themeoptions.php:66
 msgid ""
 "Display a home page, with a slider of random pictures, the gallery "
 "description and the latest news."
@@ -30,23 +30,31 @@ msgstr ""
 
 #: themeoptions.php:71
 msgid ""
+"Display the latest news on the home page (Homepage option have to be "
+"selected too)."
+msgstr ""
+"Affiche la dernière actualité sur la page d'accueil (L'option Accueil doit "
+"aussi être sélectionnée)."
+
+#: themeoptions.php:80
+msgid ""
 "Select the Album to use for the homepage slider (Dynamic albums may used)."
 msgstr ""
 "Choisissez l'album a utiliser pour le diaporama de la page d'accueil (les "
 "albums dynamiques peuvent être utilisés)."
 
-#: themeoptions.php:72
+#: themeoptions.php:81
 msgid "If Gallery is selected, the whole gallery will be used for the slider."
 msgstr ""
 "Si Galerie est sélectionné, l'ensemble de la galerie sera utilisée pour le "
 "diaporama."
 
-#: themeoptions.php:73
+#: themeoptions.php:87
 msgid "Number of random pictures to use for the homepage slider."
 msgstr ""
 "Nombre d'images aléatoires à utiliser pour le diaporama de la page d'accueil."
 
-#: themeoptions.php:80
+#: themeoptions.php:94
 msgid ""
 "Use <a href=\"https://isotope.metafizzy.co/\" target=\"_blank\">isotope "
 "jQuery plugin</a> for all albums pages rather than standard albums page. "
@@ -57,7 +65,7 @@ msgstr ""
 "Cette a mise en page d'album permet de filtrer les images en fonction de "
 "leurs tags."
 
-#: themeoptions.php:81
+#: themeoptions.php:95
 msgid ""
 "This album layout does not manage sub-albums (in that case, only pictures of "
 "the album are shown and you cant not access on sub-albums!)."
@@ -66,7 +74,7 @@ msgstr ""
 "seules les images de l'album sont affichées et vous ne pourrez pas accéder "
 "aux sous-albums !)."
 
-#: themeoptions.php:82
+#: themeoptions.php:96
 msgid ""
 "Rather than use isotope layout for all albums, you may also allow "
 "\"multiple_layouts\" plugin and then choice \"album_isotope\" as layout for "
@@ -76,21 +84,21 @@ msgstr ""
 "plugin \"multiple_layouts\", et alors choisir \"album_isotope\" comme mise "
 "en page d’albums particuliers de votre galeries."
 
-#: themeoptions.php:83
+#: themeoptions.php:101
 msgid "Check to show some social links."
 msgstr "Affiche des liens vers les sites sociaux."
 
-#: themeoptions.php:85
+#: themeoptions.php:111
 msgid "Display a link to the Archive list."
 msgstr "Affiche un lien vers les Archives."
 
-#: themeoptions.php:86
+#: themeoptions.php:116
 msgid ""
 "Check to show a tag cloud in Archive list, with all the tags of the gallery."
 msgstr ""
 "Affiche un nuage de tags dans les Archives, avec tous les tags de la galerie."
 
-#: themeoptions.php:87
+#: themeoptions.php:121
 msgid ""
 "Show the EXIF Data on Image page. Remember you have to check EXIFs data you "
 "want to show on options>image>information EXIF."
@@ -98,6 +106,13 @@ msgstr ""
 "Affiche les données EXIF sur la page Image. Rappelez-vous que vous devez "
 "choisir les données EXIF que vous voulez afficher sur la page "
 "options>image>Métadonnées."
+
+#~ msgid ""
+#~ "Display the latest news on the home page (Homepage option have to "
+#~ "selected too)."
+#~ msgstr ""
+#~ "Affiche la dernière actualité sur la page d'accueil (L'option Accueil "
+#~ "doit aussi être sélectionnée)."
 
 #~ msgid ""
 #~ "Album filename for the homepage slider: select the Album to use for the "

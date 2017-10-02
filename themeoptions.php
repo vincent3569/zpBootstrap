@@ -68,7 +68,7 @@ class ThemeOptions {
 				'order' => 1.5,
 				'key' => 'zpB_latest_news_homepage',
 				'type' => OPTION_TYPE_CHECKBOX,
-				'desc' => gettext_th('Display the latest news on the home page (Homepage option have to selected too).', 'zpBootstrap')),
+				'desc' => gettext_th('Display the latest news on the home page (Homepage option have to be selected too).', 'zpBootstrap')),
 			gettext('Homepage slider') => array(
 				'order' => 2,
 				'key' => 'zpB_homepage_album_filename',
