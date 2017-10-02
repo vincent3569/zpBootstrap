@@ -112,7 +112,23 @@ blockquote small, blockquote.small {
 /*------------------------------------
 	header ans titles
 -------------------------------------- */
-#look {
+.navbar-inner {
+	padding-left: 0;
+	padding-right: 0;
+}
+@media (min-width: 992px) and (max-width: 1499px) {
+	.navbar-inner {
+		padding-left: 50px;
+		padding-right: 50px;
+	}
+}
+@media (min-width: 1500px) {
+	.navbar-inner {
+		padding-left: 200px;
+		padding-right: 200px;
+	}
+}
+#look, #admin-single {
 	width: 40px;
 }
 #admin {
