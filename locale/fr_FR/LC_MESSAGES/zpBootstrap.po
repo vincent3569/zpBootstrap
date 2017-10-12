@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: zpBootstrap\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-10-02 13:34+0200\n"
-"PO-Revision-Date: 2017-10-02 13:35+0200\n"
+"POT-Creation-Date: 2017-10-11 14:49+0200\n"
+"PO-Revision-Date: 2017-10-11 14:49+0200\n"
 "Last-Translator: Vincent Bourganel <vincent_bourganel@yahoo.fr>\n"
 "Language-Team: vincent3569 <vincent_bourganel@yahoo.fr>\n"
 "Language: fr_FR\n"
@@ -13,14 +13,38 @@ msgstr ""
 "X-Poedit-KeywordsList: ;gettext_th\n"
 "X-Poedit-Basepath: ../../..\n"
 "X-Poedit-SourceCharset: UTF-8\n"
-"X-Generator: Poedit 2.0.3\n"
+"X-Generator: Poedit 2.0.4\n"
 "X-Poedit-SearchPath-0: .\n"
 
 #: home.php:60
 msgid "Latest news"
 msgstr "Dernière actualité"
 
-#: themeoptions.php:66
+#: inc_print_infinitscroll.php:5
+msgid "View more albums"
+msgstr "Voir plus d'albums"
+
+#: inc_print_infinitscroll.php:6
+msgid "No more albums to display"
+msgstr "Pas d'autres albums à afficher"
+
+#: inc_print_infinitscroll.php:10
+msgid "View more images"
+msgstr "Voir plus d'images"
+
+#: inc_print_infinitscroll.php:11
+msgid "No more images to display"
+msgstr "Pas d'autres images à afficher"
+
+#: inc_print_infinitscroll_news.php:7
+msgid "View more news"
+msgstr "Voir plus d'actualités"
+
+#: inc_print_infinitscroll_news.php:17
+msgid "No more news to display"
+msgstr "Pas d'autres actualités à afficher"
+
+#: themeoptions.php:71
 msgid ""
 "Display a home page, with a slider of random pictures, the gallery "
 "description and the latest news."
@@ -28,7 +52,11 @@ msgstr ""
 "Affiche une page d'accueil, avec un diaporama d'images choisies "
 "aléatoirement, la description de la galerie et la dernière actualité."
 
-#: themeoptions.php:71
+#: themeoptions.php:72
+msgid "Latest news on Homepage"
+msgstr "Dernière actualité sur la page d'Accueil"
+
+#: themeoptions.php:76
 msgid ""
 "Display the latest news on the home page (Homepage option have to be "
 "selected too)."
@@ -36,76 +64,186 @@ msgstr ""
 "Affiche la dernière actualité sur la page d'accueil (L'option Accueil doit "
 "aussi être sélectionnée)."
 
-#: themeoptions.php:80
+#: themeoptions.php:77
+msgid "Homepage slider"
+msgstr "Slider sur la page d'Accueil"
+
+#: themeoptions.php:85
 msgid ""
 "Select the Album to use for the homepage slider (Dynamic albums may used)."
 msgstr ""
 "Choisissez l'album a utiliser pour le diaporama de la page d'accueil (les "
 "albums dynamiques peuvent être utilisés)."
 
-#: themeoptions.php:81
+#: themeoptions.php:86
 msgid "If Gallery is selected, the whole gallery will be used for the slider."
 msgstr ""
 "Si Galerie est sélectionné, l'ensemble de la galerie sera utilisée pour le "
 "diaporama."
 
 #: themeoptions.php:87
+msgid "Random pictures for homepage slider"
+msgstr "Nombre d'image sur le slider de la page d'Accueil"
+
+#: themeoptions.php:92
 msgid "Number of random pictures to use for the homepage slider."
 msgstr ""
 "Nombre d'images aléatoires à utiliser pour le diaporama de la page d'accueil."
 
-#: themeoptions.php:94
+#: themeoptions.php:93
+msgid "Use infinit scroll"
+msgstr "Utilise infinit scroll"
+
+#: themeoptions.php:102
+msgid ""
+"Check pages which use <a href=\"https://infinite-scroll.com/\" target="
+"\"_blank\">infinit scoll jQuery plugin</a>. This layout will automatically "
+"load items of next page (albums, images or news) without pagination."
+msgstr ""
+"Cocher les pages pour lesquelles utiliser le <a href=\"https://infinite-"
+"scroll.com/\" target=\"_blank\">plugin jQuery infinit scoll</a>. Cette "
+"présentation chargera automatiquement les items  de la page suivante "
+"(albums, images ou actualités), sans pagination."
+
+#: themeoptions.php:103
+msgid ""
+"The behavior is \"manual first\": it requires visitor to click a button the "
+"first time to load new items and then, it automatically load after."
+msgstr ""
+"Le comportement est \"manuel d'abord\" : le premier chargement des nouveaux "
+"items requière de cliquer sur un bouton, et ensuite, le chargement se fait "
+"automatiquement."
+
+#: themeoptions.php:104
+msgid ""
+"Rather than using infinit scoll layout for all albums, you may also allow "
+"\"multiple_layouts\" plugin and then choose \"album_infinitscoll\" as layout "
+"for specific albums of your gallery."
+msgstr ""
+"Plutôt que d'utiliser la présentation infinit scoll pour tous les albums, "
+"vous pouvez également autoriser le plugin \"multiple_layouts\", puis choisir "
+"\"album_infinitscoll\" comme présentation pour des albums spécifiques de "
+"votre galerie."
+
+#: themeoptions.php:106
+msgid ""
+"<strong>Note:</strong> This album layout does not manage albums with images "
+"and sub-albums (in that case, standard album layout is automatically used)."
+msgstr ""
+"<strong>Note :</strong> Cette présentation des albums ne gère pas les albums "
+"avec des images et des sous-albums (dans ce cas, la présentation standard "
+"des albums est automatiquement utilisée)."
+
+#: themeoptions.php:107
+msgid "Use isotope"
+msgstr "Utilise isotope"
+
+#: themeoptions.php:112
 msgid ""
 "Use <a href=\"https://isotope.metafizzy.co/\" target=\"_blank\">isotope "
-"jQuery plugin</a> for all albums pages rather than standard albums page. "
-"This album layout allows to filter pictures based on their tags."
+"jQuery plugin</a> for albums pages. This layout allows to display uncropped "
+"thumbnails and to filter them based on their tags."
 msgstr ""
-"Utilisez <a href=\"https://isotope.metafizzy.co/\" target=\"_blank\">isotope "
-"jQuery plugin</a> pour la page des albums, plutôt que la page standard. "
-"Cette a mise en page d'album permet de filtrer les images en fonction de "
-"leurs tags."
+"Utilise le <a href=\"https://isotope.metafizzy.co/\" target=\"_blank"
+"\">plugin jQuery isotope </a> pour les pages d'albums. Cette présentation "
+"permet d'afficher des vignettes non redimensionnées et des les filtrer à "
+"partir de leurs tags."
 
-#: themeoptions.php:95
-msgid ""
-"This album layout does not manage sub-albums (in that case, only pictures of "
-"the album are shown and you cant not access on sub-albums!)."
-msgstr ""
-"Cette a mise en page d'album ne gère pas les sous-albums (dans ce cas, "
-"seules les images de l'album sont affichées et vous ne pourrez pas accéder "
-"aux sous-albums !)."
-
-#: themeoptions.php:96
+#: themeoptions.php:113
 msgid ""
 "Rather than use isotope layout for all albums, you may also allow "
 "\"multiple_layouts\" plugin and then choice \"album_isotope\" as layout for "
 "specific albums of your gallery."
 msgstr ""
-"Plutôt qu'utiliser cette disposition d'albums, vous pouvez aussi utilisez le "
-"plugin \"multiple_layouts\", et alors choisir \"album_isotope\" comme mise "
-"en page d’albums particuliers de votre galeries."
+"Plutôt qu'utiliser cette disposition pour tous les albums, vous pouvez aussi "
+"utilisez le plugin \"multiple_layouts\", et alors choisir \"album_isotope\" "
+"comme mise en page d’albums particuliers de votre galeries."
 
-#: themeoptions.php:101
+#: themeoptions.php:115
+msgid ""
+"<strong>Notes:</strong> This album layout does not manage sub-albums (in "
+"that case, only pictures of the album are shown and you cant not access on "
+"sub-albums)."
+msgstr ""
+"<strong>Notes: </strong>Cette présentation des albums ne gère pas les sous-"
+"albums (dans ce cas, seules les images sont affichées et vous ne pourrez pas "
+"accéder aux sous-albums)."
+
+#: themeoptions.php:116
+msgid "This option overwrites the infinit scroll on album option above."
+msgstr "Cette option supplante l'option infinit scroll pour albums ci-dessus."
+
+#: themeoptions.php:118
+msgid "Social Links"
+msgstr "Média sociaux"
+
+#: themeoptions.php:122
 msgid "Check to show some social links."
 msgstr "Affiche des liens vers les sites sociaux."
 
-#: themeoptions.php:111
+#: themeoptions.php:132
 msgid "Display a link to the Archive list."
 msgstr "Affiche un lien vers les Archives."
 
-#: themeoptions.php:116
+#: themeoptions.php:137
 msgid ""
 "Check to show a tag cloud in Archive list, with all the tags of the gallery."
 msgstr ""
 "Affiche un nuage de tags dans les Archives, avec tous les tags de la galerie."
 
-#: themeoptions.php:121
+#: themeoptions.php:142
 msgid ""
-"Show the EXIF Data on Image page. Remember you have to check EXIFs data you "
-"want to show on options>image>information EXIF."
+"Show the EXIFs Data on Image page. Remember you have to check EXIFs data you "
+"want to show on Options>Image>Metadata."
 msgstr ""
 "Affiche les données EXIF sur la page Image. Rappelez-vous que vous devez "
 "choisir les données EXIF que vous voulez afficher sur la page "
-"options>image>Métadonnées."
+"Options>Image>Métadonnées."
+
+#~ msgid ""
+#~ "Check pages which use <a href=\"https://infinite-scroll.com/\" target="
+#~ "\"_blank\">infinit scoll jQuery plugin</a>. This layout will "
+#~ "automatically load items (albums, images or news) without pagination."
+#~ msgstr ""
+#~ "Cocher les pages pour lesquelles utiliser le <a href=\"https://infinite-"
+#~ "scroll.com/\" target=\"_blank\">plugin jQuery infinit scoll </a>. Cette "
+#~ "présentation chargera automatiquement les items  de la page suivante "
+#~ "(albums, images ou actualités), sans pagination."
+
+#~ msgid "End of news"
+#~ msgstr "Fin des actualités"
+
+#~ msgid "End of albums"
+#~ msgstr "Fin des albums"
+
+#~ msgid "End of images"
+#~ msgstr "Fin des images"
+
+#~ msgid ""
+#~ "Use <a href=\"https://isotope.metafizzy.co/\" target=\"_blank\">isotope "
+#~ "jQuery plugin</a> for all albums pages rather than standard albums page. "
+#~ "This album layout allows to filter pictures based on their tags."
+#~ msgstr ""
+#~ "Utilisez <a href=\"https://isotope.metafizzy.co/\" target=\"_blank"
+#~ "\">isotope jQuery plugin</a> pour la page des albums, plutôt que la page "
+#~ "standard. Cette a mise en page d'album permet de filtrer les images en "
+#~ "fonction de leurs tags."
+
+#~ msgid ""
+#~ "This album layout does not manage sub-albums (in that case, only pictures "
+#~ "of the album are shown and you cant not access on sub-albums!)."
+#~ msgstr ""
+#~ "Cette a mise en page d'album ne gère pas les sous-albums (dans ce cas, "
+#~ "seules les images de l'album sont affichées et vous ne pourrez pas "
+#~ "accéder aux sous-albums !)."
+
+#~ msgid ""
+#~ "Show the EXIF Data on Image page. Remember you have to check EXIFs data "
+#~ "you want to show on options>image>information EXIF."
+#~ msgstr ""
+#~ "Affiche les données EXIF sur la page Image. Rappelez-vous que vous devez "
+#~ "choisir les données EXIF que vous voulez afficher sur la page "
+#~ "options>image>Métadonnées."
 
 #~ msgid ""
 #~ "Display the latest news on the home page (Homepage option have to "
