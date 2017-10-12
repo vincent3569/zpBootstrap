@@ -49,9 +49,14 @@ if (!OFFSET_PATH) {
 	}
 
 	$_zp_page_check = 'my_checkPageValidity';
+
+	$me = basename(dirname(__FILE__));
 	$_zenpage_enabled = extensionEnabled('zenpage');
 	$_zenpage_and_news_enabled = extensionEnabled('zenpage') && ZP_NEWS_ENABLED;
 	$_zenpage_and_pages_enabled = extensionEnabled('zenpage') && ZP_PAGES_ENABLED;
+	/* if ($_zenpage_and_pages_enabled && is_Pages() && (getPageTitleLink() == 'guestbook')) {
+		setOption('comment_form_addresses', 1, false);
+	} */
 }
 
 function my_checkPageValidity($request, $gallery_page, $page) {
@@ -111,6 +116,37 @@ function zpB_getRandomImages ($number = 5, $option = 'all', $album_filename = ''
 		return $randomImageList;
 	} else {
 		return false;
+	}
+}
+
+/**
+ * Returns true if there is a next news page and false if there is not
+ * @return bool
+ */
+function zpB_hasNextNewsPage() {
+	global $_zp_zenpage, $_zp_page;
+
+	$total_pages = getTotalNewsPages();
+	if ($_zp_page < $total_pages) {
+		return true;
+	} else {
+		return false;
+	}
+}
+
+/**
+ * Prints the URL of the next news page.
+ *
+ * @param string $text text for the URL
+ * @param string $class Text for the HTML class
+ */
+function zpB_printNextNewsPageURL($text, $class = NULL) {
+	global $_zp_zenpage, $_zp_page;
+
+	if (zpB_hasNextNewsPage()) {
+		echo '<a href="' . getNextNewsPageURL() . '" class="' . $class . '" >' . html_encode($text) . '</a>';
+	} else {
+		echo '<span class="disabledlink">' . html_encode($text) . '</span>';
 	}
 }
 ?>

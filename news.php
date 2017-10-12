@@ -64,15 +64,25 @@ if ($_zenpage_and_news_enabled) {
 		</div>
 		<?php } ?>
 
-		<?php printNewsPageListWithNav('»', '«', true, 'pagination pagination-sm', true, 7); ?>
+		<?php
+		if (!getOption('zpB_use_infinitscroll_news')) {
+			printNewsPageListWithNav('»', '«', true, 'pagination pagination-sm', true, 7);
+		}
+		?>
 
-		<div class="list-news">
+		<div class="news-wrap">
 			<?php while (next_news()) { ?>
 				<?php include('inc_print_news.php'); ?>
 			<?php } ?>
 		</div>
 
-		<?php printNewsPageListWithNav('»', '«', true, 'pagination pagination-sm margin-top-reset', true, 7); ?>
+		<?php
+		if (!getOption('zpB_use_infinitscroll_news')) {
+			printNewsPageListWithNav('»', '«', true, 'pagination pagination-sm margin-top-reset', true, 7);
+		} else {
+			include('inc_print_infinitscroll_news.php');
+		}
+		?>
 
 	<?php } ?>
 
