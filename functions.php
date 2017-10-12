@@ -71,7 +71,6 @@ function my_checkPageValidity($request, $gallery_page, $page) {
  * @return an array of pictures, or false is there is no picture to return
  */
 function zpB_getRandomImages ($number = 5, $option = 'all', $album_filename = '') {
-
 	global $_zp_gallery;
 
 	switch ($option) {

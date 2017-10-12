@@ -251,7 +251,6 @@ blockquote small, blockquote.small {
 }
 .list-post {
 	padding: 0 0 15px;
-	margin: 0 0 20px;
 	border-bottom: 1px solid #ddd;
 }
 .list-post:last-of-type {
@@ -259,7 +258,6 @@ blockquote small, blockquote.small {
 	border-bottom: none;
 }
 .post {
-	margin: 0 0 20px;
 }
 .post-date {
 	float: left;

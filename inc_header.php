@@ -80,7 +80,7 @@ if (!defined('WEBPATH')) die();
 	<script type="text/javascript" src="<?php echo $_zp_themeroot; ?>/js/jquery.flexslider-min.js"></script>
 	<script type="text/javascript">
 	//<![CDATA[
-		jQuery(document).ready(function() {
+		$(document).ready( function() {
 			$('.flexslider').flexslider({
 				slideshowSpeed: 5000,
 				animationDuration: 500,
@@ -98,7 +98,7 @@ if (!defined('WEBPATH')) die();
 	<script type="text/javascript" src="<?php echo $_zp_themeroot; ?>/js/zpB_fancybox_config.js"></script>
 	<script type="text/javascript">
 	//<![CDATA[
-		$(document).ready(function() {
+		$(document).ready( function() {
 			$.fancybox.defaults.lang = '<?php $loc = substr(getOption('locale'), 0, 2); if (empty($loc)) {$loc = 'en';}; echo $loc; ?>';
 			$.fancybox.defaults.i18n = {
 				'<?php echo $loc; ?>' : {
@@ -111,8 +111,8 @@ if (!defined('WEBPATH')) die();
 			};
 
 			// cohabitation between keyboard Navigation and Fancybox
-			$.fancybox.defaults.onInit = function() {FancyboxActive = true;};
-			$.fancybox.defaults.afterClose = function() {FancyboxActive = false;};
+			$.fancybox.defaults.onInit = function() { FancyboxActive = true; };
+			$.fancybox.defaults.afterClose = function() { FancyboxActive = false; };
 		});
 	//]]>
 	</script>
