@@ -57,7 +57,7 @@
 			</div>
 			<?php if ($_latest_news_homepage) { ?>
 			<div class="col-sm-5">
-				<h3><?php echo gettext_th('Latest news', 'zpBootstrap'); ?></h3>
+				<h3><?php echo gettext_th('Latest news', $me); ?></h3>
 				<?php printLatestNews( 1, '', true, true, 200, false); ?>
 			</div>
 			<?php } ?>
