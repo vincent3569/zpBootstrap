@@ -95,12 +95,12 @@
 				if ($_zenpage_and_news_enabled && ($numnews > 0)) { ?>
 					<h4 class="margin-top-double margin-bottom-double"><strong><?php printf(gettext('Articles (%s)'), $numnews); ?></strong></h4>
 					<?php while (next_news()) { ?>
-						<div class="list-post clearfix">
-							<h4 class="post-title"><?php printNewsURL(); ?></h4>
-							<div class="post-content clearfix">
-								<?php echo shortenContent(getBare(getNewsContent()), 200, getOption("zenpage_textshorten_indicator")); ?>
-							</div>
+					<div class="list-post clearfix">
+						<h4 class="post-title"><?php printNewsURL(); ?></h4>
+						<div class="post-content clearfix">
+							<?php echo shortenContent(getBare(getNewsContent()), 200, getOption("zenpage_textshorten_indicator")); ?>
 						</div>
+					</div>
 					<?php
 					}
 				}
@@ -108,12 +108,12 @@
 				if ($_zenpage_and_pages_enabled && ($numpages > 0)) { ?>
 					<h4 class="margin-top-double margin-bottom-double"><strong><?php printf(gettext('Pages (%s)'), $numpages); ?></strong></h4>
 					<?php while (next_page()) { ?>
-						<div class="list-post clearfix">
-							<h4 class="post-title"><?php printPageURL(); ?></h4>
-							<div class="post-content clearfix">
-								<?php echo shortenContent(getBare(getPageContent()), 200, getOption("zenpage_textshorten_indicator")); ?>
-							</div>
+					<div class="list-post clearfix">
+						<h4 class="post-title"><?php printPageURL(); ?></h4>
+						<div class="post-content clearfix">
+							<?php echo shortenContent(getBare(getPageContent()), 200, getOption("zenpage_textshorten_indicator")); ?>
 						</div>
+					</div>
 					<?php
 					}
 				}

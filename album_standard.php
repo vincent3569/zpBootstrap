@@ -26,22 +26,23 @@
 		</ul>
 		<?php } ?>
 
-		<?php printPageListWithNav('«', '»', false, true, 'pagination pagination-sm', NULL, true, 7); ?>
+		<?php
+		printPageListWithNav('«', '»', false, true, 'pagination pagination-sm', NULL, true, 7);
 
-		<?php if (isAlbumPage()) { ?>
-			<?php include('inc_print_album_thumb.php'); ?>
-		<?php } ?>
+		if (isAlbumPage()) {
+			include('inc_print_album_thumb.php');
+		}
+		if (isImagePage()) {
+			include('inc_print_image_thumb.php');
+		}
 
-		<?php if (isImagePage()) { ?>
-			<?php include('inc_print_image_thumb.php'); ?>
-		<?php } ?>
-
-		<?php printPageListWithNav('«', '»', false, true, 'pagination pagination-sm', NULL, true, 7); ?>
+		printPageListWithNav('«', '»', false, true, 'pagination pagination-sm', NULL, true, 7);
+		?>
 
 		<?php if ((zp_loggedin()) && (extensionEnabled('favoritesHandler'))) { ?>
-			<div class="favorites panel-group" role="tablist">
-				<?php printAddToFavorites($_zp_current_album); ?>
-			</div>
+		<div class="favorites panel-group" role="tablist">
+			<?php printAddToFavorites($_zp_current_album); ?>
+		</div>
 		<?php } ?>
 
 		<?php if (extensionEnabled('GoogleMap')) {

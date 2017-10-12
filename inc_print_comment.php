@@ -19,7 +19,8 @@
 				default:
 					return;
 					break;
-			} ?>
+			}
+			?>
 
 			<?php if (($comments_open) && (($comments_allowed) || (getCommentCount() > 0 ))) { ?>
 			<div id="comment_accordion" class="panel-group" role="tablist">

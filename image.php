@@ -23,7 +23,7 @@
 
 			<!-- TO DO : à revoir -->
 			<?php if (($isMobile) && (extensionEnabled('slideshow'))) { ?>
-					<?php printSlideShowLink(gettext('Slideshow')); ?>
+				<?php printSlideShowLink(gettext('Slideshow')); ?>
 			<?php } ?>
 
 			<?php if (hasNextImage()) { ?>

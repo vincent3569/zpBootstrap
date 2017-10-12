@@ -52,7 +52,6 @@ if ($_zenpage_and_pages_enabled) {
 
 <?php
 	include('inc_footer.php');
-
 } else {
 	include(SERVERPATH . '/' . ZENFOLDER . '/404.php');
 }

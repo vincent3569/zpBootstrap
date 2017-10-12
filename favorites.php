@@ -29,19 +29,24 @@ if (extensionEnabled('favoritesHandler')) {
 		</ul>
 		<?php } ?>
 
-		<?php printPageListWithNav('«', '»', false, true, 'pagination pagination-sm', NULL, true, 7); ?>
+		<?php
+		printPageListWithNav('«', '»', false, true, 'pagination pagination-sm', NULL, true, 7);
 
-		<?php include('inc_print_album_thumb.php'); ?>
+		if (isAlbumPage()) {
+			include('inc_print_album_thumb.php');
+		}
 
-		<?php include('inc_print_image_thumb.php'); ?>
+		if (isImagePage()) {
+			include('inc_print_image_thumb.php');
+		}
 
-		<?php printPageListWithNav('«', '»', false, true, 'pagination pagination-sm top-margin-reset', NULL, true, 7); ?>
+		printPageListWithNav('«', '»', false, true, 'pagination pagination-sm', NULL, true, 7);
+		?>
 
 	</div><!-- /.container main -->
 
 <?php
 	include('inc_footer.php');
-
 } else {
 	include(SERVERPATH . '/' . ZENFOLDER . '/404.php');
 }

@@ -19,13 +19,21 @@
 		</div>
 		<?php } ?>
 
-		<?php printPageListWithNav('«', '»', false, true, 'pagination pagination-sm', NULL, true, 7); ?>
+		<?php
+		if (!getOption('zpB_use_infinitscroll_gallery')) {
+			printPageListWithNav('«', '»', false, true, 'pagination pagination-sm', NULL, true, 7);
+		}
 
-		<?php if (isAlbumPage()) { ?>
-			<?php include('inc_print_album_thumb.php'); ?>
-		<?php } ?>
+		if (isAlbumPage()) {
+			include('inc_print_album_thumb.php');
+		}
 
-		<?php printPageListWithNav('«', '»', false, true, 'pagination pagination-sm top-margin-reset', NULL, true, 7); ?>
+		if (!getOption('zpB_use_infinitscroll_gallery')) {
+			printPageListWithNav('«', '»', false, true, 'pagination pagination-sm top-margin-reset', NULL, true, 7);
+		} else {
+			include('inc_print_infinitscroll.php');
+		}
+		?>
 
 	</div><!-- /.container main -->
 

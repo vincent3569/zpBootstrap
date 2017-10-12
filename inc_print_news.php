@@ -1,4 +1,4 @@
-				<div class="<?php echo $news_class; ?> clearfix">
+				<div class="<?php echo $news_class; ?> margin-bottom-double clearfix">
 					<div class="post-date">
 						<span class="month"><?php echo strftime('%b', strtotime($_zp_current_zenpage_news->getDateTime())); ?></span>
 						<span class="day"><?php echo strftime('%d', strtotime($_zp_current_zenpage_news->getDateTime())); ?></span>

@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$(document).ready( function() {
 	$().fancybox({
 		selector : '[data-fancybox="fancybox"]',
 		loop : true,
@@ -48,7 +48,7 @@ $(document).ready(function() {
 		thumbs : true,
 		clickSlide : false,
 		clickOutside : false,
-		caption : function(instance, item) {
+		caption : function( instance, item ) {
 			if ($(this).find('.caption').length) {
 				return $(this).find('.caption').html();
 			} else {

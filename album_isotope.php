@@ -35,49 +35,48 @@ require_once (SERVERPATH . '/' . ZENFOLDER . '/' . PLUGIN_FOLDER . '/tag_extras.
 		<?php } ?>
 
 		<div id="isotope-wrap" class="images-wrap margin-bottom-double">
-			<?php
-			while (next_image(true)) {
-				if (getFullWidth() > getFullHeight()) {
-					$image_item_size_2 = 'image-item-width2';
-				} else if (getFullWidth() < getFullHeight()) {
-					$image_item_size_2 = 'image-item-height2';
-				} else {
-					$image_item_size_2 = '';
-				}
+		<?php
+		while (next_image(true)) {
+			if (getFullWidth() > getFullHeight()) {
+				$image_item_size_2 = 'image-item-width2';
+			} else if (getFullWidth() < getFullHeight()) {
+				$image_item_size_2 = 'image-item-height2';
+			} else {
+				$image_item_size_2 = '';
+			}
 
-				$tags_image = getTags();
-				$tags_list = implode(' ', $tags_image);
+			$tags_image = getTags();
+			$tags_list = implode(' ', $tags_image);
 
-				if ($tags_list <> '') {
-					$class = $image_item_size_2 . ' ' . $tags_list;
-				} else {
-					$class = $image_item_size_2;
-				}
-				?>
+			if ($tags_list <> '') {
+				$class = $image_item_size_2 . ' ' . $tags_list;
+			} else {
+				$class = $image_item_size_2;
+			}
+			?>
 
-				<div class="image-item <?php echo $class; ?>">
-					<a class="swipebox" href="<?php echo html_encode(getUnprotectedImageURL()); ?>" title="<?php echo getBareImageTitle(); ?>">
-						<?php
-						if (getFullWidth() > getFullHeight()) {
-							printCustomSizedImage(getBareImageTitle(), NULL, 235, 150, 235, 150, NULL, NULL, 'remove-attributes img-responsive', NULL, true);
-						} else if (getFullWidth() < getFullHeight()) {
-							printCustomSizedImage(getBareImageTitle(), NULL, 150, 235, 150, 235, NULL, NULL, 'remove-attributes img-responsive', NULL, true);
-						} else {
-							printCustomSizedImage(getBareImageTitle(), NULL, 150, 150, NULL, NULL, NULL, NULL, 'remove-attributes img-responsive', NULL, true);
-						} ?>
-					</a>
-				</div>
-			<?php } ?>
+			<div class="image-item <?php echo $class; ?>">
+				<a class="swipebox" href="<?php echo html_encode(getUnprotectedImageURL()); ?>" title="<?php echo getBareImageTitle(); ?>">
+					<?php
+					if (getFullWidth() > getFullHeight()) {
+						printCustomSizedImage(getBareImageTitle(), NULL, 235, 150, 235, 150, NULL, NULL, 'remove-attributes img-responsive', NULL, true);
+					} else if (getFullWidth() < getFullHeight()) {
+						printCustomSizedImage(getBareImageTitle(), NULL, 150, 235, 150, 235, NULL, NULL, 'remove-attributes img-responsive', NULL, true);
+					} else {
+						printCustomSizedImage(getBareImageTitle(), NULL, 150, 150, NULL, NULL, NULL, NULL, 'remove-attributes img-responsive', NULL, true);
+					} ?>
+				</a>
+			</div>
+		<?php } ?>
 		</div>
 
 		<script type="text/javascript" src="<?php echo $_zp_themeroot; ?>/js/imagesloaded.pkgd.min.js"></script>
 		<script type="text/javascript" src="<?php echo $_zp_themeroot; ?>/js/isotope.pkgd.min.js"></script>
 		<script type="text/javascript" src="<?php echo $_zp_themeroot; ?>/js/packery-mode.pkgd.min.js"></script>
-
 		<script type="text/javascript">
-			// init Isotope
+		//<![CDATA[
+			// init Isotope after all images have loaded
 			var $containter = $('#isotope-wrap').imagesLoaded( function() {
-				// init Isotope after all images have loaded
 				$containter.isotope({
 					itemSelector: '.image-item',
 					layoutMode: 'packery',
@@ -85,10 +84,6 @@ require_once (SERVERPATH . '/' . ZENFOLDER . '/' . PLUGIN_FOLDER . '/tag_extras.
 					packery: {
 						gutter: 20
 					}
-					// standard masonry layout
-					/*masonry: {
-						columnWidth: 5
-					}*/
 				});
 			});
 
@@ -106,12 +101,13 @@ require_once (SERVERPATH . '/' . ZENFOLDER . '/' . PLUGIN_FOLDER . '/tag_extras.
 					$(this).addClass('active');
 				});
 			});
+		//]]>
 		</script>
 
 		<?php if ((zp_loggedin()) && (extensionEnabled('favoritesHandler'))) { ?>
-			<div class="favorites panel-group" role="tablist">
-				<?php printAddToFavorites($_zp_current_album); ?>
-			</div>
+		<div class="favorites panel-group" role="tablist">
+			<?php printAddToFavorites($_zp_current_album); ?>
+		</div>
 		<?php } ?>
 
 		<?php if (extensionEnabled('GoogleMap')) {

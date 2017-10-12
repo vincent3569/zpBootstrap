@@ -14,9 +14,9 @@
 						<?php printPasswordForm('', true); ?>
 						<script type="text/javascript">
 						//<![CDATA[
-						jQuery(document).ready(function($) {
-							$('#password').modal('show');
-						});
+							$(document).ready( function($) {
+								$('#password').modal('show');
+							});
 						//]]>
 						</script>
 					</div>

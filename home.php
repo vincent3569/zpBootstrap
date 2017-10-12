@@ -25,17 +25,17 @@
 			?>
 			<div class="flexslider">
 			<?php if (!empty($slides)) { ?>
-				<ul class="slides">
-					<?php foreach($slides as $slide) {
-						makeImageCurrent($slide);
-						?>
-						<li>
-							<a href="<?php echo html_encode(getCustomPageURL('gallery')); ?>" title="<?php html_encode(gettext('Gallery')); ?>">
-								<?php printCustomSizedImage(gettext('Gallery'), NULL, 1000, 500, 1000, 500, NULL, NULL, 'remove-attributes img-responsive'); ?>
-							</a>
-						</li>
-					<?php } ?>
-				</ul>
+			<ul class="slides">
+				<?php foreach($slides as $slide) {
+					makeImageCurrent($slide);
+					?>
+					<li>
+						<a href="<?php echo html_encode(getCustomPageURL('gallery')); ?>" title="<?php html_encode(gettext('Gallery')); ?>">
+							<?php printCustomSizedImage(gettext('Gallery'), NULL, 1000, 500, 1000, 500, NULL, NULL, 'remove-attributes img-responsive'); ?>
+						</a>
+					</li>
+				<?php } ?>
+			</ul>
 			<?php } else { ?>
 				<img class="img-responsive" src="http://via.placeholder.com/1000x500?text=<?php echo gettext('Slideshow'); ?> (1000 x 500)">
 			<?php } ?>

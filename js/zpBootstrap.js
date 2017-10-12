@@ -2,7 +2,7 @@
 		zenphoto overwriting for theme, zenphoto and bootstrap 3.x being compliant all together
 -------------------------------------- */
 
-jQuery(document).ready(function() {
+$(document).ready( function() {
 
 	/* responsive pictures */
 	$('img.remove-attributes')

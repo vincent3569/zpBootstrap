@@ -22,7 +22,6 @@ if (extensionEnabled('register_user')) {
 
 <?php
 	include('inc_footer.php');
-
 } else {
 	include(SERVERPATH . '/' . ZENFOLDER . '/404.php');
 }
