@@ -185,6 +185,9 @@ blockquote small, blockquote.small {
 	}
 }
 /* ---- isotope ---- */
+.gutter-sizer {
+    width: 20px;
+}
 .image-item {
 	width: 150px;
 	height: 150px;
@@ -196,15 +199,18 @@ blockquote small, blockquote.small {
 	height: 235px;
 }
 @media (max-width: 767px) {
+    .gutter-sizer {
+        width: 5px;
+    }
 	.image-item {
-		width: 100px;
-		height: 100px;
+		width: 120px;
+		height: 120px;
 	}
 	.image-item-width2 {
-		width: 157px;
+		width: 188px;
 	}
 	.image-item-height2 {
-		height: 157px;
+		height: 188px;
 	}
 }
 /* ---- / isotope ---- */
@@ -250,12 +256,12 @@ blockquote small, blockquote.small {
 	margin: 5px 0 0;
 }
 .list-post {
-	padding: 0 0 15px;
+	padding-bottom: 15px;
 	border-bottom: 1px solid #ddd;
 }
-.list-post:last-of-type {
-	padding: 0;
-	border-bottom: none;
+.list-post:first-of-type {
+    padding-top: 20px;
+	border-top: 1px solid #ddd;
 }
 .post {
 }
@@ -356,7 +362,7 @@ blockquote small, blockquote.small {
 	GoogleMap overwriting
 -------------------------------------- */
 #map_canvas {
-	height: 500px;
+	height: 600px;
 }
 .hidden_map {
 	position: absolute;
@@ -454,7 +460,7 @@ div.buttons button {
 	text-align: center;
 }
 .fancybox-is-open .fancybox-bg {
-	opacity: 0.95;
+	opacity: 0.97;
 }
 .fancybox-thumbs > ul > li {
 	width: 100px;
@@ -485,16 +491,19 @@ div.buttons button {
 -------------------------------------- */
 .page-load-status {
 	display: none;
-	padding: 15px 0 0 0;
-	border-top: 1px solid #ddd;
 	text-align: center;
+}
+.album-wrap ~ .page-load-status, .image-wrap ~ .page-load-status {
+	padding-top: 20px;
+	border-top: 1px solid #ddd;
 }
 .loader-ellips {
 	font-size: 15px;
 	position: relative;
 	width: 4em;
 	height: 1em;
-	margin: 10px auto;
+	margin-right: auto;
+	margin-left: auto;
 }
 .loader-ellips-dot {
 	display: block;

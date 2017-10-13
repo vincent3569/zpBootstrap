@@ -57,7 +57,7 @@ if ($_zenpage_and_news_enabled) {
 		$news_class = 'list-post'; ?>
 
 		<?php if ($_zp_zenpage->getAllCategories()) { ?>
-		<div class="row margin-bottom">
+		<div class="row margin-bottom-double">
 			<div class="col-sm-offset-1 col-sm-10">
 				<?php printAllNewsCategories(gettext('All news'), true, 'news-cat-list', 'active'); ?>
 			</div>

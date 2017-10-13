@@ -3,7 +3,7 @@
 			<?php zpB_printNextNewsPageURL(gettext('Next page'), 'infinit-next-page'); ?>
 		</div>
 
-		<div class="margin-bottom-double view-more">
+		<div class="margin-top-double margin-bottom-double view-more">
 			<button class="btn btn-default center-block"><?php echo gettext_th('View more news', $me); ?></button>
 		</div>
 
@@ -33,6 +33,13 @@
 					hideNav : '.infinit-pagination',
 					status : '.page-load-status',
 					loadOnScroll : false,
+				});
+
+				$container.on( 'append.infiniteScroll', function( event, response, path, newElements ) {
+					var $newElems = $(newElements);
+					$newElems.imagesLoaded( function() {
+						$('.swipebox').attr('data-fancybox', 'images');
+					});
 				});
 
 				$viewMoreButton.on( 'click', function() {

@@ -34,13 +34,14 @@ require_once (SERVERPATH . '/' . ZENFOLDER . '/' . PLUGIN_FOLDER . '/tag_extras.
 		</div>
 		<?php } ?>
 
-		<div id="isotope-wrap" class="images-wrap margin-bottom-double">
+		<div id="isotope-wrap" class="margin-bottom-double">
+		<div class="gutter-sizer"></div>
 		<?php
 		while (next_image(true)) {
 			if (getFullWidth() > getFullHeight()) {
-				$image_item_size_2 = 'image-item-width2';
+				$image_item_size_2 = ' image-item-width2';
 			} else if (getFullWidth() < getFullHeight()) {
-				$image_item_size_2 = 'image-item-height2';
+				$image_item_size_2 = ' image-item-height2';
 			} else {
 				$image_item_size_2 = '';
 			}
@@ -54,7 +55,7 @@ require_once (SERVERPATH . '/' . ZENFOLDER . '/' . PLUGIN_FOLDER . '/tag_extras.
 				$class = $image_item_size_2;
 			}
 			?>
-			<div class="image-item <?php echo $class; ?>">
+			<div class="image-item<?php echo $class; ?>">
 				<a class="thumb" href="<?php echo html_encode(getUnprotectedImageURL()); ?>" title="<?php echo getBareImageTitle(); ?>" data-fancybox="images">
 					<?php
 					if (getFullWidth() > getFullHeight()) {
@@ -81,7 +82,7 @@ require_once (SERVERPATH . '/' . ZENFOLDER . '/' . PLUGIN_FOLDER . '/tag_extras.
 					layoutMode: 'packery',
 					// packery layout
 					packery: {
-						gutter: 20
+						gutter: '.gutter-sizer',
 					}
 				});
 			});
