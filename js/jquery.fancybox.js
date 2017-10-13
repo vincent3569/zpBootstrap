@@ -1,5 +1,5 @@
 // ==================================================
-// fancyBox v3.1.20
+// fancyBox v3.1.28
 //
 // Licensed GPLv3 for open source use
 // or fancyBox Commercial License for commercial use
@@ -36,7 +36,7 @@
         // Enable infinite gallery navigation
         loop : false,
 
-        // Space around image, ignored if zoomed-in or viewport smaller than 800px
+        // Space around image, ignored if zoomed-in or viewport width is smaller than 800px
         margin : [44, 0],
 
         // Horizontal space between slides
@@ -227,6 +227,7 @@
             autoStart : false,
         },
 
+        // Set `touch: false` to disable dragging/swiping
         touch : {
             vertical : true,  // Allow to drag content vertically
             momentum : true   // Continue movement after releasing mouse/touch when panning
@@ -325,7 +326,7 @@
                 return current.type === 'image' ? 'toggleControls' : false;
             },
             clickSlide : function( current, event ) {
-                return current.type === 'image' ? 'toggleControls' : "close";
+                return current.type === 'image' ? 'toggleControls' : 'close';
             },
             dblclickContent : function( current, event ) {
                 return current.type === 'image' ? 'zoom' : false;
@@ -1759,7 +1760,7 @@
                 .attr('src', slide.src)
                 .appendTo( slide.$content );
 
-            if ( $img[0].complete ) {
+            if ( ( $img[0].complete || $img[0].readyState == "complete" ) && $img[0].naturalWidth && $img[0].naturalHeight ) {
                   $img.trigger( 'load' );
 
             } else if( $img[0].error ) {
@@ -1816,11 +1817,11 @@
 
                 $slide.on('refresh.fb', function() {
                     var $wrap = slide.$content,
-                        $contents,
-                        $body,
+                        frameWidth  = opts.css.width,
+                        frameHeight = opts.css.height,
                         scrollWidth,
-                        frameWidth,
-                        frameHeight;
+                        $contents,
+                        $body;
 
                     if ( $iframe[0].isReady !== 1 ) {
                         return;
@@ -1836,19 +1837,28 @@
                     } catch (ignore) {}
 
                     // Calculate dimensions for the wrapper
-                    if ( $body && $body.length && !( opts.css.width !== undefined && opts.css.height !== undefined ) ) {
+                    if ( $body && $body.length ) {
 
-                        scrollWidth = $iframe[0].contentWindow.document.documentElement.scrollWidth;
+                        if ( frameWidth === undefined ) {
+                            scrollWidth = $iframe[0].contentWindow.document.documentElement.scrollWidth;
 
-                        frameWidth	= Math.ceil( $body.outerWidth(true) + ( $wrap.width() - scrollWidth ) );
-                        frameHeight	= Math.ceil( $body.outerHeight(true) );
+                            frameWidth = Math.ceil( $body.outerWidth(true) + ( $wrap.width() - scrollWidth ) );
+                            frameWidth += $wrap.outerWidth() - $wrap.innerWidth();
+                        }
+
+                        if ( frameHeight === undefined ) {
+                            frameHeight = Math.ceil( $body.outerHeight(true) );
+                            frameHeight += $wrap.outerHeight() - $wrap.innerHeight();
+                        }
 
                         // Resize wrapper to fit iframe content
-                        $wrap.css({
-                            'width'  : opts.css.width  === undefined ? frameWidth  + ( $wrap.outerWidth()  - $wrap.innerWidth() )  : opts.css.width,
-                            'height' : opts.css.height === undefined ? frameHeight + ( $wrap.outerHeight() - $wrap.innerHeight() ) : opts.css.height
-                        });
+                        if ( frameWidth ) {
+                            $wrap.width( frameWidth );
+                        }
 
+                        if ( frameHeight ) {
+                            $wrap.height( frameHeight );
+                        }
                     }
 
                     $wrap.removeClass( 'fancybox-is-hidden' );
@@ -1964,7 +1974,7 @@
             slide.$content = $( content ).appendTo( slide.$slide );
 
             if ( slide.opts.smallBtn && !slide.$smallBtn ) {
-                slide.$smallBtn = $( self.translate( slide, slide.opts.btnTpl.smallBtn ) ).appendTo( slide.$content );
+                slide.$smallBtn = $( self.translate( slide, slide.opts.btnTpl.smallBtn ) ).appendTo( slide.$content.filter('div').first() );
             }
 
             this.afterLoad( slide );
@@ -2085,15 +2095,14 @@
                 effect = 'fade';
             }
 
-
             // Zoom animation
             // ==============
 
             if ( effect === 'zoom' ) {
                 end = self.getFitPos( slide );
 
-                end.scaleX = Math.round( (end.width  / start.width)  * 100 ) / 100;
-                end.scaleY = Math.round( (end.height / start.height) * 100 ) / 100;
+                end.scaleX = end.width  / start.width;
+                end.scaleY = end.height / start.height;
 
                 delete end.width;
                 delete end.height;
@@ -2256,7 +2265,7 @@
 
                     $.fancybox.stop( slide.$slide );
 
-                    slide.$slide.unbind().remove();
+                    slide.$slide.off().remove();
                 }
             });
 
@@ -2310,8 +2319,16 @@
                 return;
             }
 
-            // Skip for images and iframes
-            $el = current && current.isComplete ? current.$slide.find('button,:input,[tabindex],a').filter(':not([disabled]):visible:first') : null;
+            if ( current && current.isComplete ) {
+
+                // Look for first input with autofocus attribute
+                $el = current.$slide.find('input[autofocus]:enabled:visible:first');
+
+                if ( !$el.length ) {
+                    $el = current.$slide.find('button,:input,[tabindex],a').filter(':enabled:visible:first');
+                }
+            }
+
             $el = $el && $el.length ? $el : this.$refs.container;
 
             $el.focus();
@@ -2482,7 +2499,7 @@
             self.trigger( 'afterClose', e );
 
             // Place back focus
-            if ( self.$lastFocus && !!!self.current.focusBack ) {
+            if ( self.$lastFocus && !!self.current.opts.backFocus ) {
                 self.$lastFocus.focus();
             }
 
@@ -2495,7 +2512,6 @@
                 instance.activate();
 
             } else {
-
                 $W.scrollTop( self.scrollTop ).scrollLeft( self.scrollLeft );
 
                 $( 'html' ).removeClass( 'fancybox-enabled' );
@@ -2629,7 +2645,7 @@
 
     $.fancybox = {
 
-        version  : "3.1.20",
+        version  : "3.1.28",
         defaults : defaults,
 
 
@@ -2855,8 +2871,8 @@
                     if ( to.scaleX !== undefined && to.scaleY !== undefined ) {
                         $el.css( 'transition-duration', '0ms' );
 
-                        to.width  = $el.width()  * to.scaleX;
-                        to.height = $el.height() * to.scaleY;
+                        to.width  = Math.round( $el.width()  * to.scaleX );
+                        to.height = Math.round( $el.height() * to.scaleY );
 
                         to.scaleX = 1;
                         to.scaleY = 1;
@@ -2906,12 +2922,17 @@
     function _run( e ) {
         var target	= e.currentTarget,
             opts	= e.data ? e.data.options : {},
-            items	= e.data ? e.data.items : [],
-            value	= $(target).attr( 'data-fancybox' ) || '',
-            index	= 0;
+            items	= opts.selector ? $( opts.selector ) : ( e.data ? e.data.items : [] ),
+            value	= $( target ).attr( 'data-fancybox' ) || '',
+            index	= 0,
+            active  = $.fancybox.getInstance();
 
         e.preventDefault();
-        e.stopPropagation();
+
+        // Avoid opening multiple times
+        if ( active && active.current.opts.$orig.is( target ) ) {
+            return;
+        }
 
         // Get all related items and find index for clicked one
         if ( value ) {
@@ -2944,7 +2965,6 @@
         if ( selector ) {
 
             $( 'body' ).off( 'click.fb-start', selector ).on( 'click.fb-start', selector, {
-                items   : $( selector ),
                 options : options
             }, _run );
 
@@ -2966,7 +2986,7 @@
 
     $D.on( 'click.fb-start', '[data-fancybox]', _run );
 
-}( window, document, window.jQuery ));
+}( window, document, window.jQuery || jQuery ));
 
 // ==========================================================================
 //
@@ -3069,13 +3089,25 @@
 
 		// Examples:
 		// http://maps.google.com/?ll=48.857995,2.294297&spn=0.007666,0.021136&t=m&z=16
-		// http://maps.google.com/?ll=48.857995,2.294297&spn=0.007666,0.021136&t=m&z=16
-		// https://www.google.lv/maps/place/Googleplex/@37.4220041,-122.0833494,17z/data=!4m5!3m4!1s0x0:0x6c296c66619367e0!8m2!3d37.4219998!4d-122.0840572
-		google_maps : {
+		// https://www.google.com/maps/@37.7852006,-122.4146355,14.65z
+		// https://www.google.com/maps/place/Googleplex/@37.4220041,-122.0833494,17z/data=!4m5!3m4!1s0x0:0x6c296c66619367e0!8m2!3d37.4219998!4d-122.0840572
+		gmap_place : {
 			matcher : /(maps\.)?google\.([a-z]{2,3}(\.[a-z]{2})?)\/(((maps\/(place\/(.*)\/)?\@(.*),(\d+.?\d+?)z))|(\?ll=))(.*)?/i,
 			type    : 'iframe',
 			url     : function (rez) {
 				return '//maps.google.' + rez[2] + '/?ll=' + ( rez[9] ? rez[9] + '&z=' + Math.floor(  rez[10]  ) + ( rez[12] ? rez[12].replace(/^\//, "&") : '' )  : rez[12] ) + '&output=' + ( rez[12] && rez[12].indexOf('layer=c') > 0 ? 'svembed' : 'embed' );
+			}
+		},
+
+		// Examples:
+		// https://www.google.com/maps/search/Empire+State+Building/
+		// https://www.google.com/maps/search/?api=1&query=centurylink+field
+		// https://www.google.com/maps/search/?api=1&query=47.5951518,-122.3316393
+		gmap_search : {
+			matcher : /(maps\.)?google\.([a-z]{2,3}(\.[a-z]{2})?)\/(maps\/search\/)(.*)/i,
+			type    : 'iframe',
+			url     : function (rez) {
+				return '//maps.google.' + rez[2] + '/maps?q=' + rez[5].replace('query=', 'q=').replace('api=1', '') + '&output=embed';
 			}
 		}
 	};
@@ -3165,7 +3197,7 @@
 
 					item.contentProvider = provider;
 
-					item.opts.slideClass += ' fancybox-slide--' + ( provider == 'google_maps' ? 'map' : 'video' );
+					item.opts.slideClass += ' fancybox-slide--' + ( provider == 'gmap_place' || provider == 'gmap_search' ? 'map' : 'video' );
 				}
 
 			} else {
@@ -3247,7 +3279,8 @@
 	};
 
 	var isClickable = function( $el ) {
-		if ( $el.is('a,button,input,select,textarea') || $.isFunction( $el.get(0).onclick ) ) {
+
+		if ( $el.is('a,button,input,select,textarea,label') || $.isFunction( $el.get(0).onclick ) || $el.data('selectable') ) {
 			return true;
 		}
 
@@ -3364,8 +3397,6 @@
 		$(document).on( isTouchDevice ? 'touchend.fb.touch touchcancel.fb.touch' : 'mouseup.fb.touch mouseleave.fb.touch',  $.proxy(self, "ontouchend"));
 		$(document).on( isTouchDevice ? 'touchmove.fb.touch' : 'mousemove.fb.touch',  $.proxy(self, "ontouchmove"));
 
-		e.stopPropagation();
-
 		if ( !(instance.current.opts.touch || instance.canPan() ) || !( $target.is( self.$stage ) || self.$stage.find( $target ).length ) ) {
 
 			// Prevent ghosting
@@ -3375,6 +3406,8 @@
 
 			return;
 		}
+
+		e.stopPropagation();
 
 		if ( !( $.fancybox.isMobile && ( isScrollable( self.$target ) || isScrollable( self.$target.parent() ) ) ) ) {
 			e.preventDefault();
@@ -4352,12 +4385,16 @@
 
 	// If browser does not have Full Screen API, then simply unset default button template and stop
 	if ( !fn ) {
-		$.fancybox.defaults.btnTpl.fullScreen = false;
+
+		if ( $ && $.fancybox ) {
+			$.fancybox.defaults.btnTpl.fullScreen = false;
+		}
 
 		return;
 	}
 
 	var FullScreen = {
+
 		request : function ( elem ) {
 
 			elem = elem || document.documentElement;
@@ -4455,6 +4492,8 @@
 			instance.update( true, true, 0 );
 		}
 
+		instance.trigger('onFullscreenChange', FullScreen.isFullscreen() );
+
 	});
 
 }(document, window.jQuery));
@@ -4538,7 +4577,7 @@
 
 			this.$list.find('img').hide().one('load', function() {
 
-				var $parent		= $(this).parent().removeClass('fancybox-thumbs-loading'),
+				var $parent		= $(this).parent().removeClass( 'fancybox-thumbs-loading' ),
 					thumbWidth	= $parent.outerWidth(),
 					thumbHeight	= $parent.outerHeight(),
 					width,
@@ -4549,12 +4588,12 @@
 				width  = this.naturalWidth	|| this.width;
 				height = this.naturalHeight	|| this.height;
 
-				//Calculate thumbnail width/height and center it
+				// Calculate thumbnail width/height and center it
 
 				widthRatio  = width  / thumbWidth;
 				heightRatio = height / thumbHeight;
 
-				if (widthRatio >= 1 && heightRatio >= 1) {
+				if ( widthRatio >= 1 && heightRatio >= 1 ) {
 					if (widthRatio > heightRatio) {
 						width  = width / heightRatio;
 						height = thumbHeight;
@@ -4584,9 +4623,9 @@
 			if ( this.instance.current ) {
 				this.$list
 					.children()
-					.removeClass('fancybox-thumbs-active')
-					.filter('[data-index="' + this.instance.current.index  + '"]')
-					.addClass('fancybox-thumbs-active')
+					.removeClass( 'fancybox-thumbs-active' )
+					.filter( '[data-index="' + this.instance.current.index  + '"]' )
+					.addClass( 'fancybox-thumbs-active' )
 					.focus();
 			}
 
@@ -4659,7 +4698,7 @@
 				return;
 			}
 
-			if ( firstRun && instance.opts.thumbs.autoStart === true ) {
+			if ( firstRun && item.opts.thumbs.autoStart === true ) {
 				Thumbs.show();
 			}
 
@@ -4723,11 +4762,14 @@
 		};
 	}
 
+	// Create new history entry only once
+	var shouldCreateHistory = true;
+
 	// Variable containing last hash value set by fancyBox
 	// It will be used to determine if fancyBox needs to close after hash change is detected
     var currentHash = null;
 
-	// Throtlling the history change
+	// Throttling the history change
 	var timerID = null;
 
 	// Get info about gallery name and current index from url
@@ -4758,21 +4800,22 @@
 			// If we can find element matching 'data-fancybox' atribute, then trigger click event for that ..
 			$el = $( "[data-fancybox='" + $.escapeSelector( url.gallery ) + "']" ).eq( url.index - 1 );
 
-            if ( $el.length ) {
-				$el.trigger( 'click' );
-
-			} else {
-
+            if ( !$el.length ) {
 				// .. if not, try finding element by ID
-				$( "#" + $.escapeSelector( url.gallery ) + "" ).trigger( 'click' );
+				$el = $( "#" + $.escapeSelector( url.gallery ) + "" );
+			}
 
+			if ( $el.length ) {
+				shouldCreateHistory = false;
+
+				$el.trigger( 'click' );
 			}
 
         }
 	}
 
 	// Get gallery name from current instance
-	function getGallery( instance ) {
+	function getGalleryID( instance ) {
 		var opts;
 
 		if ( !instance ) {
@@ -4781,7 +4824,7 @@
 
 		opts = instance.current ? instance.current.opts : instance.opts;
 
-		return opts.$orig ? opts.$orig.data( 'fancybox' ) : ( opts.hash || '' );
+		return opts.hash || ( opts.$orig ? opts.$orig.data( 'fancybox' ) : ''  );
 	}
 
 	// Star when DOM becomes ready
@@ -4805,7 +4848,7 @@
 					}
 
 					url     = parseUrl();
-					gallery = getGallery( instance );
+					gallery = getGalleryID( instance );
 
 					// Make sure gallery start index matches index from hash
 					if ( gallery && url.gallery && gallery == url.gallery ) {
@@ -4814,14 +4857,14 @@
 
 				},
 
-				'beforeShow.fb' : function( e, instance, current, firstRun ) {
+				'beforeShow.fb' : function( e, instance, current ) {
 					var gallery;
 
-					if ( current.opts.hash === false ) {
+					if ( !current || current.opts.hash === false ) {
 						return;
 					}
 
-		            gallery = getGallery( instance );
+		            gallery = getGalleryID( instance );
 
 		            // Update window hash
 		            if ( gallery && gallery !== '' ) {
@@ -4838,9 +4881,11 @@
 							}
 
 							timerID = setTimeout(function() {
-								window.history[ firstRun ? 'pushState' : 'replaceState' ]( {} , document.title, window.location.pathname + window.location.search + '#' +  currentHash );
+								window.history[ shouldCreateHistory ? 'pushState' : 'replaceState' ]( {} , document.title, window.location.pathname + window.location.search + '#' +  currentHash );
 
 								timerID = null;
+
+								shouldCreateHistory = false;
 
 							}, 300);
 
@@ -4863,7 +4908,7 @@
 						return;
 					}
 
-					gallery  = getGallery( instance );
+					gallery  = getGalleryID( instance );
 					origHash = instance && instance.opts.origHash ? instance.opts.origHash : '';
 
 		            // Remove hash from location bar
@@ -4900,17 +4945,11 @@
 				}
 			});
 
-			// If navigating away from current page
-			$(window).one('unload.fb popstate.fb', function() {
-				$.fancybox.getInstance( 'close', true, 0 );
-			});
-
 			// Check current hash and trigger click event on matching element to start fancyBox, if needed
 			triggerFromUrl( parseUrl() );
 
 		}, 50);
 
     });
-
 
 }(document, window, window.jQuery));
