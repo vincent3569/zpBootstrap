@@ -1,7 +1,6 @@
 			<?php if (getOption('gmap_display') == 'colorbox') { ?>
-				<div class="alert alert-danger"><?php echo getttext_th('theme doesn\'t support colorbox option for googlemap plugin', $theme); ?></div>
-			<?php }
-			if ((getOption('gmap_display') == 'hide') || (getOption('gmap_display') == 'show')) {
+				<div class="alert alert-danger"><?php echo gettext_th('theme doesn\'t support colorbox option for googlemap plugin', $theme); ?></div>
+			<?php } else {
 				$hasAlbumGeodata = false;
 				$album = $_zp_current_album;
 				$images = $album->getImages();
