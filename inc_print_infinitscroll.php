@@ -7,7 +7,7 @@
 		} else if (isImagePage()) {
 			$containerClass = '.image-wrap';
 			$itemClass = '.image-thumb';
-			$viewMoreText = gettext_th('View more images', $theme);
+			$viewMoreText = gettext_th('View more images', $me);
 			$noMoreText = gettext_th('No more images to display', $me);
 		}
 		?>
