@@ -142,10 +142,10 @@ html[xmlns] .flexslider .slides {
   content: '\f002';
 }
 .flex-direction-nav .flex-prev {
-  left: -50px;
+  left: -20px;                   /* hack VBO to avoid horizontal scrollbar (init : -50px) */
 }
 .flex-direction-nav .flex-next {
-  right: -50px;
+  right: -20px;                 /* hack VBO to avoid horizontal scrollbar (init : -50px) */
   text-align: right;
 }
 .flexslider:hover .flex-direction-nav .flex-prev {
@@ -263,7 +263,7 @@ html[xmlns] .flexslider .slides {
 /* ====================================================================================================================
  * RESPONSIVE
  * ====================================================================================================================*/
-@media screen and (max-width: 860px) {
+@media screen and (max-width: 767px) {  /* hack VBO to be consistant with bootstrap breakpoints (init : 860px) */
   .flex-direction-nav .flex-prev {
     opacity: 1;
     left: 10px;
