@@ -1,6 +1,6 @@
 $(document).ready( function() {
 	$().fancybox({
-		selector : '[data-fancybox="fancybox"]',
+	    selector : '[data-fancybox="images"]',
 		loop : true,
 		infobar : true,
 		buttons : [

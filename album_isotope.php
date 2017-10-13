@@ -54,9 +54,8 @@ require_once (SERVERPATH . '/' . ZENFOLDER . '/' . PLUGIN_FOLDER . '/tag_extras.
 				$class = $image_item_size_2;
 			}
 			?>
-
 			<div class="image-item <?php echo $class; ?>">
-				<a class="swipebox" href="<?php echo html_encode(getUnprotectedImageURL()); ?>" title="<?php echo getBareImageTitle(); ?>">
+				<a class="thumb" href="<?php echo html_encode(getUnprotectedImageURL()); ?>" title="<?php echo getBareImageTitle(); ?>" data-fancybox="images">
 					<?php
 					if (getFullWidth() > getFullHeight()) {
 						printCustomSizedImage(getBareImageTitle(), NULL, 235, 150, 235, 150, NULL, NULL, 'remove-attributes img-responsive', NULL, true);

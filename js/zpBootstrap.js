@@ -16,7 +16,7 @@ $(document).ready( function() {
 	/* add attribute for fancybox called elsewhere than gallery */
 	$('.swipebox').each(function() {
 		$(this)
-			.attr('data-fancybox', 'fancybox');
+			.attr('data-fancybox', 'images');
 	});
 
 	/* add icon to links going out of the site, except links with pictures */
