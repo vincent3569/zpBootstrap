@@ -40,7 +40,7 @@ if ((getNumAlbums() > 0) && (getNumImages() > 0)) {
 		<?php } ?>
 
 		<?php if (extensionEnabled('GoogleMap')) { ?>
-			<?php include(inc_print_googlemap.php); ?>
+			<?php include('inc_print_googlemap.php'); ?>
 		<?php } ?>
 
 		<?php if (extensionEnabled('comment_form')) { ?>
