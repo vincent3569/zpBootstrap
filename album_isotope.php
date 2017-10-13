@@ -38,12 +38,11 @@ require_once (SERVERPATH . '/' . ZENFOLDER . '/' . PLUGIN_FOLDER . '/tag_extras.
 		<div class="gutter-sizer"></div>
 		<?php
 		while (next_image(true)) {
+			$image_item_size_2 = '';
 			if (getFullWidth() > getFullHeight()) {
 				$image_item_size_2 = ' image-item-width2';
 			} else if (getFullWidth() < getFullHeight()) {
 				$image_item_size_2 = ' image-item-height2';
-			} else {
-				$image_item_size_2 = '';
 			}
 
 			$tags_image = getTags();
