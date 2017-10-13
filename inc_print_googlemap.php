@@ -1,5 +1,5 @@
 			<?php if (getOption('gmap_display') == 'colorbox') { ?>
-				<div class="alert alert-danger"><?php echo gettext_th('theme doesn\'t support colorbox option for googlemap plugin', $theme); ?></div>
+				<div class="alert alert-danger"><?php echo gettext_th('The theme doesn\'t support colorbox option for googlemap plugin.', $me); ?></div>
 			<?php } else {
 				$hasAlbumGeodata = false;
 				$album = $_zp_current_album;
