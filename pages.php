@@ -21,13 +21,13 @@ if ($_zenpage_and_pages_enabled) {
 		<?php if (getPageExtraContent()) { ?>
 		<div class="row">
 			<div class="col-sm-9">
-				<div class="post clearfix">
+				<div class="post margin-bottom-double clearfix">
 					<?php printPageContent(); ?>
 					<?php printCodeblock(1); ?>
 				</div><!--/.post -->
 			</div>
 			<div class="col-sm-3">
-				<div class="extra-content clearfix">
+				<div class="extra-content margin-bottom-double clearfix">
 					<?php printPageExtraContent(); ?>
 				</div>
 			</div>
@@ -35,7 +35,7 @@ if ($_zenpage_and_pages_enabled) {
 		<?php } else { ?>
 		<div class="row">
 			<div class="col-sm-12">
-				<div class="post clearfix">
+				<div class="post margin-bottom-double clearfix">
 					<?php printPageContent(); ?>
 					<?php printCodeblock(1); ?>
 				</div><!--/.post -->
