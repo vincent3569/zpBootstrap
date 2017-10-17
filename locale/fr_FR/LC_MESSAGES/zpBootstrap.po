@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: zpBootstrap\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-10-13 21:34+0200\n"
-"PO-Revision-Date: 2017-10-13 21:34+0200\n"
+"POT-Creation-Date: 2017-10-17 14:21+0200\n"
+"PO-Revision-Date: 2017-10-17 14:26+0200\n"
 "Last-Translator: Vincent Bourganel <vincent_bourganel@yahoo.fr>\n"
 "Language-Team: vincent3569 <vincent_bourganel@yahoo.fr>\n"
 "Language: fr_FR\n"
@@ -24,27 +24,27 @@ msgstr "Dernière actualité"
 msgid "The theme doesn't support colorbox option for googlemap plugin."
 msgstr "Le thème ne supporte pas l'option colorbox pour le plugin googlemap."
 
-#: inc_print_infinitscroll.php:5
+#: inc_print_infinitescroll.php:5
 msgid "View more albums"
 msgstr "Voir plus d'albums"
 
-#: inc_print_infinitscroll.php:6
+#: inc_print_infinitescroll.php:6
 msgid "No more albums to display"
 msgstr "Pas d'autres albums à afficher"
 
-#: inc_print_infinitscroll.php:10
+#: inc_print_infinitescroll.php:10
 msgid "View more images"
 msgstr "Voir plus d'images"
 
-#: inc_print_infinitscroll.php:11
+#: inc_print_infinitescroll.php:11
 msgid "No more images to display"
 msgstr "Pas d'autres images à afficher"
 
-#: inc_print_infinitscroll_news.php:7
+#: inc_print_infinitescroll_news.php:7
 msgid "View more news"
 msgstr "Voir plus d'actualités"
 
-#: inc_print_infinitscroll_news.php:17
+#: inc_print_infinitescroll_news.php:17
 msgid "No more news to display"
 msgstr "Pas d'autres actualités à afficher"
 
@@ -95,18 +95,18 @@ msgstr ""
 "Nombre d'images aléatoires à utiliser pour le diaporama de la page d'accueil."
 
 #: themeoptions.php:94
-msgid "Use infinit scroll"
-msgstr "Utilise infinit scroll"
+msgid "Use infinite scroll"
+msgstr "Utilise infinite scroll"
 
 #: themeoptions.php:103
 msgid ""
 "Check pages which use <a href=\"https://infinite-scroll.com/\" target="
-"\"_blank\">infinit scoll jQuery plugin</a>. This layout will automatically "
+"\"_blank\">infinite-scroll jQuery plugin</a>. This layout will automatically "
 "load items of next page (albums, images or news) without pagination."
 msgstr ""
-"Cocher les pages pour lesquelles utiliser le <a href=\"https://infinite-"
-"scroll.com/\" target=\"_blank\">plugin jQuery infinit scoll</a>. Cette "
-"présentation chargera automatiquement les items  de la page suivante "
+"Cocher les pages pour lesquelles utiliser le <a href=\\\"https://infinite-"
+"scroll.com/\\\" target=\\\"_blank\\\">plugin jQuery infinite-scroll</a>. "
+"Cette présentation chargera automatiquement les items de la page suivante "
 "(albums, images ou actualités), sans pagination."
 
 #: themeoptions.php:104
@@ -120,13 +120,13 @@ msgstr ""
 
 #: themeoptions.php:105
 msgid ""
-"Rather than using infinit scoll layout for all albums, you may also allow "
-"\"multiple_layouts\" plugin and then choose \"album_infinitscoll\" as layout "
-"for specific albums of your gallery."
+"Rather than using infinite-scroll layout for all albums, you may also allow "
+"\"multiple_layouts\" plugin and then choose \"album_infinitescroll\" as "
+"layout for specific albums of your gallery."
 msgstr ""
-"Plutôt que d'utiliser la présentation infinit scoll pour tous les albums, "
-"vous pouvez également autoriser le plugin \"multiple_layouts\", puis choisir "
-"\"album_infinitscoll\" comme présentation pour des albums spécifiques de "
+"Plutôt qu'utiliser la présentation infinite scoll pour tous les albums, vous "
+"pouvez également autoriser le plugin \"multiple_layouts\\\", puis choisir "
+"\"album_infinitescroll\" comme présentation pour des albums spécifiques de "
 "votre galerie."
 
 #: themeoptions.php:107
@@ -174,8 +174,8 @@ msgstr ""
 "accéder aux sous-albums)."
 
 #: themeoptions.php:117
-msgid "This option overwrites the infinit scroll on album option above."
-msgstr "Cette option supplante l'option infinit scroll pour albums ci-dessus."
+msgid "This option overwrites the infinite scroll on album option above."
+msgstr "Cette option supplante l'option infinite scroll pour albums ci-dessus."
 
 #: themeoptions.php:119
 msgid "Social Links"
@@ -203,6 +203,34 @@ msgstr ""
 "Affiche les données EXIF sur la page Image. Rappelez-vous que vous devez "
 "choisir les données EXIF que vous voulez afficher sur la page "
 "Options>Image>Métadonnées."
+
+#~ msgid "Use infinit scroll"
+#~ msgstr "Utilise infinit scroll"
+
+#~ msgid ""
+#~ "Check pages which use <a href=\"https://infinite-scroll.com/\" target="
+#~ "\"_blank\">infinit scoll jQuery plugin</a>. This layout will "
+#~ "automatically load items of next page (albums, images or news) without "
+#~ "pagination."
+#~ msgstr ""
+#~ "Cocher les pages pour lesquelles utiliser le <a href=\"https://infinite-"
+#~ "scroll.com/\" target=\"_blank\">plugin jQuery infinit scoll</a>. Cette "
+#~ "présentation chargera automatiquement les items  de la page suivante "
+#~ "(albums, images ou actualités), sans pagination."
+
+#~ msgid ""
+#~ "Rather than using infinit scoll layout for all albums, you may also allow "
+#~ "\"multiple_layouts\" plugin and then choose \"album_infinitscoll\" as "
+#~ "layout for specific albums of your gallery."
+#~ msgstr ""
+#~ "Plutôt que d'utiliser la présentation infinit scoll pour tous les albums, "
+#~ "vous pouvez également autoriser le plugin \"multiple_layouts\", puis "
+#~ "choisir \"album_infinitscoll\" comme présentation pour des albums "
+#~ "spécifiques de votre galerie."
+
+#~ msgid "This option overwrites the infinit scroll on album option above."
+#~ msgstr ""
+#~ "Cette option supplante l'option infinit scroll pour albums ci-dessus."
 
 #~ msgid "The theme doesn't support colorbox option for googlemap plugin"
 #~ msgstr "Le thème ne supporte pas l'option colorbox pour le plugin googlemap"
