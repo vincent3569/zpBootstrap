@@ -1,3 +1,40 @@
+* 2.1
+- upgrade to flexSlider 2.6.4
+	- hacks VBO to avoid horizontal scrollbar and to be consistant with bootstrap breakpoints
+- upgrade to FancyBox 3.1.28 to be compliant with infinite-scroll
+- album_isotope.php
+	- use global $_zp_themeroot to load js script (https://github.com/vincent3569/zpBootstrap/pull/6)
+- archives.php, functions.php, home.php, inc_header.php, news.php, pages.php, search.php :
+	- use new variables $_zenpage_and_news_enabled and $_zenpage_and_pages_enabled to manage ZP_NEWS_ENABLED and ZP_PAGES_ENABLED
+- album.php, album_infinitescroll.php, functions.php, gallery.php, inc_print_infinitescroll.php, inc_print_infinitescroll_news.php, news.php, themeoptions.php, css/zpBootstrap.css, js/infinite-scroll.pkgd.min.js:
+	- management of inifite-scroll plugin on gallery, albums and news pages
+- album_standard.php, album_isotope.php, inc_print_googlemap.php :
+	- googlemap managment in only one php file
+- contact.php, favorites.php, news.php, pages.php, register.php
+	- page 404 managmement if plugins are not enabled
+- favorites.php
+	- use more simple breadcrumb
+- functions.php
+	- set album thumb size and album thumb size for mobile device
+- home.php, themeoptions.php
+	- use new option zpB_latest_news_homepage
+- inc_header
+	- uses "switch" structure to avoids multiple "if" to determine page title
+	- rewrite of login/out link in the header (depend of user_login-out and register_user plugin)
+	- pull request to allow loading of http or https version of script (https://github.com/vincent3569/zpBootstrap/pull/3)
+	- fix issue on home and gallery links
+	- fix issue on charset meta tag
+- news.php, functions.php
+	- set shorten title size for mobile device
+- themeoptions.php
+	- uses __construct()
+	- set album thumb default for large device
+- locale/
+	- update of german, dutch and french translations
+- css/bootstrap.css
+	- uses a new compiled version of bootstrap to fix navbar breakpoint (992px rather than 768px)
+
+
 * 2.0
 - full rewrite with Bootstrap 3.3.7
 - uses a compiled bootstrap (see config file _boostrap_3.3.7/bootstrap-compiled/config.json)

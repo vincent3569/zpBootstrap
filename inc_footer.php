@@ -18,4 +18,4 @@
 
 	</body>
 </html>
-<!-- zpBootstrap 2.1 - a ZenPhoto/ZenPage theme by Vincent3569 -->
+<!-- zpBootstrap 2.1 - a Zenphoto theme by Vincent3569 -->
