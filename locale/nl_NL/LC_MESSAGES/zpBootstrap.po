@@ -2,9 +2,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: zpBootstrap\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-10-14 12:40+0200\n"
-"PO-Revision-Date: 2017-10-14 13:30+0200\n"
-"Last-Translator: fretzl\n"
+"POT-Creation-Date: 2017-10-17 14:41+0200\n"
+"PO-Revision-Date: 2017-10-17 14:41+0200\n"
+"Last-Translator: Vincent Bourganel <vincent_bourganel@yahoo.fr>\n"
 "Language-Team: vincent3569 <vincent_bourganel@yahoo.fr>\n"
 "Language: nl_NL\n"
 "MIME-Version: 1.0\n"
@@ -26,27 +26,27 @@ msgstr ""
 "De <em>colorbox</em> optie voor de <em>GoogleMap</em> plugin wordt niet "
 "ondersteund door dit thema."
 
-#: inc_print_infinitscroll.php:5
+#: inc_print_infinitescroll.php:5
 msgid "View more albums"
 msgstr "Meer albums"
 
-#: inc_print_infinitscroll.php:6
+#: inc_print_infinitescroll.php:6
 msgid "No more albums to display"
 msgstr "Geen albums meer"
 
-#: inc_print_infinitscroll.php:10
+#: inc_print_infinitescroll.php:10
 msgid "View more images"
 msgstr "Meer afbeeldingen"
 
-#: inc_print_infinitscroll.php:11
+#: inc_print_infinitescroll.php:11
 msgid "No more images to display"
 msgstr "Geen afbeeldingen meer"
 
-#: inc_print_infinitscroll_news.php:7
+#: inc_print_infinitescroll_news.php:7
 msgid "View more news"
 msgstr "Meer artikelen"
 
-#: inc_print_infinitscroll_news.php:17
+#: inc_print_infinitescroll_news.php:17
 msgid "No more news to display"
 msgstr "Geen artikelen meer"
 
@@ -98,17 +98,17 @@ msgstr ""
 "wordt."
 
 #: themeoptions.php:94
-msgid "Use infinit scroll"
+msgid "Use infinite scroll"
 msgstr "Gebruik <em>Infinite Scroll</em>"
 
 #: themeoptions.php:103
 msgid ""
 "Check pages which use <a href=\"https://infinite-scroll.com/\" target="
-"\"_blank\">infinit scoll jQuery plugin</a>. This layout will automatically "
+"\"_blank\">infinite-scroll jQuery plugin</a>. This layout will automatically "
 "load items of next page (albums, images or news) without pagination."
 msgstr ""
 "Vink aan voor welke pagina’s je de <a href=“https://infinite-scroll.com/“ "
-"target=“_blank”>Infinite Scroll jQuery plugin</a> wilt gebruiken."
+"target=“_blank”>infinite-scroll jQuery plugin</a> wilt gebruiken."
 
 #: themeoptions.php:104
 msgid ""
@@ -121,13 +121,13 @@ msgstr ""
 
 #: themeoptions.php:105
 msgid ""
-"Rather than using infinit scoll layout for all albums, you may also allow "
-"\"multiple_layouts\" plugin and then choose \"album_infinitscoll\" as layout "
-"for specific albums of your gallery."
+"Rather than using infinite-scroll layout for all albums, you may also allow "
+"\"multiple_layouts\" plugin and then choose \"album_infinitescroll\" as "
+"layout for specific albums of your gallery."
 msgstr ""
-"In plaats van deze optie aan te vinken kun je ook de <em>multiple_layouts</"
-"em> plugin activeren en <em>album_infinitscroll</em> selecteren als layout "
-"voor een bepaald album."
+"In plaats van deze optie aan te vinken kun je ook de "
+"<em>multiple_layouts<em> plugin activeren en <em>album_infinitescroll</em> "
+"selecteren als layout voor een bepaald album."
 
 #: themeoptions.php:107
 msgid ""
@@ -173,7 +173,7 @@ msgstr ""
 "album getoond."
 
 #: themeoptions.php:117
-msgid "This option overwrites the infinit scroll on album option above."
+msgid "This option overwrites the infinite scroll on album option above."
 msgstr ""
 "Deze optie heeft voorrang op de <em>Infinite Scroll</em> optie voor albums "
 "hierboven."
@@ -205,6 +205,15 @@ msgstr ""
 "Toon de EXIF informatie op de afbeeldingen pagina (<em>image.php</em>) "
 "Vergeet niet de gewenste EXIF informatie te selecteren in Admin => Opties => "
 "Afbeelding => Metadata."
+
+#~ msgid ""
+#~ "Rather than using infinite scoll layout for all albums, you may also "
+#~ "allow \"multiple_layouts\" plugin and then choose \"album_infinitscoll\" "
+#~ "as layout for specific albums of your gallery."
+#~ msgstr ""
+#~ "In plaats van deze optie aan te vinken kun je ook de "
+#~ "<em>multiple_layouts</em> plugin activeren en <em>album_infinitescroll</"
+#~ "em> selecteren als layout voor een bepaald album."
 
 #~ msgid ""
 #~ "Display a home page, with a slider of 5 random picts, the gallery "
