@@ -2,9 +2,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: zpBootstrap\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-10-14 17:12+0200\n"
-"PO-Revision-Date: 2017-10-14 17:24+0200\n"
-"Last-Translator: Malte Müller (acrylian) <wartgart@gmx.net>\n"
+"POT-Creation-Date: 2017-10-17 14:46+0200\n"
+"PO-Revision-Date: 2017-10-17 14:52+0200\n"
+"Last-Translator: Vincent Bourganel <vincent_bourganel@yahoo.fr>\n"
 "Language-Team: vincent3569 <vincent_bourganel@yahoo.fr>\n"
 "Language: de_DE\n"
 "MIME-Version: 1.0\n"
@@ -27,27 +27,27 @@ msgstr ""
 "Das Theme unterstützt die Colobox-Einstellung für das googlemaps-Plugin "
 "nicht."
 
-#: inc_print_infinitscroll.php:5
+#: inc_print_infinitescroll.php:5
 msgid "View more albums"
 msgstr "Mehr Alben ansehen"
 
-#: inc_print_infinitscroll.php:6
+#: inc_print_infinitescroll.php:6
 msgid "No more albums to display"
 msgstr "Keine weiteren Alben anzuzeigen"
 
-#: inc_print_infinitscroll.php:10
+#: inc_print_infinitescroll.php:10
 msgid "View more images"
 msgstr "Mehr Bilder ansehen"
 
-#: inc_print_infinitscroll.php:11
+#: inc_print_infinitescroll.php:11
 msgid "No more images to display"
 msgstr "Keine weiteren Bilder anzuzeigen"
 
-#: inc_print_infinitscroll_news.php:7
+#: inc_print_infinitescroll_news.php:7
 msgid "View more news"
 msgstr "Mehr Neuigkeiten ansehen"
 
-#: inc_print_infinitscroll_news.php:17
+#: inc_print_infinitescroll_news.php:17
 msgid "No more news to display"
 msgstr "Keine weiteren Neuigkeiten anzuzeigen"
 
@@ -96,18 +96,18 @@ msgid "Number of random pictures to use for the homepage slider."
 msgstr "Anzahl der Zufallsbilder im Homepage-Slider."
 
 #: themeoptions.php:94
-msgid "Use infinit scroll"
+msgid "Use infinite scroll"
 msgstr "Infinite Scrolling nutzen"
 
 #: themeoptions.php:103
 msgid ""
 "Check pages which use <a href=\"https://infinite-scroll.com/\" target="
-"\"_blank\">infinit scoll jQuery plugin</a>. This layout will automatically "
+"\"_blank\">infinite-scroll jQuery plugin</a>. This layout will automatically "
 "load items of next page (albums, images or news) without pagination."
 msgstr ""
-"Wählen Sie Seiten, die das <a href=„https://infinite-scroll.com/"
-"„ target=„_blank“>infinit scoll-jQuery-Plugin</a> nutzen sollen. Dies Layout "
-"lädt automatisch Einträge der nächsten Seite ohne Paginierung."
+"Wählen Sie Seiten, die das <a href=\"https://infinite-scroll.com/\" target="
+"\"_blank“>infinite scoll-jQuery-Plugin</a> nutzen sollen. Dies Layout lädt "
+"automatisch Einträge der nächsten Seite ohne Paginierung."
 
 #: themeoptions.php:104
 msgid ""
@@ -120,13 +120,13 @@ msgstr ""
 
 #: themeoptions.php:105
 msgid ""
-"Rather than using infinit scoll layout for all albums, you may also allow "
-"\"multiple_layouts\" plugin and then choose \"album_infinitscoll\" as layout "
-"for specific albums of your gallery."
+"Rather than using infinite-scroll layout for all albums, you may also allow "
+"\"multiple_layouts\" plugin and then choose \"album_infinitescroll\" as "
+"layout for specific albums of your gallery."
 msgstr ""
 "Anstatt das Infinit-Scrolling-Layout für alle Alben zu verwenden, können Sie "
 "auch das multiple_layouts-Plugin verwenden und dann einzelnen Alben das "
-"„album_infinitscroll“-Layout zuweisen."
+"\"album_infinitscroll“-Layout zuweisen."
 
 #: themeoptions.php:107
 msgid ""
@@ -172,7 +172,7 @@ msgstr ""
 "auf Unteralben zugreifen)."
 
 #: themeoptions.php:117
-msgid "This option overwrites the infinit scroll on album option above."
+msgid "This option overwrites the infinite scroll on album option above."
 msgstr ""
 "Diese Einstellung überschreibt das Infinit-Scrollen der obigen Album-"
 "Einsteillung."
@@ -204,6 +204,33 @@ msgstr ""
 "Zeigt die Exif-Daten auf der Bildseite an. Denken Sie daran, dass Sie die "
 "EXIF-Daten, die Sie anzeigen möchten, unter Einstellungen > Bild > EXIF "
 "auswählen können."
+
+#~ msgid "Use infinit scroll"
+#~ msgstr "Infinite Scrolling nutzen"
+
+#~ msgid ""
+#~ "Check pages which use <a href=\"https://infinite-scroll.com/\" target="
+#~ "\"_blank\">infinit scoll jQuery plugin</a>. This layout will "
+#~ "automatically load items of next page (albums, images or news) without "
+#~ "pagination."
+#~ msgstr ""
+#~ "Wählen Sie Seiten, die das <a href=„https://infinite-scroll.com/"
+#~ "„ target=„_blank“>infinit scoll-jQuery-Plugin</a> nutzen sollen. Dies "
+#~ "Layout lädt automatisch Einträge der nächsten Seite ohne Paginierung."
+
+#~ msgid ""
+#~ "Rather than using infinit scoll layout for all albums, you may also allow "
+#~ "\"multiple_layouts\" plugin and then choose \"album_infinitscoll\" as "
+#~ "layout for specific albums of your gallery."
+#~ msgstr ""
+#~ "Anstatt das Infinit-Scrolling-Layout für alle Alben zu verwenden, können "
+#~ "Sie auch das multiple_layouts-Plugin verwenden und dann einzelnen Alben "
+#~ "das „album_infinitscroll“-Layout zuweisen."
+
+#~ msgid "This option overwrites the infinit scroll on album option above."
+#~ msgstr ""
+#~ "Diese Einstellung überschreibt das Infinit-Scrollen der obigen Album-"
+#~ "Einsteillung."
 
 #~ msgid ""
 #~ "Display a home page, with a slider of 5 random picts, the gallery "
