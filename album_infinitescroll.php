@@ -30,7 +30,7 @@ if ((getNumAlbums() > 0) && (getNumImages() > 0)) {
 			include('inc_print_image_thumb.php');
 		}
 
-		include('inc_print_infinitscroll.php');
+		include('inc_print_infinitescroll.php');
 		?>
 
 		<?php if ((zp_loggedin()) && (extensionEnabled('favoritesHandler'))) { ?>

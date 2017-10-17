@@ -65,7 +65,7 @@ if ($_zenpage_and_news_enabled) {
 		<?php } ?>
 
 		<?php
-		if (!getOption('zpB_use_infinitscroll_news')) {
+		if (!getOption('zpB_use_infinitescroll_news')) {
 			printNewsPageListWithNav('»', '«', true, 'pagination pagination-sm', true, 7);
 		}
 		?>
@@ -77,10 +77,10 @@ if ($_zenpage_and_news_enabled) {
 		</div>
 
 		<?php
-		if (!getOption('zpB_use_infinitscroll_news')) {
+		if (!getOption('zpB_use_infinitescroll_news')) {
 			printNewsPageListWithNav('»', '«', true, 'pagination pagination-sm margin-top-reset', true, 7);
 		} else {
-			include('inc_print_infinitscroll_news.php');
+			include('inc_print_infinitescroll_news.php');
 		}
 		?>
 

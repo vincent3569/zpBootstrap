@@ -20,7 +20,7 @@
 		<?php } ?>
 
 		<?php
-		if (!getOption('zpB_use_infinitscroll_gallery')) {
+		if (!getOption('zpB_use_infinitescroll_gallery')) {
 			printPageListWithNav('«', '»', false, true, 'pagination pagination-sm', NULL, true, 7);
 		}
 
@@ -28,10 +28,10 @@
 			include('inc_print_album_thumb.php');
 		}
 
-		if (!getOption('zpB_use_infinitscroll_gallery')) {
+		if (!getOption('zpB_use_infinitescroll_gallery')) {
 			printPageListWithNav('«', '»', false, true, 'pagination pagination-sm top-margin-reset', NULL, true, 7);
 		} else {
-			include('inc_print_infinitscroll.php');
+			include('inc_print_infinitescroll.php');
 		}
 		?>
 

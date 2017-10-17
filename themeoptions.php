@@ -29,9 +29,9 @@ class ThemeOptions {
 		setThemeOptionDefault('zpB_latest_news_homepage', false);
 		setThemeOptionDefault('zpB_homepage_album_filename', '');
 		setThemeOptionDefault('zpB_homepage_random_pictures', 5);
-		setThemeOptionDefault('zpB_use_infinitscroll_gallery', false);
-		setThemeOptionDefault('zpB_use_infinitscroll_albums', false);
-		setThemeOptionDefault('zpB_use_infinitscroll_news', false);
+		setThemeOptionDefault('zpB_use_infinitescroll_gallery', false);
+		setThemeOptionDefault('zpB_use_infinitescroll_albums', false);
+		setThemeOptionDefault('zpB_use_infinitescroll_news', false);
 		setThemeOptionDefault('zpB_use_isotope', false);
 		setThemeOptionDefault('zpB_allow_search', true);
 		setThemeOptionDefault('zpB_show_archive', true);
@@ -91,18 +91,18 @@ class ThemeOptions {
 				'type' => OPTION_TYPE_TEXTBOX,
 				'multilingual' => 0,
 				'desc' => gettext_th('Number of random pictures to use for the homepage slider.', $me)),
-			gettext_th('Use infinit scroll', $me) => array(
+			gettext_th('Use infinite scroll', $me) => array(
 				'order' => 5,
-				'key' => 'zpB_infinitscroll',
+				'key' => 'zpB_infinitescroll',
 				'type' => OPTION_TYPE_CHECKBOX_ARRAY,
 				'checkboxes' => array(
-					gettext('Gallery') => 'zpB_use_infinitscroll_gallery',
-					gettext('Albums') => 'zpB_use_infinitscroll_albums',
-					gettext('News') => 'zpB_use_infinitscroll_news'),
+					gettext('Gallery') => 'zpB_use_infinitescroll_gallery',
+					gettext('Albums') => 'zpB_use_infinitescroll_albums',
+					gettext('News') => 'zpB_use_infinitescroll_news'),
 				'desc' =>
-					gettext_th('Check pages which use <a href="https://infinite-scroll.com/" target="_blank">infinit scoll jQuery plugin</a>. This layout will automatically load items of next page (albums, images or news) without pagination.', $me) . '<br />' .
+					gettext_th('Check pages which use <a href="https://infinite-scroll.com/" target="_blank">infinite-scroll jQuery plugin</a>. This layout will automatically load items of next page (albums, images or news) without pagination.', $me) . '<br />' .
 					gettext_th('The behavior is "manual first": it requires visitor to click a button the first time to load new items and then, it automatically load after.', $me) . '<br />' .
-					gettext_th('Rather than using infinit scoll layout for all albums, you may also allow "multiple_layouts" plugin and then choose "album_infinitscoll" as layout for specific albums of your gallery.', $me) .
+					gettext_th('Rather than using infinite-scroll layout for all albums, you may also allow "multiple_layouts" plugin and then choose "album_infinitescroll" as layout for specific albums of your gallery.', $me) .
 					
 					'<p class="notebox">' . gettext_th('<strong>Note:</strong> This album layout does not manage albums with images and sub-albums (in that case, standard album layout is automatically used).', $me) . '</p>'),
 			gettext_th('Use isotope', $me) => array(
@@ -114,7 +114,7 @@ class ThemeOptions {
 					gettext_th('Rather than use isotope layout for all albums, you may also allow "multiple_layouts" plugin and then choice "album_isotope" as layout for specific albums of your gallery.', $me) .
 					'<p class="notebox">' . 
 						gettext_th('<strong>Notes:</strong> This album layout does not manage sub-albums (in that case, only pictures of the album are shown and you cant not access on sub-albums).', $me) . '<br />' .
-						gettext_th('This option overwrites the infinit scroll on album option above.', $me) .
+						gettext_th('This option overwrites the infinite scroll on album option above.', $me) .
 					'</p>'),
 			gettext_th('Social Links', $me) => array(
 				'order' => 8,

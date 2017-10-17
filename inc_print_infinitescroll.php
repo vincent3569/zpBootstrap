@@ -1,10 +1,24 @@
-		<?php if (zpB_hasNextNewsPage()) { ?>
-		<div class="infinit-pagination">
-			<?php zpB_printNextNewsPageURL(gettext('Next page'), 'infinit-next-page'); ?>
+		<?php
+		if (isAlbumPage()) {
+			$containerClass = '.album-wrap';
+			$itemClass = '.album-thumb';
+			$viewMoreText = gettext_th('View more albums', $me);
+			$noMoreText = gettext_th('No more albums to display', $me);
+		} else if (isImagePage()) {
+			$containerClass = '.image-wrap';
+			$itemClass = '.image-thumb';
+			$viewMoreText = gettext_th('View more images', $me);
+			$noMoreText = gettext_th('No more images to display', $me);
+		}
+		?>
+
+		<?php if (hasNextPage()) { ?>
+		<div class="infinite-pagination">
+			<?php printNextPageURL(gettext('Next page'), NULL, 'infinite-next-page'); ?>
 		</div>
 
-		<div class="margin-top-double margin-bottom-double view-more">
-			<button class="btn btn-default center-block"><?php echo gettext_th('View more news', $me); ?></button>
+		<div class="margin-bottom-double view-more">
+			<button class="btn btn-default center-block"><?php echo $viewMoreText; ?></button>
 		</div>
 
 		<div class="page-load-status margin-top-double margin-bottom-double">
@@ -14,31 +28,31 @@
 				<span class="loader-ellips-dot"></span>
 				<span class="loader-ellips-dot"></span>
 			</div>
-			<div class="infinite-scroll-last infinite-scroll-error"><?php echo gettext_th('No more news to display', $me); ?></div>
+			<div class="infinite-scroll-last infinite-scroll-error"><?php echo $noMoreText; ?></div>
 		</div>
 
 		<script type="text/javascript" src="<?php echo $_zp_themeroot; ?>/js/infinite-scroll.pkgd.min.js"></script>
 		<script type="text/javascript">
 		//<![CDATA[
-			var $container = $('.news-wrap');
+			var $container = $('<?php echo $containerClass; ?>');
 			var $pageLoadStatus = $('.page-load-status');
 			var $viewMoreButton = $('.view-more');
-			$('.infinit-pagination a').addClass('infinit-next-page');
 
 			$(document).ready( function() {
 
 				$container.infiniteScroll({
-					path : '.infinit-next-page',
-					append : '.list-post',
-					hideNav : '.infinit-pagination',
+					path : '.infinite-next-page',
+					append : '<?php echo $itemClass; ?>',
+					hideNav : '.infinite-pagination',
 					status : '.page-load-status',
 					loadOnScroll : false,
 				});
 
 				$container.on( 'append.infiniteScroll', function( event, response, path, newElements ) {
-					var $newElems = $(newElements);
+					var $newElems = $(newElements).css({ opacity: 0 });
 					$newElems.imagesLoaded( function() {
-						$('.swipebox').attr('data-fancybox', 'images');
+						$('.flag_thumbnail').removeAttr('style');
+						$newElems.animate({ opacity: 1 });
 					});
 				});
 
