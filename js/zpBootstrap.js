@@ -13,12 +13,6 @@ $(document).ready( function() {
 		.removeAttr('height')
 		.addClass('img-responsive');
 
-	/* add attribute for fancybox called elsewhere than gallery */
-	$('.swipebox').each(function() {
-		$(this)
-			.attr('data-fancybox', 'images');
-	});
-
 	/* add icon to links going out of the site, except links with pictures */
 	$('a[target=_blank]').each(function() {
 		if (!($(this).children('img').length)) {

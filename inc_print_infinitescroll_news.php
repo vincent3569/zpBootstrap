@@ -35,13 +35,6 @@
 					loadOnScroll : false,
 				});
 
-				$container.on( 'append.infiniteScroll', function( event, response, path, newElements ) {
-					var $newElems = $(newElements);
-					$newElems.imagesLoaded( function() {
-						$('.swipebox').attr('data-fancybox', 'images');
-					});
-				});
-
 				$viewMoreButton.on( 'click', function() {
 					$container.infiniteScroll('loadNextPage');
 					$container.infiniteScroll('option', {
