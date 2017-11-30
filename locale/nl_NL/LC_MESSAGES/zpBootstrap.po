@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: zpBootstrap\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-10-17 14:41+0200\n"
-"PO-Revision-Date: 2017-10-17 14:41+0200\n"
+"POT-Creation-Date: 2017-11-30 16:21+0100\n"
+"PO-Revision-Date: 2017-11-30 16:22+0100\n"
 "Last-Translator: Vincent Bourganel <vincent_bourganel@yahoo.fr>\n"
 "Language-Team: vincent3569 <vincent_bourganel@yahoo.fr>\n"
 "Language: nl_NL\n"
@@ -19,6 +19,10 @@ msgstr ""
 #: home.php:60
 msgid "Latest news"
 msgstr "Laatste nieuws"
+
+#: inc_header.php:110
+msgid "thumbnails"
+msgstr "thumbnails"
 
 #: inc_print_googlemap.php:2
 msgid "The theme doesn't support colorbox option for googlemap plugin."
@@ -49,6 +53,31 @@ msgstr "Meer artikelen"
 #: inc_print_infinitescroll_news.php:17
 msgid "No more news to display"
 msgstr "Geen artikelen meer"
+
+#: theme_description.php:10
+msgid ""
+"A responsive Zenphoto theme ready for desktop to mobile device, using <a "
+"href=\"http://getbootstrap.com/\" title=\"Boostrap\" target=\"_blank"
+"\">Boostrap 3.3.7</a> framework."
+msgstr ""
+
+#: theme_description.php:11
+msgid "Please read"
+msgstr ""
+
+#: theme_description.php:11
+msgid "and"
+msgstr ""
+
+#: theme_description.php:12
+msgid ""
+"To design your content to be responsive using Boostrap framework, you can "
+"have a look on"
+msgstr ""
+
+#: theme_description.php:12
+msgid "Bootstrap Grid System"
+msgstr ""
 
 #: themeoptions.php:72
 msgid ""

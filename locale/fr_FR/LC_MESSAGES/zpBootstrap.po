@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: zpBootstrap\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-10-25 18:23+0200\n"
-"PO-Revision-Date: 2017-10-25 18:27+0200\n"
+"POT-Creation-Date: 2017-11-30 16:19+0100\n"
+"PO-Revision-Date: 2017-11-30 16:19+0100\n"
 "Last-Translator: Vincent Bourganel <vincent_bourganel@yahoo.fr>\n"
 "Language-Team: vincent3569 <vincent_bourganel@yahoo.fr>\n"
 "Language: fr_FR\n"
@@ -19,6 +19,10 @@ msgstr ""
 #: home.php:60
 msgid "Latest news"
 msgstr "Dernière actualité"
+
+#: inc_header.php:110
+msgid "thumbnails"
+msgstr "miniatures"
 
 #: inc_print_googlemap.php:2
 msgid "The theme doesn't support colorbox option for googlemap plugin."

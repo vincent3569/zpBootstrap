@@ -102,11 +102,12 @@ if (!defined('WEBPATH')) die();
 			$.fancybox.defaults.lang = '<?php $loc = substr(getOption('locale'), 0, 2); if (empty($loc)) {$loc = 'en';}; echo $loc; ?>';
 			$.fancybox.defaults.i18n = {
 				'<?php echo $loc; ?>' : {
-					CLOSE		: '<?php echo gettext("close"); ?>',
-					NEXT		: '<?php echo gettext("next"); ?>',
-					PREV		: '<?php echo gettext("prev"); ?>',
-					PLAY_START	: '<?php echo gettext("start slideshow"); ?>',
-					PLAY_STOP	: '<?php echo gettext("stop slideshow"); ?>'
+					CLOSE		: '<?php echo gettext('close'); ?>',
+					NEXT		: '<?php echo gettext('next'); ?>',
+					PREV		: '<?php echo gettext('prev'); ?>',
+					PLAY_START	: '<?php echo gettext('start slideshow'); ?>',
+					PLAY_STOP	: '<?php echo gettext('stop slideshow'); ?>',
+					THUMBS		: '<?php echo gettext_th('thumbnails', $me); ?>'
 				}
 			};
 
