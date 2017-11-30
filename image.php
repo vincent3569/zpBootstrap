@@ -57,7 +57,7 @@
 							<?php printImageMetadata(NULL, false); ?>
 						</div>
 						<div class="modal-footer">
-							<button type="button" class="btn btn-default" data-dismiss="modal"><?php echo gettext('Close'); ?></button>
+							<button type="button" class="btn btn-default" data-dismiss="modal"><?php echo gettext('close'); ?></button>
 						</div>
 					</div>
 				</div>
