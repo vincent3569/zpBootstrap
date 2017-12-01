@@ -39,11 +39,6 @@ class ThemeOptions {
 		setThemeOptionDefault('zpB_social_links', true);
 		setThemeOptionDefault('zpB_show_exif', true);
 
-		// disable some zenphoto plugin
-		enableExtension('colorbox_js', 0);
-		enableExtension('slideshow', 0);
-		enableExtension('slideshow2', 0);
-
 		if (class_exists('cacheManager')) {
 			cacheManager::deleteThemeCacheSizes($me);
 			cacheManager::addThemeCacheSize($me, getThemeOption('thumb_size'), NULL, NULL, getThemeOption('thumb_crop_width'), getThemeOption('thumb_crop_height'), NULL, NULL, true);
