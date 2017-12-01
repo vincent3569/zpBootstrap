@@ -460,11 +460,17 @@ div.buttons button {
 	text-align: center;
 }
 .fancybox-is-open .fancybox-bg {
-	opacity: 0.97;
+	opacity: 0.98;
 }
 .fancybox-thumbs > ul > li {
 	width: 100px;
 	height: 100px;
+}
+
+@media (max-width: 767px) {
+	.fancybox-button--thumbs {
+		display: none;
+	}
 }
 @media (min-width: 768px) {
 	.fancybox-thumbs {
