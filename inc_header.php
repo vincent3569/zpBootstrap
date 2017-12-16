@@ -107,7 +107,7 @@ if (!defined('WEBPATH')) die();
 					PREV		: '<?php echo gettext('prev'); ?>',
 					PLAY_START	: '<?php echo gettext('start slideshow'); ?>',
 					PLAY_STOP	: '<?php echo gettext('stop slideshow'); ?>',
-					THUMBS		: '<?php echo gettext_th('thumbnails', $me); ?>'
+					THUMBS		: '<?php echo gettext_th('thumbnails'); ?>'
 				}
 			};
 
