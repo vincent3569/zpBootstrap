@@ -1,6 +1,7 @@
 $(document).ready( function() {
 	$().fancybox({
-		selector : '[data-fancybox="images"]',
+		// FancyBox shows only filtered items with Isotope
+		selector : $("#isotope-wrap").length ? '.image-item:visible > [data-fancybox="images"]' : '[data-fancybox="images"]',
 		loop : true,
 		margin : [20, 0],
 		buttons : [
