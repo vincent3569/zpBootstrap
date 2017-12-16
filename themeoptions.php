@@ -52,6 +52,7 @@ class ThemeOptions {
 
 	function getOptionsSupported() {
 
+		$me = basename(dirname(__FILE__));
 		$albums = $album_list = array();
 		genAlbumList($album_list, NULL, ALL_ALBUMS_RIGHTS);
 		foreach ($album_list as $fullfolder => $albumtitle) {
