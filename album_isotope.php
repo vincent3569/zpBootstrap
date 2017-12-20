@@ -54,7 +54,7 @@ require_once (SERVERPATH . '/' . ZENFOLDER . '/' . PLUGIN_FOLDER . '/tag_extras.
 				$class = $image_item_size_2;
 			}
 			?>
-			<div class="image-item<?php echo $class; ?>">
+			<div class="isotope-item image-item<?php echo $class; ?>">
 				<a class="thumb" href="<?php echo html_encode(getUnprotectedImageURL()); ?>" title="<?php echo getBareImageTitle(); ?>" data-fancybox="images">
 					<?php
 					if (getFullWidth() > getFullHeight()) {
@@ -77,7 +77,7 @@ require_once (SERVERPATH . '/' . ZENFOLDER . '/' . PLUGIN_FOLDER . '/tag_extras.
 			// init Isotope after all images have loaded
 			var $containter = $('#isotope-wrap').imagesLoaded( function() {
 				$containter.isotope({
-					itemSelector: '.image-item',
+					itemSelector: '.isotope-item',
 					layoutMode: 'packery',
 					// packery layout
 					packery: {
