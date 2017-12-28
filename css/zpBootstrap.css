@@ -110,7 +110,7 @@ blockquote small, blockquote.small {
 }
 
 /*------------------------------------
-	header ans titles
+	header and titles
 -------------------------------------- */
 .navbar-inner {
 	padding-left: 0;
@@ -186,7 +186,7 @@ blockquote small, blockquote.small {
 }
 /* ---- isotope ---- */
 .gutter-sizer {
-    width: 20px;
+	width: 20px;
 }
 .image-item {
 	width: 150px;
@@ -199,9 +199,9 @@ blockquote small, blockquote.small {
 	height: 235px;
 }
 @media (max-width: 767px) {
-    .gutter-sizer {
-        width: 5px;
-    }
+	.gutter-sizer {
+		width: 5px;
+	}
 	.image-item {
 		width: 120px;
 		height: 120px;
@@ -260,7 +260,7 @@ blockquote small, blockquote.small {
 	border-bottom: 1px solid #ddd;
 }
 .list-post:first-of-type {
-    padding-top: 20px;
+	padding-top: 20px;
 	border-top: 1px solid #ddd;
 }
 .post {
@@ -340,6 +340,10 @@ blockquote small, blockquote.small {
 	clear: both;
 	padding-top: 10px;
 	font-style: italic;
+}
+iframe {
+	overflow:hidden;
+	border: 0;
 }
 
 /*------------------------------------
