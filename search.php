@@ -21,10 +21,10 @@
 
 			$numnews = $numpages = 0;
 			if ($_zenpage_enabled && !isArchive()) {
-				if ($_zenpage_and_news_enabled) {
+				if ($_zenpage_news_enabled) {
 					$numnews = getNumNews();
 				}
-				if ($_zenpage_and_pages_enabled) {
+				if ($_zenpage_pages_enabled) {
 					$numpages = getNumPages();
 				}
 			}
@@ -92,7 +92,7 @@
 			printPageListWithNav('«', '»', false, true, 'pagination pagination-sm margin-top-reset', NULL, true, 7);
 
 			if (($_zenpage_enabled) /*&& ($_zp_page == 1)*/) {		//test of zenpage searches
-				if ($_zenpage_and_news_enabled && ($numnews > 0)) { ?>
+				if ($_zenpage_news_enabled && ($numnews > 0)) { ?>
 					<h4 class="margin-top-double margin-bottom-double"><strong><?php printf(gettext('Articles (%s)'), $numnews); ?></strong></h4>
 					<?php while (next_news()) { ?>
 					<div class="list-post clearfix">
@@ -105,7 +105,7 @@
 					}
 				}
 
-				if ($_zenpage_and_pages_enabled && ($numpages > 0)) { ?>
+				if ($_zenpage_pages_enabled && ($numpages > 0)) { ?>
 					<h4 class="margin-top-double margin-bottom-double"><strong><?php printf(gettext('Pages (%s)'), $numpages); ?></strong></h4>
 					<?php while (next_page()) { ?>
 					<div class="list-post clearfix">

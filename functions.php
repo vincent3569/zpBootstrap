@@ -51,9 +51,9 @@ if (!OFFSET_PATH) {
 	$_zp_page_check = 'my_checkPageValidity';
 
 	$_zenpage_enabled = extensionEnabled('zenpage');
-	$_zenpage_and_news_enabled = extensionEnabled('zenpage') && ZP_NEWS_ENABLED;
-	$_zenpage_and_pages_enabled = extensionEnabled('zenpage') && ZP_PAGES_ENABLED;
-	/* if ($_zenpage_and_pages_enabled && is_Pages() && (getPageTitleLink() == 'guestbook')) {
+	$_zenpage_news_enabled = ZP_NEWS_ENABLED;
+	$_zenpage_pages_enabled = ZP_PAGES_ENABLED;
+	/* if ($_zenpage_pages_enabled && is_Pages() && (getPageTitleLink() == 'guestbook')) {
 		setOption('comment_form_addresses', 1, false);
 	} */
 }

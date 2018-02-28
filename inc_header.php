@@ -49,7 +49,7 @@ if (!defined('WEBPATH')) die();
 
 	<?php
 	if (extensionEnabled('rss')) {
-		if (($_zenpage_and_news_enabled) && (getOption('RSS_articles'))) {
+		if (($_zenpage_news_enabled) && (getOption('RSS_articles'))) {
 			printRSSHeaderLink('News', gettext('Latest news'));
 		} else if (getOption('RSS_album_image')) {
 			printRSSHeaderLink('Gallery', gettext('Latest images RSS'));
@@ -119,7 +119,7 @@ if (!defined('WEBPATH')) die();
 	</script>
 	<?php } ?>
 
-	<?php if (($_zp_gallery_page == 'image.php') || ($_zenpage_and_news_enabled && is_NewsArticle())) { ?>
+	<?php if (($_zp_gallery_page == 'image.php') || ($_zenpage_news_enabled && is_NewsArticle())) { ?>
 	<script type="text/javascript">
 	//<![CDATA[
 		<?php
@@ -128,7 +128,7 @@ if (!defined('WEBPATH')) die();
 			if (hasNextImage()) { ?>var nextURL = "<?php echo html_encode(getNextImageURL()); $NextURL = true; ?>";<?php }
 			if (hasPrevImage()) { ?>var prevURL = "<?php echo html_encode(getPrevImageURL()); $PrevURL = true; ?>";<?php }
 		} else {
-			if ($_zenpage_and_news_enabled && is_NewsArticle()) {
+			if ($_zenpage_news_enabled && is_NewsArticle()) {
 				if (getNextNewsURL()) { $article_url = getNextNewsURL(); ?>var nextURL = "<?php echo html_decode($article_url['link']); $NextURL = true; ?>";<?php }
 				if (getPrevNewsURL()) { $article_url = getPrevNewsURL(); ?>var prevURL = "<?php echo html_decode($article_url['link']); $PrevURL = true; ?>";<?php }
 			}
@@ -205,13 +205,13 @@ if (!defined('WEBPATH')) die();
 						<?php printCustomPageURL(gettext('Gallery'), 'gallery'); ?>
 					</li>
 
-				<?php if ($_zenpage_and_news_enabled && (getNumNews(true) > 0)) { ?>
+				<?php if ($_zenpage_news_enabled && (getNumNews(true) > 0)) { ?>
 					<li<?php if ($_zp_gallery_page == 'news.php') { ?> class="active"<?php } ?>>
 						<?php printNewsIndexURL(gettext('News'), '', gettext('News')); ?>
 					</li>
 				<?php } ?>
 
-				<?php if ($_zenpage_and_pages_enabled) { ?>
+				<?php if ($_zenpage_pages_enabled) { ?>
 					<?php printPageMenu('list-top', '', 'active', '', '', '', 0, false); ?>
 				<?php } ?>
 
@@ -300,7 +300,7 @@ if (!defined('WEBPATH')) die();
 			<div class="col-sm-push-9 col-sm-3">
 				<?php if (extensionEnabled('rss')) {
 					$rss = false;
-					if ($_zenpage_and_news_enabled && (getOption('RSS_articles'))) {
+					if ($_zenpage_news_enabled && (getOption('RSS_articles'))) {
 						$rss = true; $type = 'News';
 					} else if (getOption('RSS_album_image')) {
 						$rss = true; $type = 'Gallery';
