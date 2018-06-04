@@ -400,6 +400,7 @@
     "thumbnails.less",
     "alerts.less",
     "panels.less",
+    "responsive-embed.less",
     "component-animations.less",
     "dropdowns.less",
     "modals.less"
@@ -409,5 +410,5 @@
     "modal.js",
     "collapse.js"
   ],
-  "customizerUrl": "https://getbootstrap.com/docs/3.3/customize/?id=395768915c2613acfa99e95ebdc1fc18"
+  "customizerUrl": "<none>"
 }
