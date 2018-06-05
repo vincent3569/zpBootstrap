@@ -34,6 +34,7 @@ class ThemeOptions {
 		setThemeOptionDefault('zpB_use_infinitescroll_news', false);
 		setThemeOptionDefault('zpB_use_isotope', false);
 		setThemeOptionDefault('zpB_allow_search', true);
+		setThemeOptionDefault('zpB_exerpt_length', 200);
 		setThemeOptionDefault('zpB_show_archive', true);
 		setThemeOptionDefault('zpB_show_tags', true);
 		setThemeOptionDefault('zpB_social_links', true);
@@ -121,6 +122,11 @@ class ThemeOptions {
 				'key' => 'zpB_allow_search',
 				'type' => OPTION_TYPE_CHECKBOX,
 				'desc' => gettext('Check to enable search form.')),
+			gettext_th('Excerpt length', $me) => array(
+				'order' => 11,
+				'key' => 'zpB_exerpt_length',
+				'type' => OPTION_TYPE_TEXTBOX,
+				'desc' => gettext_th('Excerpt length for news and pages lists in search page', $me)),
 			gettext('Archive View') => array(
 				'order' => 12,
 				'key' => 'zpB_show_archive',

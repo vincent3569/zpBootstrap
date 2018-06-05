@@ -98,7 +98,7 @@
 					<div class="list-post clearfix">
 						<h4 class="post-title"><?php printNewsURL(); ?></h4>
 						<div class="post-content clearfix">
-							<?php echo shortenContent(getBare(getNewsContent()), 200, getOption("zenpage_textshorten_indicator")); ?>
+							<?php echo shortenContent(getBare(getNewsContent()), getOption("zpB_exerpt_length"), getOption("zenpage_textshorten_indicator")); ?>
 						</div>
 					</div>
 					<?php
@@ -111,7 +111,7 @@
 					<div class="list-post clearfix">
 						<h4 class="post-title"><?php printPageURL(); ?></h4>
 						<div class="post-content clearfix">
-							<?php echo shortenContent(getBare(getPageContent()), 200, getOption("zenpage_textshorten_indicator")); ?>
+							<?php echo shortenContent(getBare(getPageContent()), getOption("zpB_exerpt_length"), getOption("zenpage_textshorten_indicator")); ?>
 						</div>
 					</div>
 					<?php
