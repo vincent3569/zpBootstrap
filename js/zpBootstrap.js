@@ -100,6 +100,11 @@ $(document).ready( function() {
 			.parent().parent().wrapInner('<div class="form-group"></div>');
 		$('#registration_form label').addClass('col-sm-4 control-label');
 		$('#registration_form #disclose_password').removeClass('form-control');
+		$('#registration_form label[for="admin_dataconfirmation"]')
+			.removeClass('col-sm-4 control-label')
+			.parent().wrapInner('<div class="checkbox"></div>')
+			.wrapInner('<div class="col-sm-offset-4 col-sm-8"></div>')
+			.wrapInner('<div class="form-group"></div>');
 		$('#registration_form p > strong')
 			.parent().wrapInner('<div class="form-control-static"></div>')
 			.wrapInner('<div class="col-sm-push-4 col-sm-6"></div>')
@@ -158,6 +163,11 @@ $(document).ready( function() {
 			.attr('rows', '8')
 			.wrap('<div class="col-sm-8"></div>')
 			.parent().parent().wrapInner('<div class="form-group"></div>');
+		$('#mailform label[for="dataconfirmation"]')
+			.removeClass('col-sm-3 control-label')
+			.parent().wrapInner('<div class="checkbox"></div>')
+			.wrapInner('<div class="col-sm-offset-3 col-sm-9"></div>')
+			.wrapInner('<div class="form-group"></div>');
 		$('#mailform input[type="submit"]').parent()
 			.wrapInner('<div class="col-sm-offset-3 col-sm-6"></div>')
 			.wrapInner('<div class="form-group"></div>');
@@ -218,6 +228,11 @@ $(document).ready( function() {
 			.parent().parent().wrapInner('<div class="form-group"></div>');
 		$('#commentform label').addClass('col-sm-4 control-label');
 		$('#commentform label[for="username"]').parent().addClass('hidden');
+		$('#commentform label[for="comment_dataconfirmation"]')
+			.removeClass('col-sm-4 control-label')
+			.parent().wrapInner('<div class="checkbox"></div>')
+			.wrapInner('<div class="col-sm-offset-4 col-sm-8"></div>')
+			.wrapInner('<div class="form-group"></div>');
 		$('#commentform p > strong')
 			.parent().wrapInner('<div class="form-control-static"></div>')
 			.wrapInner('<div class="col-sm-push-4 col-sm-7"></div>')
