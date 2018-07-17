@@ -1,5 +1,5 @@
 /*
- * jQuery FlexSlider v2.7.0
+ * jQuery FlexSlider v2.7.1
  * http://www.woothemes.com/flexslider/
  *
  * Copyright 2012 WooThemes
@@ -8,7 +8,7 @@
  *
  * Contributing author: Tyler Smith (@mbmufffin)
  *
- * Note: some hacks from VBO exists in that file
+ * Note: some hacks (look for "hack VBO") exists in that file to be compliant with zpBootstrap
  * 
  */
 /* ====================================================================================================================
@@ -106,6 +106,11 @@ html[xmlns] .flexslider .slides {
 }
 .loading .flex-viewport {
   max-height: 300px;
+}
+@-moz-document url-prefix() {
+  .loading .flex-viewport {
+    max-height: none;
+  }
 }
 .carousel li {
   margin-right: 5px;
@@ -268,8 +273,8 @@ html[xmlns] .flexslider .slides {
 /* ====================================================================================================================
  * RESPONSIVE
  * ====================================================================================================================*/
-/* hack VBO to be consistant with bootstrap breakpoints (init : 860px) */
-@media screen and (max-width: 767px) { 
+ /* hack VBO to be consistant with bootstrap breakpoints (init : 860px) */
+@media screen and (max-width: 767px) {
   .flex-direction-nav .flex-prev {
     opacity: 1;
     left: 10px;
