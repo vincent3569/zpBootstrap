@@ -69,17 +69,6 @@
 				}
 			}
 
-			/* TO DO : à revoir */
-			if (extensionEnabled('slideshow')) {
-			?>
-			<ul class="pager pull-right margin-top-reset hidden-phone"> <!--hidden-phone -->
-				<li>
-					<?php printSlideShowLink(gettext('Slideshow')); ?>
-				</li>
-			</ul>
-			<?php
-			}
-
 			printPageListWithNav('«', '»', false, true, 'pagination pagination-sm', NULL, true, 7);
 
 			if (getNumAlbums() > 0) {
