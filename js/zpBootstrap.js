@@ -152,7 +152,8 @@ $(document).ready( function() {
 	/* contact */
 	if ($('#mailform').length) {
 		$('#mailform, #confirm, #discard').addClass('form-horizontal');
-				$('#mailform input[type="reset"], #confirm input[type="reset"]').addClass('margin-left-small');
+		$('#mailform input[type="reset"]').addClass('margin-left-small');
+		$('#discard input[type="submit"]').addClass('margin-left');
 		$('#mailform label + input')
 			.addClass('form-control')
 			.wrap('<div class="col-sm-6"></div>')
