@@ -1,5 +1,5 @@
 // ==================================================
-// fancyBox v3.3.5
+// fancyBox v3.4.1
 //
 // Licensed GPLv3 for open source use
 // or fancyBox Commercial License for commercial use
@@ -35,6 +35,10 @@
   // ========================
 
   var defaults = {
+    // Close existing modals
+    // Set this to false if you do not need to stack multiple instances
+    closeExisting: false,
+
     // Enable infinite gallery navigation
     loop: false,
 
@@ -121,6 +125,17 @@
       }
     },
 
+    // For HTML5 video only
+    video: {
+      tpl:
+        '<video class="fancybox-video" controls controlsList="nodownload">' +
+        '<source src="{{src}}" type="{{format}}" />' +
+        "Your browser doesn't support HTML5 video" +
+        "</video>",
+      format: "", // custom video format
+      autoStart: true
+    },
+
     // Default content type if cannot be detected automatically
     defaultType: "image",
 
@@ -167,9 +182,7 @@
       '<div class="fancybox-container" role="dialog" tabindex="-1">' +
       '<div class="fancybox-bg"></div>' +
       '<div class="fancybox-inner">' +
-      '<div class="fancybox-infobar">' +
-      "<span data-fancybox-index></span>&nbsp;/&nbsp;<span data-fancybox-count></span>" +
-      "</div>" +
+      '<div class="fancybox-infobar"><span data-fancybox-index></span>&nbsp;/&nbsp;<span data-fancybox-count></span></div>' +
       '<div class="fancybox-toolbar">{{buttons}}</div>' +
       '<div class="fancybox-navigation">{{arrows}}</div>' +
       '<div class="fancybox-stage"></div>' +
@@ -186,54 +199,49 @@
     btnTpl: {
       download:
         '<a download data-fancybox-download class="fancybox-button fancybox-button--download" title="{{DOWNLOAD}}" href="javascript:;">' +
-        '<svg viewBox="0 0 40 40">' +
-        '<path d="M13,16 L20,23 L27,16 M20,7 L20,23 M10,24 L10,28 L30,28 L30,24" />' +
-        "</svg>" +
+        '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18.62 17.09V19H5.38v-1.91zm-2.97-6.96L17 11.45l-5 4.87-5-4.87 1.36-1.32 2.68 2.64V5h1.92v7.77z"/></svg>' +
         "</a>",
 
       zoom:
         '<button data-fancybox-zoom class="fancybox-button fancybox-button--zoom" title="{{ZOOM}}">' +
-        '<svg viewBox="0 0 40 40">' +
-        '<path d="M18,17 m-8,0 a8,8 0 1,0 16,0 a8,8 0 1,0 -16,0 M24,22 L31,29" />' +
-        "</svg>" +
+        '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18.7 17.3l-3-3a5.9 5.9 0 0 0-.6-7.6 5.9 5.9 0 0 0-8.4 0 5.9 5.9 0 0 0 0 8.4 5.9 5.9 0 0 0 7.7.7l3 3a1 1 0 0 0 1.3 0c.4-.5.4-1 0-1.5zM8.1 13.8a4 4 0 0 1 0-5.7 4 4 0 0 1 5.7 0 4 4 0 0 1 0 5.7 4 4 0 0 1-5.7 0z"/></svg>' +
         "</button>",
 
       close:
         '<button data-fancybox-close class="fancybox-button fancybox-button--close" title="{{CLOSE}}">' +
-        '<svg viewBox="0 0 40 40">' +
-        '<path d="M10,10 L30,30 M30,10 L10,30" />' +
-        "</svg>" +
+        '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 10.6L6.6 5.2 5.2 6.6l5.4 5.4-5.4 5.4 1.4 1.4 5.4-5.4 5.4 5.4 1.4-1.4-5.4-5.4 5.4-5.4-1.4-1.4-5.4 5.4z"/></svg>' +
+        "</button>",
+
+      // Arrows
+      arrowLeft:
+        '<button data-fancybox-prev class="fancybox-button fancybox-button--arrow_left" title="{{PREV}}">' +
+        '<div><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11.28 15.7l-1.34 1.37L5 12l4.94-5.07 1.34 1.38-2.68 2.72H19v1.94H8.6z"/></svg></div>' +
+        "</button>",
+
+      arrowRight:
+        '<button data-fancybox-next class="fancybox-button fancybox-button--arrow_right" title="{{NEXT}}">' +
+        '<div><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15.4 12.97l-2.68 2.72 1.34 1.38L19 12l-4.94-5.07-1.34 1.38 2.68 2.72H5v1.94z"/></svg></div>' +
         "</button>",
 
       // This small close button will be appended to your html/inline/ajax content by default,
       // if "smallBtn" option is not set to false
       smallBtn:
-        '<button data-fancybox-close class="fancybox-close-small" title="{{CLOSE}}"><svg viewBox="0 0 32 32"><path d="M10,10 L22,22 M22,10 L10,22"></path></svg></button>',
-
-      // Arrows
-      arrowLeft:
-        '<a data-fancybox-prev class="fancybox-button fancybox-button--arrow_left" title="{{PREV}}" href="javascript:;">' +
-        '<svg viewBox="0 0 40 40">' +
-        '<path d="M18,12 L10,20 L18,28 M10,20 L30,20"></path>' +
-        "</svg>" +
-        "</a>",
-
-      arrowRight:
-        '<a data-fancybox-next class="fancybox-button fancybox-button--arrow_right" title="{{NEXT}}" href="javascript:;">' +
-        '<svg viewBox="0 0 40 40">' +
-        '<path d="M10,20 L30,20 M22,12 L30,20 L22,28"></path>' +
-        "</svg>" +
-        "</a>"
+        '<button type="button" data-fancybox-close class="fancybox-button fancybox-close-small" title="{{CLOSE}}">' +
+        '<svg xmlns="http://www.w3.org/2000/svg" version="1" viewBox="0 0 24 24"><path d="M13 12l5-5-1-1-5 5-5-5-1 1 5 5-5 5 1 1 5-5 5 5 1-1z"/></svg>' +
+        "</button>"
     },
 
     // Container is injected into this element
     parentEl: "body",
 
+    // Hide browser vertical scrollbars; use at your own risk
+    hideScrollbar: true,
+
     // Focus handling
     // ==============
 
     // Try to focus on the first focusable element after opening
-    autoFocus: false,
+    autoFocus: true,
 
     // Put focus back to active element after closing
     backFocus: true,
@@ -248,7 +256,7 @@
       autoStart: false
     },
 
-    // Set `touch: false` to disable dragging/swiping
+    // Set `touch: false` to disable panning/swiping
     touch: {
       vertical: true, // Allow to drag content vertically
       momentum: true // Continue movement after releasing mouse/touch when panning
@@ -261,19 +269,19 @@
     // Customize or add new media types
     // Example:
     /*
-        media : {
-            youtube : {
-                params : {
-                    autoplay : 0
-                }
-            }
+      media : {
+        youtube : {
+          params : {
+            autoplay : 0
+          }
         }
-        */
+      }
+    */
     media: {},
 
     slideShow: {
       autoStart: false,
-      speed: 4000
+      speed: 3000
     },
 
     thumbs: {
@@ -293,11 +301,11 @@
     // See Documentation/API/Events for more information
     // Example:
     /*
-		afterShow: function( instance, current ) {
-			console.info( 'Clicked element:' );
-			console.info( current.opts.$orig );
-		}
-	*/
+      afterShow: function( instance, current ) {
+        console.info( 'Clicked element:' );
+        console.info( current.opts.$orig );
+      }
+    */
 
     onInit: $.noop, // When instance has been initialized
 
@@ -508,9 +516,6 @@
       return;
     }
 
-    // Save last active element
-    self.$lastFocus = $(document.activeElement).trigger("blur");
-
     self.init();
   };
 
@@ -527,29 +532,36 @@
         $container,
         buttonStr;
 
+      if (firstItemOpts.closeExisting) {
+        $.fancybox.close(true);
+      }
+
       // Hide scrollbars
       // ===============
 
-      if (!$.fancybox.getInstance() && firstItemOpts.hideScrollbar !== false) {
-        $("body").addClass("fancybox-active");
+      $("body").addClass("fancybox-active");
 
-        if (!$.fancybox.isMobile && document.body.scrollHeight > window.innerHeight) {
-          if (scrollbarWidth === undefined) {
-            $scrollDiv = $('<div style="width:100px;height:100px;overflow:scroll;" />').appendTo("body");
+      if (
+        !$.fancybox.getInstance() &&
+        firstItemOpts.hideScrollbar !== false &&
+        !$.fancybox.isMobile &&
+        document.body.scrollHeight > window.innerHeight
+      ) {
+        if (scrollbarWidth === undefined) {
+          $scrollDiv = $('<div style="width:100px;height:100px;overflow:scroll;" />').appendTo("body");
 
-            scrollbarWidth = $.fancybox.scrollbarWidth = $scrollDiv[0].offsetWidth - $scrollDiv[0].clientWidth;
+          scrollbarWidth = $.fancybox.scrollbarWidth = $scrollDiv[0].offsetWidth - $scrollDiv[0].clientWidth;
 
-            $scrollDiv.remove();
-          }
-
-          $("head").append(
-            '<style id="fancybox-style-noscroll" type="text/css">.compensate-for-scrollbar { margin-right: ' +
-              scrollbarWidth +
-              "px; }</style>"
-          );
-
-          $("body").addClass("compensate-for-scrollbar");
+          $scrollDiv.remove();
         }
+
+        $("head").append(
+          '<style id="fancybox-style-noscroll" type="text/css">.compensate-for-scrollbar { margin-right: ' +
+            scrollbarWidth +
+            "px; }</style>"
+        );
+
+        $("body").addClass("compensate-for-scrollbar");
       }
 
       // Build html markup and set references
@@ -573,7 +585,6 @@
         )
       )
         .attr("id", "fancybox-container-" + self.id)
-        .addClass("fancybox-is-hidden")
         .addClass(firstItemOpts.baseClass)
         .data("FancyBox", self)
         .appendTo(firstItemOpts.parentEl);
@@ -677,6 +688,10 @@
           obj.opts.buttons = opts.buttons;
         }
 
+        if ($.fancybox.isMobile && obj.opts.mobile) {
+          obj.opts = mergeOpts(obj.opts, obj.opts.mobile);
+        }
+
         // Step 2 - Make sure we have content type, if not - try to guess
         // ==============================================================
 
@@ -684,11 +699,11 @@
         src = obj.src || "";
 
         if (!type && src) {
-          if ((found = src.match(/\.(mp4|mov|ogv)((\?|#).*)?$/i))) {
+          if ((found = src.match(/\.(mp4|mov|ogv|webm)((\?|#).*)?$/i))) {
             type = "video";
 
-            if (!obj.opts.videoFormat) {
-              obj.opts.videoFormat = "video/" + (found[1] === "ogv" ? "ogg" : found[1]);
+            if (!obj.opts.video.format) {
+              obj.opts.video.format = "video/" + (found[1] === "ogv" ? "ogg" : found[1]);
             }
           } else if (src.match(/(^data:image\/[a-z0-9+\/=]*,)|(\.(jp(e|g|eg)|gif|png|bmp|webp|svg|ico)((\?|#).*)?$)/i)) {
             type = "image";
@@ -725,6 +740,10 @@
         // Find thumbnail image
         if (obj.opts.$trigger && obj.index === self.opts.index) {
           obj.opts.$thumb = obj.opts.$trigger.find("img:first");
+
+          if (obj.opts.$thumb.length) {
+            obj.opts.$orig = obj.opts.$trigger;
+          }
         }
 
         if ((!obj.opts.$thumb || !obj.opts.$thumb.length) && obj.opts.$orig) {
@@ -811,7 +830,7 @@
     //   - browser scrolling, resizing;
     //   - focusing
     //   - keyboard
-    //   - detect idle
+    //   - detecting inactivity
     // ======================================
 
     addEvents: function() {
@@ -820,6 +839,8 @@
       self.removeEvents();
 
       // Make navigation elements clickable
+      // ==================================
+
       self.$refs.container
         .on("click.fb-close", "[data-fancybox-close]", function(e) {
           e.stopPropagation();
@@ -845,13 +866,17 @@
         });
 
       // Handle page scrolling and browser resizing
+      // ==========================================
+
       $W.on("orientationchange.fb resize.fb", function(e) {
         if (e && e.originalEvent && e.originalEvent.type === "resize") {
           requestAFrame(function() {
             self.update();
           });
         } else {
-          self.$refs.stage.hide();
+          if (self.current && self.current.type === "iframe") {
+            self.$refs.stage.hide();
+          }
 
           setTimeout(function() {
             self.$refs.stage.show();
@@ -861,38 +886,26 @@
         }
       });
 
-      // Trap keyboard focus inside of the modal, so the user does not accidentally tab outside of the modal
-      // (a.k.a. "escaping the modal")
-      $D.on("focusin.fb", function(e) {
-        var instance = $.fancybox ? $.fancybox.getInstance() : null;
-
-        if (
-          instance.isClosing ||
-          !instance.current ||
-          !instance.current.opts.trapFocus ||
-          $(e.target).hasClass("fancybox-container") ||
-          $(e.target).is(document)
-        ) {
-          return;
-        }
-
-        if (instance && $(e.target).css("position") !== "fixed" && !instance.$refs.container.has(e.target).length) {
-          e.stopPropagation();
-
-          instance.focus();
-        }
-      });
-
-      // Enable keyboard navigation
       $D.on("keydown.fb", function(e) {
-        var current = self.current,
+        var instance = $.fancybox ? $.fancybox.getInstance() : null,
+          current = instance.current,
           keycode = e.keyCode || e.which;
 
-        if (!current || !current.opts.keyboard) {
+        // Trap keyboard focus inside of the modal
+        // =======================================
+
+        if (keycode == 9) {
+          if (current.opts.trapFocus) {
+            self.focus(e);
+          }
+
           return;
         }
 
-        if (e.ctrlKey || e.altKey || e.shiftKey || $(e.target).is("input") || $(e.target).is("textarea")) {
+        // Enable keyboard navigation
+        // ==========================
+
+        if (!current.opts.keyboard || e.ctrlKey || e.altKey || e.shiftKey || $(e.target).is("input") || $(e.target).is("textarea")) {
           return;
         }
 
@@ -963,7 +976,7 @@
       var self = this;
 
       $W.off("orientationchange.fb resize.fb");
-      $D.off("focusin.fb keydown.fb .fb-idle");
+      $D.off("keydown.fb .fb-idle");
 
       this.$refs.container.off(".fb-close .fb-prev .fb-next");
 
@@ -995,11 +1008,11 @@
       var self = this,
         groupLen = self.group.length,
         firstRun,
+        isMoved,
         loop,
         current,
         previous,
         canvasWidth,
-        currentPos,
         transitionProps;
 
       if (self.isDragging || self.isClosing || (self.isAnimating && self.firstRun)) {
@@ -1030,12 +1043,12 @@
       current = self.createSlide(pos);
 
       if (groupLen > 1) {
-        if (loop || current.index > 0) {
-          self.createSlide(pos - 1);
-        }
-
         if (loop || current.index < groupLen - 1) {
           self.createSlide(pos + 1);
+        }
+
+        if (loop || current.index > 0) {
+          self.createSlide(pos - 1);
         }
       }
 
@@ -1047,9 +1060,7 @@
 
       self.updateControls();
 
-      currentPos = $.fancybox.getTranslate(current.$slide);
-
-      current.isMoved = (currentPos.left !== 0 || currentPos.top !== 0) && !current.$slide.hasClass("fancybox-animated");
+      isMoved = self.isMoved(current);
 
       // Validate duration length
       current.forcedDuration = undefined;
@@ -1068,38 +1079,39 @@
           self.$refs.container.css("transition-duration", duration + "ms");
         }
 
-        self.$refs.container.removeClass("fancybox-is-hidden");
-
-        forceRedraw(self.$refs.container);
-
         self.$refs.container.addClass("fancybox-is-open");
-
-        forceRedraw(self.$refs.container);
 
         // Make current slide visible
         current.$slide.addClass("fancybox-slide--previous");
 
-        // Attempt to load content into slide;
-        // at this point image would start loading, but inline/html content would load immediately
+        // Attempt to load content into slide
+        // At this point image would start loading, but inline/html content would load immediately
         self.loadSlide(current);
 
         current.$slide.removeClass("fancybox-slide--previous").addClass("fancybox-slide--current");
 
         self.preload("image");
 
+        self.$refs.container.trigger("focus");
+
         return;
       }
 
-      // Clean up
+      // Clean up all slides
       $.each(self.slides, function(index, slide) {
-        $.fancybox.stop(slide.$slide);
+        // Make sure that animation callback gets fired
+        $.fancybox.stop(slide.$slide, true);
+
+        slide.$slide.removeClass("fancybox-animated").removeClass(function(index, className) {
+          return (className.match(/(^|\s)fancybox-fx-\S+/g) || []).join(" ");
+        });
       });
 
-      // Make current that slide is visible even if content is still loading
+      // Make current slide visible even if content is still loading
       current.$slide.removeClass("fancybox-slide--next fancybox-slide--previous").addClass("fancybox-slide--current");
 
       // If slides have been dragged, animate them to correct position
-      if (current.isMoved) {
+      if (isMoved) {
         canvasWidth = Math.round(current.$slide.width());
 
         $.each(self.slides, function(index, slide) {
@@ -1116,8 +1128,6 @@
               slide.$slide.removeAttr("style").removeClass("fancybox-slide--next fancybox-slide--previous");
 
               if (slide.pos === self.currPos) {
-                current.isMoved = false;
-
                 self.complete();
               }
             }
@@ -1142,8 +1152,8 @@
         return;
       }
 
-      // Handle previous slide
-      // =====================
+      // Handle previously active slide
+      // ==============================
 
       transitionProps = "fancybox-slide--" + (previous.pos > current.pos ? "next" : "previous");
 
@@ -1151,18 +1161,16 @@
 
       previous.isComplete = false;
 
-      if (!duration || (!current.isMoved && !current.opts.transitionEffect)) {
+      if (!duration || (!isMoved && !current.opts.transitionEffect)) {
         return;
       }
 
-      if (current.isMoved) {
+      if (isMoved) {
         previous.$slide.addClass(transitionProps);
       } else {
         transitionProps = "fancybox-animated " + transitionProps + " fancybox-fx-" + current.opts.transitionEffect;
 
-        $.fancybox.animate(previous.$slide, transitionProps, duration, function() {
-          previous.$slide.removeClass(transitionProps).removeAttr("style");
-        });
+        $.fancybox.animate(previous.$slide, transitionProps, duration, null, false);
       }
     },
 
@@ -1323,12 +1331,12 @@
     getFitPos: function(slide) {
       var self = this,
         $content = slide.$content,
+        $slide = slide.$slide,
         width = slide.width || slide.opts.width,
         height = slide.height || slide.opts.height,
         maxWidth,
         maxHeight,
         minRatio,
-        margin,
         aspectRatio,
         rez = {};
 
@@ -1336,16 +1344,20 @@
         return false;
       }
 
-      margin = {
-        top: parseInt(slide.$slide.css("paddingTop"), 10),
-        right: parseInt(slide.$slide.css("paddingRight"), 10),
-        bottom: parseInt(slide.$slide.css("paddingBottom"), 10),
-        left: parseInt(slide.$slide.css("paddingLeft"), 10)
-      };
+      maxWidth = $.fancybox.getTranslate(self.$refs.stage).width;
+      maxHeight = $.fancybox.getTranslate(self.$refs.stage).height;
 
-      // We can not use $slide width here, because it can have different diemensions while in transiton
-      maxWidth = parseInt(self.$refs.stage.width(), 10) - (margin.left + margin.right);
-      maxHeight = parseInt(self.$refs.stage.height(), 10) - (margin.top + margin.bottom);
+      maxWidth -=
+        parseFloat($slide.css("paddingLeft")) +
+        parseFloat($slide.css("paddingRight")) +
+        parseFloat($content.css("marginLeft")) +
+        parseFloat($content.css("marginRight"));
+
+      maxHeight -=
+        parseFloat($slide.css("paddingTop")) +
+        parseFloat($slide.css("paddingBottom")) +
+        parseFloat($content.css("marginTop")) +
+        parseFloat($content.css("marginBottom"));
 
       if (!width || !height) {
         width = maxWidth;
@@ -1359,8 +1371,8 @@
       height = Math.floor(minRatio * height);
 
       if (slide.type === "image") {
-        rez.top = Math.floor((maxHeight - height) * 0.5) + margin.top;
-        rez.left = Math.floor((maxWidth - width) * 0.5) + margin.left;
+        rez.top = Math.floor((maxHeight - height) * 0.5) + parseFloat($slide.css("paddingTop"));
+        rez.left = Math.floor((maxWidth - width) * 0.5) + parseFloat($slide.css("paddingLeft"));
       } else if (slide.contentType === "video") {
         // Force aspect ratio for the video
         // "I say the whole world must learn of our peaceful ways… by force!"
@@ -1393,11 +1405,12 @@
     // Update slide content position and size
     // ======================================
 
-    updateSlide: function(slide, duration) {
+    updateSlide: function(slide) {
       var self = this,
         $content = slide && slide.$content,
         width = slide.width || slide.opts.width,
-        height = slide.height || slide.opts.height;
+        height = slide.height || slide.opts.height,
+        $slide = slide.$slide;
 
       if ($content && (width || height || slide.contentType === "video") && !slide.hasError) {
         $.fancybox.stop($content);
@@ -1411,9 +1424,11 @@
         }
       }
 
-      slide.$slide.trigger("refresh");
+      if ($slide.length) {
+        $slide.trigger("refresh");
 
-      self.$refs.toolbar.toggleClass("compensate-for-scrollbar", slide.$slide.get(0).scrollHeight > slide.$slide.get(0).clientHeight);
+        self.$refs.toolbar.toggleClass("compensate-for-scrollbar", $slide.get(0).scrollHeight > $slide.get(0).clientHeight);
+      }
 
       self.trigger("onUpdate", slide);
     },
@@ -1444,13 +1459,25 @@
       }
     },
 
+    // Check if current slide is moved (swiped)
+    // ========================================
+
+    isMoved: function(slide) {
+      var current = slide || this.current,
+        currentPos = $.fancybox.getTranslate(current.$slide);
+
+      return (currentPos.left !== 0 || currentPos.top !== 0) && !current.$slide.hasClass("fancybox-animated");
+    },
+
     // Update cursor style depending if content can be zoomed
     // ======================================================
 
     updateCursor: function(nextWidth, nextHeight) {
       var self = this,
         current = self.current,
-        $container = self.$refs.container.removeClass("fancybox-is-zoomable fancybox-can-zoomIn fancybox-can-drag fancybox-can-zoomOut"),
+        $container = self.$refs.container.removeClass(
+          "fancybox-is-zoomable fancybox-can-zoomIn fancybox-can-zoomOut fancybox-can-swipe fancybox-can-pan"
+        ),
         isZoomable;
 
       if (!current || self.isClosing) {
@@ -1463,25 +1490,15 @@
 
       $("[data-fancybox-zoom]").prop("disabled", !isZoomable);
 
-      // Set cursor to zoom in/out if click event is 'zoom'
-      if (
+      if (self.canPan(nextWidth, nextHeight)) {
+        $container.addClass("fancybox-can-pan");
+      } else if (
         isZoomable &&
-        (current.opts.clickContent === "zoom" || ($.isFunction(current.opts.clickContent) && current.opts.clickContent(current) === "zoom"))
+        (current.opts.clickContent === "zoom" || ($.isFunction(current.opts.clickContent) && current.opts.clickContent(current) == "zoom"))
       ) {
-        if (self.isScaledDown(nextWidth, nextHeight)) {
-          // If image is scaled down, then, obviously, it can be zoomed to full size
-          $container.addClass("fancybox-can-zoomIn");
-        } else {
-          if (current.opts.touch) {
-            // If image size ir largen than available available and touch module is not disable,
-            // then user can do panning
-            $container.addClass("fancybox-can-drag");
-          } else {
-            $container.addClass("fancybox-can-zoomOut");
-          }
-        }
-      } else if (current.opts.touch && current.contentType !== "video") {
-        $container.addClass("fancybox-can-drag");
+        $container.addClass("fancybox-can-zoomIn");
+      } else if (current.opts.touch && (current.opts.touch.vertical || self.group.length > 1) && current.contentType !== "video") {
+        $container.addClass("fancybox-can-swipe");
       }
     },
 
@@ -1533,15 +1550,22 @@
     // Check if image dimensions exceed parent element
     // ===============================================
 
-    canPan: function() {
+    canPan: function(nextWidth, nextHeight) {
       var self = this,
         rez = false,
         current = self.current,
-        $content;
+        $content,
+        pos;
 
       if (current.type === "image" && ($content = current.$content) && !current.hasError) {
         rez = self.getFitPos(current);
-        rez = Math.abs($content.width() - rez.width) > 1 || Math.abs($content.height() - rez.height) > 1;
+        if (nextWidth !== undefined && nextHeight !== undefined) {
+          pos = {width: nextWidth, height: nextHeight};
+        } else {
+          pos = $.fancybox.getTranslate($content);
+        }
+
+        rez = Math.abs(pos.width - rez.width) > 1.5 || Math.abs(pos.height - rez.height) > 1.5;
       }
 
       return rez;
@@ -1592,14 +1616,7 @@
         case "video":
           self.setContent(
             slide,
-            '<video class="fancybox-video" controls controlsList="nodownload">' +
-              '<source src="' +
-              slide.src +
-              '" type="' +
-              slide.opts.videoFormat +
-              '">' +
-              "Your browser doesn't support HTML5 video" +
-              "</video"
+            slide.opts.video.tpl.replace("{{src}}", slide.src).replace("{{format}}", slide.opts.videoFormat || slide.opts.video.format)
           );
 
           break;
@@ -1663,7 +1680,7 @@
       slide.timouts = setTimeout(function() {
         var $img = slide.$image;
 
-        if (slide.isLoading && (!$img || !$img[0].complete) && !slide.hasError) {
+        if (slide.isLoading && (!$img || !$img.length || !$img[0].complete) && !slide.hasError) {
           self.showLoading(slide);
         }
       }, 350);
@@ -1678,8 +1695,7 @@
         temp = srcset.split(",").map(function(el) {
           var ret = {};
 
-          el
-            .trim()
+          el.trim()
             .split(/\s+/)
             .forEach(function(el, i) {
               var value = parseInt(el.substring(0, el.length - 1), 10);
@@ -1722,7 +1738,7 @@
 
           // If we have default width/height values, we can calculate height for matching source
           if (slide.width && slide.height && found.postfix == "w") {
-            slide.height = slide.width / slide.height * found.value;
+            slide.height = (slide.width / slide.height) * found.value;
             slide.width = found.value;
           }
 
@@ -1796,7 +1812,7 @@
 
             if (!sizes || sizes === "auto") {
               sizes =
-                (slide.width / slide.height > 1 && $W.width() / $W.height() > 1 ? "100" : Math.round(slide.width / slide.height * 100)) +
+                (slide.width / slide.height > 1 && $W.width() / $W.height() > 1 ? "100" : Math.round((slide.width / slide.height) * 100)) +
                 "vw";
             }
 
@@ -1838,11 +1854,11 @@
 
       if (maxWidth > 0) {
         slide.width = maxWidth;
-        slide.height = Math.floor(maxWidth * imgHeight / imgWidth);
+        slide.height = Math.floor((maxWidth * imgHeight) / imgWidth);
       }
 
       if (maxHeight > 0) {
-        slide.width = Math.floor(maxHeight * imgWidth / imgHeight);
+        slide.width = Math.floor((maxHeight * imgWidth) / imgHeight);
         slide.height = maxHeight;
       }
     },
@@ -1901,8 +1917,11 @@
 
           // Calculate contnet dimensions if it is accessible
           if ($body && $body.length && $body.children().length) {
+            // Avoid scrolling to top (if multiple instances)
+            $slide.css("overflow", "visible");
+
             $content.css({
-              width: "",
+              width: "100%",
               height: ""
             });
 
@@ -1921,6 +1940,8 @@
             if (frameHeight) {
               $content.height(frameHeight);
             }
+
+            $slide.css("overflow", "auto");
           }
 
           $content.removeClass("fancybox-is-hidden");
@@ -1972,10 +1993,9 @@
       // The placeholder is created so we will know where to put it back.
       if (isQuery(content) && content.parent().length) {
         // Make sure content is not already moved to fancyBox
-        content
-          .parent()
-          .parent(".fancybox-slide--inline")
-          .trigger("onReset");
+        if (content.hasClass("fancybox-content")) {
+          content.parent(".fancybox-slide--html").trigger("onReset");
+        }
 
         // Create temporary element marking original place of the content
         slide.$placeholder = $("<div>")
@@ -1990,11 +2010,6 @@
           content = $("<div>")
             .append($.trim(content))
             .contents();
-
-          // If we have text node, then add wrapping element to make vertical alignment work
-          if (content[0].nodeType === 3) {
-            content = $("<div>").html(content);
-          }
         }
 
         // If "filter" option is provided, then filter content
@@ -2013,7 +2028,7 @@
 
         // Put content back
         if (slide.$placeholder) {
-          slide.$placeholder.after(content.hide()).remove();
+          slide.$placeholder.after(content.removeClass("fancybox-content").hide()).remove();
 
           slide.$placeholder = null;
         }
@@ -2030,6 +2045,7 @@
           $(this).empty();
 
           slide.isLoaded = false;
+          slide.isRevealed = false;
         }
       });
 
@@ -2048,9 +2064,21 @@
 
       slide.$content = slide.$slide
         .children()
-        .filter("div,form,main,video,audio")
-        .first()
-        .addClass("fancybox-content");
+        .filter("div,form,main,video,audio,article,.fancybox-content")
+        .first();
+
+      slide.$content.siblings().hide();
+
+      // Re-check if there is a valid content
+      // (in some cases, ajax response can contain various elements or plain text)
+      if (!slide.$content.length) {
+        slide.$content = slide.$slide
+          .wrapInner("<div></div>")
+          .children()
+          .first();
+      }
+
+      slide.$content.addClass("fancybox-content");
 
       slide.$slide.addClass("fancybox-slide--" + slide.contentType);
 
@@ -2127,7 +2155,7 @@
       }
 
       if (slide.opts.smallBtn && (!slide.$smallBtn || !slide.$smallBtn.length)) {
-        slide.$smallBtn = $(self.translate(slide, slide.opts.btnTpl.smallBtn)).prependTo(slide.$content);
+        slide.$smallBtn = $(self.translate(slide, slide.opts.btnTpl.smallBtn)).appendTo(slide.$content);
       }
 
       if (slide.opts.protect && slide.$content && !slide.hasError) {
@@ -2160,10 +2188,18 @@
         $slide = slide.$slide,
         end = false,
         start = false,
+        isMoved = self.isMoved(slide),
+        isRevealed = slide.isRevealed,
         effect,
         effectClassName,
         duration,
         opacity;
+
+      if (isMoved && isRevealed) {
+        return;
+      }
+
+      slide.isRevealed = true;
 
       effect = slide.opts[self.firstRun ? "animationEffect" : "transitionEffect"];
       duration = slide.opts[self.firstRun ? "animationDuration" : "transitionDuration"];
@@ -2179,7 +2215,7 @@
         }
       }
 
-      if (slide.isMoved || slide.pos !== self.currPos || !duration) {
+      if (isMoved || slide.pos !== self.currPos || !duration) {
         effect = false;
       }
 
@@ -2227,13 +2263,17 @@
 
       self.updateSlide(slide);
 
-      // Simply show content
-      // ===================
-
+      // Simply show content if no effect
+      // ================================
       if (!effect) {
         forceRedraw($slide);
 
-        slide.$content.removeClass("fancybox-is-hidden");
+        if (!isRevealed) {
+          slide.$content
+            .removeClass("fancybox-is-hidden")
+            .hide()
+            .fadeIn("fast");
+        }
 
         if (slide.pos === self.currPos) {
           self.complete();
@@ -2242,6 +2282,8 @@
         return;
       }
 
+      // Prepare for CSS transiton
+      // =========================
       $.fancybox.stop($slide);
 
       effectClassName = "fancybox-animated fancybox-slide--" + (slide.pos >= self.prevPos ? "next" : "previous") + " fancybox-fx-" + effect;
@@ -2253,14 +2295,14 @@
 
       slide.$content.removeClass("fancybox-is-hidden");
 
-      // Force reflow for CSS3 transitions
+      // Force reflow
       forceRedraw($slide);
 
       $.fancybox.animate(
         $slide,
         "fancybox-slide--current",
         duration,
-        function(e) {
+        function() {
           $slide.removeClass(effectClassName).removeAttr("style");
 
           if (slide.pos === self.currPos) {
@@ -2335,9 +2377,10 @@
     complete: function() {
       var self = this,
         current = self.current,
-        slides = {};
+        slides = {},
+        $el;
 
-      if (current.isMoved || !current.isLoaded) {
+      if (self.isMoved() || !current.isLoaded) {
         return;
       }
 
@@ -2348,7 +2391,7 @@
 
         self.preload("inline");
 
-        // Trigger any CSS3 transiton inside the slide
+        // Trigger any CSS transiton inside the slide
         forceRedraw(current.$slide);
 
         current.$slide.addClass("fancybox-slide--complete");
@@ -2373,19 +2416,28 @@
 
       self.trigger("afterShow");
 
-      // Play first html5 video/audio
-      current.$slide
-        .find("video,audio")
-        .filter(":visible:first")
-        .trigger("play");
+      // Autoplay first html5 video/audio
+      if (!!current.opts.video.autoStart) {
+        current.$slide
+          .find("video,audio")
+          .filter(":visible:first")
+          .trigger("play");
+      }
 
       // Try to focus on the first focusable element
-      if (
-        $(document.activeElement).is("[disabled]") ||
-        (current.opts.autoFocus && !(current.type == "image" || current.type === "iframe"))
-      ) {
-        self.focus();
+      if (current.opts.autoFocus && current.contentType === "html") {
+        // Look for the first input with autofocus attribute
+        $el = current.$content.find("input[autofocus]:enabled:visible:first");
+
+        if ($el.length) {
+          $el.trigger("focus");
+        } else {
+          self.focus(null, true);
+        }
       }
+
+      // Avoid jumping
+      current.$slide.scrollTop(0).scrollLeft(0);
     },
 
     // Preload next and previous slides
@@ -2396,37 +2448,74 @@
         next = self.slides[self.currPos + 1],
         prev = self.slides[self.currPos - 1];
 
-      if (next && next.type === type) {
-        self.loadSlide(next);
-      }
-
       if (prev && prev.type === type) {
         self.loadSlide(prev);
+      }
+
+      if (next && next.type === type) {
+        self.loadSlide(next);
       }
     },
 
     // Try to find and focus on the first focusable element
     // ====================================================
 
-    focus: function() {
-      var current = this.current,
-        $el;
+    focus: function(e, firstRun) {
+      var self = this,
+        focusableStr = [
+          "a[href]",
+          "area[href]",
+          'input:not([disabled]):not([type="hidden"]):not([aria-hidden])',
+          "select:not([disabled]):not([aria-hidden])",
+          "textarea:not([disabled]):not([aria-hidden])",
+          "button:not([disabled]):not([aria-hidden])",
+          "iframe",
+          "object",
+          "embed",
+          "[contenteditable]",
+          '[tabindex]:not([tabindex^="-"])'
+        ].join(","),
+        focusableItems,
+        focusedItemIndex;
 
-      if (this.isClosing) {
+      if (self.isClosing) {
         return;
       }
 
-      if (current && current.isComplete && current.$content) {
-        // Look for first input with autofocus attribute
-        $el = current.$content.find("input[autofocus]:enabled:visible:first");
+      if (e || !self.current || !self.current.isComplete) {
+        // Focus on any element inside fancybox
+        focusableItems = self.$refs.container.find("*:visible");
+      } else {
+        // Focus inside current slide
+        focusableItems = self.current.$slide.find("*:visible" + (firstRun ? ":not(.fancybox-close-small)" : ""));
+      }
 
-        if (!$el.length) {
-          $el = current.$content.find("button,:input,[tabindex],a").filter(":enabled:visible:first");
+      focusableItems = focusableItems.filter(focusableStr).filter(function() {
+        return $(this).css("visibility") !== "hidden" && !$(this).hasClass("disabled");
+      });
+
+      if (focusableItems.length) {
+        focusedItemIndex = focusableItems.index(document.activeElement);
+
+        if (e && e.shiftKey) {
+          // Back tab
+          if (focusedItemIndex < 0 || focusedItemIndex == 0) {
+            e.preventDefault();
+
+            focusableItems.eq(focusableItems.length - 1).trigger("focus");
+          }
+        } else {
+          // Outside or Forward tab
+          if (focusedItemIndex < 0 || focusedItemIndex == focusableItems.length - 1) {
+            if (e) {
+              e.preventDefault();
+            }
+
+            focusableItems.eq(0).trigger("focus");
+          }
         }
-
-        $el = $el && $el.length ? $el : current.$content;
-
-        $el.trigger("focus");
+      } else {
+        self.$refs.container.trigger("focus");
       }
     },
 
@@ -2600,9 +2689,10 @@
 
     cleanUp: function(e) {
       var self = this,
-        $body = $("body"),
         instance,
-        scrollTop;
+        $focus = self.current.opts.$orig,
+        x,
+        y;
 
       self.current.$slide.trigger("onReset");
 
@@ -2611,8 +2701,21 @@
       self.trigger("afterClose", e);
 
       // Place back focus
-      if (self.$lastFocus && !!self.current.opts.backFocus) {
-        self.$lastFocus.trigger("focus");
+      if (!!self.current.opts.backFocus) {
+        if (!$focus || !$focus.length || !$focus.is(":visible")) {
+          $focus = self.$trigger;
+        }
+
+        if ($focus && $focus.length) {
+          x = window.scrollX;
+          y = window.scrollY;
+
+          $focus.trigger("focus");
+
+          $("html, body")
+            .scrollTop(y)
+            .scrollLeft(x);
+        }
       }
 
       self.current = null;
@@ -2623,7 +2726,7 @@
       if (instance) {
         instance.activate();
       } else {
-        $body.removeClass("fancybox-active compensate-for-scrollbar");
+        $("body").removeClass("fancybox-active compensate-for-scrollbar");
 
         $("#fancybox-style-noscroll").remove();
       }
@@ -2664,7 +2767,7 @@
     // Update infobar values, navigation button states and reveal caption
     // ==================================================================
 
-    updateControls: function(force) {
+    updateControls: function() {
       var self = this,
         current = self.current,
         index = current.index,
@@ -2685,8 +2788,8 @@
       $container.find("[data-fancybox-count]").html(self.group.length);
       $container.find("[data-fancybox-index]").html(index + 1);
 
-      $container.find("[data-fancybox-prev]").toggleClass("disabled", !current.opts.loop && index <= 0);
-      $container.find("[data-fancybox-next]").toggleClass("disabled", !current.opts.loop && index >= self.group.length - 1);
+      $container.find("[data-fancybox-prev]").prop("disabled", !current.opts.loop && index <= 0);
+      $container.find("[data-fancybox-next]").prop("disabled", !current.opts.loop && index >= self.group.length - 1);
 
       if (current.type === "image") {
         // Re-enable buttons; update download button source
@@ -2699,6 +2802,11 @@
           .show();
       } else if (current.opts.toolbar) {
         $container.find("[data-fancybox-download],[data-fancybox-zoom]").hide();
+      }
+
+      // Make sure focus is not on disabled button/element
+      if ($(document.activeElement).is(":hidden,[disabled]")) {
+        self.$refs.container.trigger("focus");
       }
     },
 
@@ -2722,14 +2830,9 @@
       $container
         .toggleClass("fancybox-show-toolbar", !!(opts.toolbar && opts.buttons))
         .toggleClass("fancybox-show-infobar", !!(opts.infobar && self.group.length > 1))
+        .toggleClass("fancybox-show-caption", !!self.$caption)
         .toggleClass("fancybox-show-nav", !!(opts.arrows && self.group.length > 1))
         .toggleClass("fancybox-is-modal", !!opts.modal);
-
-      if (self.$caption) {
-        $container.addClass("fancybox-show-caption ");
-      } else {
-        $container.removeClass("fancybox-show-caption");
-      }
     },
 
     // Toggle toolbar and caption
@@ -2745,7 +2848,7 @@
   });
 
   $.fancybox = {
-    version: "3.3.5",
+    version: "3.4.1",
     defaults: defaults,
 
     // Get current instance and execute a command.
@@ -2794,9 +2897,8 @@
         instance.close();
 
         // Try to find and close next instance
-
         if (all === true) {
-          this.close();
+          this.close(all);
         }
       }
     },
@@ -2813,8 +2915,7 @@
     // Try to detect mobile devices
     // ============================
 
-    isMobile:
-      document.createTouch !== undefined && /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent),
+    isMobile: /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent),
 
     // Detect if 'translate3d' support is available
     // ============================================
@@ -2905,7 +3006,8 @@
     // =============================
 
     animate: function($el, to, duration, callback, leaveAnimationName) {
-      var final = false;
+      var final = false,
+        from;
 
       if ($.isFunction(duration)) {
         callback = duration;
@@ -2930,6 +3032,10 @@
           $.fancybox.setTranslate($el, final);
         }
 
+        if ($.isNumeric(duration)) {
+          $el.css("transition-duration", "");
+        }
+
         if ($.isPlainObject(to)) {
           if (leaveAnimationName === false) {
             $el.removeAttr("style");
@@ -2950,9 +3056,11 @@
       // Start animation by changing CSS properties or class name
       if ($.isPlainObject(to)) {
         if (to.scaleX !== undefined && to.scaleY !== undefined) {
+          from = $.fancybox.getTranslate($el);
+
           final = $.extend({}, to, {
-            width: $el.width() * to.scaleX,
-            height: $el.height() * to.scaleY,
+            width: from.width * to.scaleX,
+            height: from.height * to.scaleY,
             scaleX: 1,
             scaleY: 1
           });
@@ -2979,11 +3087,15 @@
       );
     },
 
-    stop: function($el) {
+    stop: function($el, callback) {
       if ($el && $el.length) {
         clearTimeout($el.data("timer"));
 
-        $el.off("transitionend").css("transition-duration", "");
+        if (callback) {
+          $el.trigger(transitionEnd);
+        }
+
+        $el.off(transitionEnd).css("transition-duration", "");
 
         $el.parent().removeClass("fancybox-is-scaling");
       }
@@ -2997,7 +3109,8 @@
     var items = [],
       index = 0,
       $target,
-      value;
+      value,
+      instance;
 
     // Avoid opening multiple times
     if (e && e.isDefaultPrevented()) {
@@ -3006,27 +3119,44 @@
 
     e.preventDefault();
 
-    opts = e && e.data ? e.data.options : opts || {};
+    opts = opts || {};
 
-    $target = opts.$target || $(e.currentTarget);
-    value = $target.attr("data-fancybox") || "";
-
-    // Get all related items and find index for clicked one
-    if (value) {
-      items = opts.selector ? $(opts.selector) : e.data ? e.data.items : [];
-      items = items.length ? items.filter('[data-fancybox="' + value + '"]') : $('[data-fancybox="' + value + '"]');
-
-      index = items.index($target);
-
-      // Sometimes current item can not be found (for example, if some script clones items)
-      if (index < 0) {
-        index = 0;
-      }
-    } else {
-      items = [$target];
+    if (e && e.data) {
+      opts = mergeOpts(e.data.options, opts);
     }
 
-    $.fancybox.open(items, opts, index);
+    $target = opts.$target || $(e.currentTarget).trigger("blur");
+    instance = $.fancybox.getInstance();
+
+    if (instance && instance.$trigger && instance.$trigger.is($target)) {
+      return;
+    }
+
+    if (opts.selector) {
+      items = $(opts.selector);
+    } else {
+      // Get all related items and find index for clicked one
+      value = $target.attr("data-fancybox") || "";
+
+      if (value) {
+        items = e.data ? e.data.items : [];
+        items = items.length ? items.filter('[data-fancybox="' + value + '"]') : $('[data-fancybox="' + value + '"]');
+      } else {
+        items = [$target];
+      }
+    }
+
+    index = $(items).index($target);
+
+    // Sometimes current item can not be found
+    if (index < 0) {
+      index = 0;
+    }
+
+    instance = $.fancybox.open(items, opts, index);
+
+    // Save last active element
+    instance.$trigger = $target;
   }
 
   // Create a jQuery plugin
@@ -3065,13 +3195,43 @@
   // Enable "trigger elements"
   // =========================
 
-  $D.on("click.fb-start", "[data-trigger]", function(e) {
-    _run(e, {
-      $target: $('[data-fancybox="' + $(e.currentTarget).attr("data-trigger") + '"]').eq($(e.currentTarget).attr("data-index") || 0),
-      $trigger: $(this)
-    });
+  $D.on("click.fb-start", "[data-fancybox-trigger]", function(e) {
+    $('[data-fancybox="' + $(this).attr("data-fancybox-trigger") + '"]')
+      .eq($(this).attr("data-fancybox-index") || 0)
+      .trigger("click.fb-start", {
+        $trigger: $(this)
+      });
   });
-})(window, document, window.jQuery || jQuery);
+
+  // Track focus event for better accessibility styling
+  // ==================================================
+  (function() {
+    var buttonStr = ".fancybox-button",
+      focusStr = "fancybox-focus",
+      $pressed = null;
+
+    $D.on("mousedown mouseup focus blur", buttonStr, function(e) {
+      switch (e.type) {
+        case "mousedown":
+          $pressed = $(this);
+          break;
+        case "mouseup":
+          $pressed = null;
+          break;
+        case "focusin":
+          $(buttonStr).removeClass(focusStr);
+
+          if (!$(this).is($pressed) && !$(this).is("[disabled]")) {
+            $(this).addClass(focusStr);
+          }
+          break;
+        case "focusout":
+          $(buttonStr).removeClass(focusStr);
+          break;
+      }
+    });
+  })();
+})(window, document, jQuery);
 
 // ==========================================================================
 //
@@ -3123,7 +3283,7 @@
       },
       paramPlace: 8,
       type: "iframe",
-      url: "//www.youtube.com/embed/$4",
+      url: "//www.youtube-nocookie.com/embed/$4",
       thumb: "//img.youtube.com/vi/$4/hqdefault.jpg"
     },
 
@@ -3273,7 +3433,7 @@
       item.type = item.opts.defaultType;
     }
   });
-})(window.jQuery || jQuery);
+})(jQuery);
 
 // ==========================================================================
 //
@@ -3417,6 +3577,7 @@
       $target = $(e.target),
       instance = self.instance,
       current = instance.current,
+      $slide = current.$slide,
       $content = current.$content,
       isTouchDevice = e.type == "touchstart";
 
@@ -3431,7 +3592,7 @@
     }
 
     // Ignore taping on links, buttons, input elements
-    if (!$target.length || isClickable($target) || isClickable($target.parent())) {
+    if (!$slide.length || !$target.length || isClickable($target) || isClickable($target.parent())) {
       return;
     }
 
@@ -3454,7 +3615,10 @@
       return;
     }
 
-    e.stopPropagation();
+    // Allow other scripts to catch touch event if "touch" is set to false
+    if (current.touch) {
+      e.stopPropagation();
+    }
 
     self.startEvent = e;
 
@@ -3467,16 +3631,17 @@
     self.isSwiping = false;
     self.isZooming = false;
     self.isScrolling = false;
+    self.canPan = instance.canPan();
 
     self.startTime = new Date().getTime();
     self.distanceX = self.distanceY = self.distance = 0;
 
-    self.canvasWidth = Math.round(current.$slide[0].clientWidth);
-    self.canvasHeight = Math.round(current.$slide[0].clientHeight);
+    self.canvasWidth = Math.round($slide[0].clientWidth);
+    self.canvasHeight = Math.round($slide[0].clientHeight);
 
     self.contentLastPos = null;
     self.contentStartPos = $.fancybox.getTranslate(self.$content) || {top: 0, left: 0};
-    self.sliderStartPos = self.sliderLastPos || $.fancybox.getTranslate(current.$slide);
+    self.sliderStartPos = self.sliderLastPos || $.fancybox.getTranslate($slide);
 
     // Since position will be absolute, but we need to make it relative to the stage
     self.stagePos = $.fancybox.getTranslate(instance.$refs.stage);
@@ -3496,7 +3661,8 @@
       document.addEventListener("scroll", self.onscroll, true);
     }
 
-    if (!(self.opts || instance.canPan()) || !($target.is(self.$stage) || self.$stage.find($target).length)) {
+    // Skip if clicked outside the sliding area
+    if (!(self.opts || self.canPan) || !($target.is(self.$stage) || self.$stage.find($target).length)) {
       if ($target.is(".fancybox-image")) {
         e.preventDefault();
       }
@@ -3504,12 +3670,16 @@
       return;
     }
 
-    if (!($.fancybox.isMobile && (isScrollable($target) || isScrollable($target.parent())))) {
+    self.isScrollable = isScrollable($target) || isScrollable($target.parent());
+
+    // Check if element is scrollable and try to prevent default behavior (scrolling)
+    if (!($.fancybox.isMobile && self.isScrollable)) {
       e.preventDefault();
     }
 
+    // One finger or mouse click - swipe or pan an image
     if (self.startPoints.length === 1 || current.hasError) {
-      if (self.instance.canPan()) {
+      if (self.canPan) {
         $.fancybox.stop(self.$content);
 
         self.$content.css("transition-duration", "");
@@ -3519,9 +3689,10 @@
         self.isSwiping = true;
       }
 
-      self.$container.addClass("fancybox-controls--isGrabbing");
+      self.$container.addClass("fancybox-is-grabbing");
     }
 
+    // Two fingers - zoom image
     if (self.startPoints.length === 2 && current.type === "image" && (current.isLoaded || current.$ghost)) {
       self.canTap = false;
       self.isSwiping = false;
@@ -3552,8 +3723,7 @@
   };
 
   Guestures.prototype.ontouchmove = function(e) {
-    var self = this,
-      $target = $(e.target);
+    var self = this;
 
     // Make sure user has not released over iframe or disabled element
     if (e.originalEvent.buttons !== undefined && e.originalEvent.buttons === 0) {
@@ -3561,15 +3731,14 @@
       return;
     }
 
-    if (self.isScrolling || !($target.is(self.$stage) || self.$stage.find($target).length)) {
+    if (self.isScrolling) {
       self.canTap = false;
-
       return;
     }
 
     self.newPoints = getPointerXY(e);
 
-    if (!(self.opts || self.instance.canPan()) || !self.newPoints.length || !self.newPoints.length) {
+    if (!(self.opts || self.canPan) || !self.newPoints.length || !self.newPoints.length) {
       return;
     }
 
@@ -3611,14 +3780,14 @@
         } else if (self.instance.isDragging || self.opts.vertical === false || (self.opts.vertical === "auto" && $(window).width() > 800)) {
           self.isSwiping = "x";
         } else {
-          angle = Math.abs(Math.atan2(self.distanceY, self.distanceX) * 180 / Math.PI);
+          angle = Math.abs((Math.atan2(self.distanceY, self.distanceX) * 180) / Math.PI);
 
           self.isSwiping = angle > 45 && angle < 135 ? "y" : "x";
         }
 
         self.canTap = false;
 
-        if (self.isSwiping === "y" && $.fancybox.isMobile && (isScrollable(self.$target) || isScrollable(self.$target.parent()))) {
+        if (self.isSwiping === "y" && $.fancybox.isMobile && self.isScrollable) {
           self.isScrolling = true;
 
           return;
@@ -3880,7 +4049,7 @@
 
     self.endPoints = getPointerXY(e);
 
-    self.$container.removeClass("fancybox-controls--isGrabbing");
+    self.$container.removeClass("fancybox-is-grabbing");
 
     $(document).off(".fb.touch");
 
@@ -3906,10 +4075,10 @@
     self.speed = 366;
 
     // Speed in px/ms
-    self.velocityX = self.distanceX / dMs * 0.5;
-    self.velocityY = self.distanceY / dMs * 0.5;
+    self.velocityX = (self.distanceX / dMs) * 0.5;
+    self.velocityY = (self.distanceY / dMs) * 0.5;
 
-    self.speedX = Math.max(self.speed * 0.5, Math.min(self.speed * 1.5, 1 / Math.abs(self.velocityX) * self.speed));
+    self.speedX = Math.max(self.speed * 0.5, Math.min(self.speed * 1.5, (1 / Math.abs(self.velocityX)) * self.speed));
 
     if (panning) {
       self.endPanning();
@@ -4159,7 +4328,7 @@
       instance.Guestures = new Guestures(instance);
     }
   });
-})(window, document, window.jQuery || jQuery);
+})(window, document, jQuery);
 
 // ==========================================================================
 //
@@ -4177,10 +4346,8 @@
     btnTpl: {
       slideShow:
         '<button data-fancybox-play class="fancybox-button fancybox-button--play" title="{{PLAY_START}}">' +
-        '<svg viewBox="0 0 40 40">' +
-        '<path d="M13,12 L27,20 L13,27 Z" />' +
-        '<path d="M15,10 v19 M23,10 v19" />' +
-        "</svg>" +
+        '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M6.5 5.4v13.2l11-6.6z"/></svg>' +
+        '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.33 5.75h2.2v12.5h-2.2V5.75zm5.15 0h2.2v12.5h-2.2V5.75z"/></svg>' +
         "</button>"
     },
     slideShow: {
@@ -4212,23 +4379,34 @@
     },
 
     set: function(force) {
-      var self = this;
+      var self = this,
+        instance = self.instance,
+        current = instance.current,
+        advance = function() {
+          if (self.isActive) {
+            instance.jumpTo((instance.currIndex + 1) % instance.group.length);
+          }
+        };
 
       // Check if reached last element
-      if (
-        self.instance &&
-        self.instance.current &&
-        (force === true || self.instance.current.opts.loop || self.instance.currIndex < self.instance.group.length - 1)
-      ) {
+      if (current && (force === true || current.opts.loop || instance.currIndex < instance.group.length - 1)) {
         self.timer = setTimeout(function() {
+          var $video;
+
           if (self.isActive) {
-            self.instance.jumpTo((self.instance.currIndex + 1) % self.instance.group.length);
+            $video = current.$slide.find("video,audio").filter(":visible:first");
+
+            if ($video.length) {
+              $video.one("ended", advance);
+            } else {
+              advance();
+            }
           }
-        }, self.instance.current.opts.slideShow.speed);
+        }, current.opts.slideShow.speed);
       } else {
         self.stop();
-        self.instance.idleSecondsCounter = 0;
-        self.instance.showControls();
+        instance.idleSecondsCounter = 0;
+        instance.showControls();
       }
     },
 
@@ -4245,14 +4423,18 @@
       var current = self.instance.current;
 
       if (current) {
-        self.isActive = true;
-
         self.$button
           .attr("title", current.opts.i18n[current.opts.lang].PLAY_STOP)
           .removeClass("fancybox-button--play")
           .addClass("fancybox-button--pause");
 
-        self.set(true);
+        self.isActive = true;
+
+        if (current.isComplete) {
+          self.set(true);
+        }
+
+        self.instance.trigger("onSlideShowChange", true);
       }
     },
 
@@ -4268,6 +4450,8 @@
         .addClass("fancybox-button--play");
 
       self.isActive = false;
+
+      self.instance.trigger("onSlideShowChange", false);
     },
 
     toggle: function() {
@@ -4341,7 +4525,7 @@
       }
     }
   });
-})(document, window.jQuery || jQuery);
+})(document, jQuery);
 
 // ==========================================================================
 //
@@ -4402,58 +4586,81 @@
     return false;
   })();
 
-  // If browser does not have Full Screen API, then simply unset default button template and stop
-  if (!fn) {
-    if ($ && $.fancybox) {
-      $.fancybox.defaults.btnTpl.fullScreen = false;
-    }
+  if (fn) {
+    var FullScreen = {
+      request: function(elem) {
+        elem = elem || document.documentElement;
 
-    return;
-  }
+        elem[fn.requestFullscreen](elem.ALLOW_KEYBOARD_INPUT);
+      },
+      exit: function() {
+        document[fn.exitFullscreen]();
+      },
+      toggle: function(elem) {
+        elem = elem || document.documentElement;
 
-  var FullScreen = {
-    request: function(elem) {
-      elem = elem || document.documentElement;
-
-      elem[fn.requestFullscreen](elem.ALLOW_KEYBOARD_INPUT);
-    },
-    exit: function() {
-      document[fn.exitFullscreen]();
-    },
-    toggle: function(elem) {
-      elem = elem || document.documentElement;
-
-      if (this.isFullscreen()) {
-        this.exit();
-      } else {
-        this.request(elem);
+        if (this.isFullscreen()) {
+          this.exit();
+        } else {
+          this.request(elem);
+        }
+      },
+      isFullscreen: function() {
+        return Boolean(document[fn.fullscreenElement]);
+      },
+      enabled: function() {
+        return Boolean(document[fn.fullscreenEnabled]);
       }
-    },
-    isFullscreen: function() {
-      return Boolean(document[fn.fullscreenElement]);
-    },
-    enabled: function() {
-      return Boolean(document[fn.fullscreenEnabled]);
-    }
-  };
+    };
 
-  $.extend(true, $.fancybox.defaults, {
-    btnTpl: {
-      fullScreen:
-        '<button data-fancybox-fullscreen class="fancybox-button fancybox-button--fullscreen" title="{{FULL_SCREEN}}">' +
-        '<svg viewBox="0 0 40 40">' +
-        '<path d="M9,12 v16 h22 v-16 h-22 v8" />' +
-        "</svg>" +
-        "</button>"
-    },
-    fullScreen: {
-      autoStart: false
-    }
-  });
+    $.extend(true, $.fancybox.defaults, {
+      btnTpl: {
+        fullScreen:
+          '<button data-fancybox-fullscreen class="fancybox-button fancybox-button--fsenter" title="{{FULL_SCREEN}}">' +
+          '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/></svg>' +
+          '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5 16h3v3h2v-5H5zm3-8H5v2h5V5H8zm6 11h2v-3h3v-2h-5zm2-11V5h-2v5h5V8z"/></svg>' +
+          "</button>"
+      },
+      fullScreen: {
+        autoStart: false
+      }
+    });
+
+    $(document).on(fn.fullscreenchange, function() {
+      var isFullscreen = FullScreen.isFullscreen(),
+        instance = $.fancybox.getInstance();
+
+      if (instance) {
+        // If image is zooming, then force to stop and reposition properly
+        if (instance.current && instance.current.type === "image" && instance.isAnimating) {
+          instance.current.$content.css("transition", "none");
+
+          instance.isAnimating = false;
+
+          instance.update(true, true, 0);
+        }
+
+        instance.trigger("onFullscreenChange", isFullscreen);
+
+        instance.$refs.container.toggleClass("fancybox-is-fullscreen", isFullscreen);
+
+        instance.$refs.toolbar
+          .find("[data-fancybox-fullscreen]")
+          .toggleClass("fancybox-button--fsenter", !isFullscreen)
+          .toggleClass("fancybox-button--fsexit", isFullscreen);
+      }
+    });
+  }
 
   $(document).on({
     "onInit.fb": function(e, instance) {
       var $container;
+
+      if (!fn) {
+        instance.$refs.toolbar.find("[data-fancybox-fullscreen]").remove();
+
+        return;
+      }
 
       if (instance && instance.group[instance.currIndex].opts.fullScreen) {
         $container = instance.$refs.container;
@@ -4491,27 +4698,7 @@
       }
     }
   });
-
-  $(document).on(fn.fullscreenchange, function() {
-    var isFullscreen = FullScreen.isFullscreen(),
-      instance = $.fancybox.getInstance();
-
-    if (instance) {
-      // If image is zooming, then force to stop and reposition properly
-      if (instance.current && instance.current.type === "image" && instance.isAnimating) {
-        instance.current.$content.css("transition", "none");
-
-        instance.isAnimating = false;
-
-        instance.update(true, true, 0);
-      }
-
-      instance.trigger("onFullscreenChange", isFullscreen);
-
-      instance.$refs.container.toggleClass("fancybox-is-fullscreen", isFullscreen);
-    }
-  });
-})(document, window.jQuery || jQuery);
+})(document, jQuery);
 
 // ==========================================================================
 //
@@ -4523,8 +4710,7 @@
   "use strict";
 
   var CLASS = "fancybox-thumbs",
-    CLASS_ACTIVE = CLASS + "-active",
-    CLASS_LOAD = CLASS + "-loading";
+    CLASS_ACTIVE = CLASS + "-active";
 
   // Make sure there are default values
   $.fancybox.defaults = $.extend(
@@ -4533,9 +4719,7 @@
       btnTpl: {
         thumbs:
           '<button data-fancybox-thumbs class="fancybox-button fancybox-button--thumbs" title="{{THUMBS}}">' +
-          '<svg viewBox="0 0 120 120">' +
-          '<path d="M30,30 h14 v14 h-14 Z M50,30 h14 v14 h-14 Z M70,30 h14 v14 h-14 Z M30,50 h14 v14 h-14 Z M50,50 h14 v14 h-14 Z M70,50 h14 v14 h-14 Z M30,70 h14 v14 h-14 Z M50,70 h14 v14 h-14 Z M70,70 h14 v14 h-14 Z" />' +
-          "</svg>" +
+          '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.59 14.59h3.76v3.76h-3.76v-3.76zm-4.47 0h3.76v3.76h-3.76v-3.76zm-4.47 0h3.76v3.76H5.65v-3.76zm8.94-4.47h3.76v3.76h-3.76v-3.76zm-4.47 0h3.76v3.76h-3.76v-3.76zm-4.47 0h3.76v3.76H5.65v-3.76zm8.94-4.47h3.76v3.76h-3.76V5.65zm-4.47 0h3.76v3.76h-3.76V5.65zm-4.47 0h3.76v3.76H5.65V5.65z"/></svg>' +
           "</button>"
       },
       thumbs: {
@@ -4581,7 +4765,7 @@
 
       self.$button = instance.$refs.toolbar.find("[data-fancybox-thumbs]");
 
-      if (self.opts && first && second && first && second) {
+      if (self.opts && first && second) {
         self.$button.show().on("click", function() {
           self.toggle();
         });
@@ -4609,14 +4793,14 @@
         );
 
         // Add "click" event that performs gallery navigation
-        self.$grid.on("click", "li", function() {
+        self.$grid.on("click", "a", function() {
           instance.jumpTo($(this).attr("data-index"));
         });
       }
 
       // Build the list
       if (!self.$list) {
-        self.$list = $("<ul>").appendTo(self.$grid);
+        self.$list = $('<div class="' + CLASS + '__list">').appendTo(self.$grid);
       }
 
       $.each(instance.group, function(i, item) {
@@ -4627,13 +4811,11 @@
         }
 
         list.push(
-          '<li data-index="' +
+          '<a href="javascript:;" tabindex="0" data-index="' +
             i +
-            '" tabindex="0" class="' +
-            CLASS_LOAD +
-            '"' +
+            '" ' +
             (src && src.length ? ' style="background-image:url(' + src + ')" />' : "") +
-            "></li>"
+            "></a>"
         );
       });
 
@@ -4771,7 +4953,7 @@
       }
     }
   });
-})(document, window.jQuery || jQuery);
+})(document, jQuery);
 
 //// ==========================================================================
 //
@@ -4786,9 +4968,7 @@
     btnTpl: {
       share:
         '<button data-fancybox-share class="fancybox-button fancybox-button--share" title="{{SHARE}}">' +
-        '<svg viewBox="0 0 40 40">' +
-        '<path d="M6,30 C8,18 19,16 23,16 L23,16 L23,10 L33,20 L23,29 L23,24 C19,24 8,27 6,30 Z">' +
-        "</svg>" +
+        '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M2.55 19c1.4-8.4 9.1-9.8 11.9-9.8V5l7 7-7 6.3v-3.5c-2.8 0-10.5 2.1-11.9 4.2z"/></svg>' +
         "</button>"
     },
     share: {
@@ -4814,7 +4994,7 @@
         "<span>Pinterest</span>" +
         "</a>" +
         "</p>" +
-        '<p><input class="fancybox-share__input" type="text" value="{{url_raw}}" /></p>' +
+        '<p><input class="fancybox-share__input" type="text" value="{{url_raw}}" onclick="select()" /></p>' +
         "</div>"
     }
   });
@@ -4860,6 +5040,7 @@
       src: instance.translate(instance, tpl),
       type: "html",
       opts: {
+        touch: false,
         animationEffect: false,
         afterLoad: function(shareInstance, shareCurrent) {
           // Close self if parent instance is closing
@@ -4868,15 +5049,18 @@
           });
 
           // Opening links in a popup window
-          shareCurrent.$content.find(".fancybox-share__links a").click(function() {
+          shareCurrent.$content.find(".fancybox-share__button").click(function() {
             window.open(this.href, "Share", "width=550, height=450");
             return false;
           });
+        },
+        mobile: {
+          autoFocus: false
         }
       }
     });
   });
-})(document, window.jQuery || jQuery);
+})(document, jQuery);
 
 // ==========================================================================
 //
@@ -4884,7 +5068,7 @@
 // Enables linking to each modal
 //
 // ==========================================================================
-(function(document, window, $) {
+(function(window, document, $) {
   "use strict";
 
   // Simple $.escapeSelector polyfill (for jQuery prior v3)
@@ -4927,13 +5111,12 @@
 
   // Trigger click evnt on links to open new fancyBox instance
   function triggerFromUrl(url) {
-    var $el;
-
     if (url.gallery !== "") {
-      // If we can find element matching 'data-fancybox' atribute, then trigger click event for that.
-      // It should start fancyBox
-      $el = $("[data-fancybox='" + $.escapeSelector(url.gallery) + "']")
+      // If we can find element matching 'data-fancybox' atribute,
+      // then triggering click event should start fancyBox
+      $("[data-fancybox='" + $.escapeSelector(url.gallery) + "']")
         .eq(url.index - 1)
+        .focus()
         .trigger("click.fb-start");
     }
   }
@@ -4947,7 +5130,7 @@
     }
 
     opts = instance.current ? instance.current.opts : instance.opts;
-    ret = opts.hash || (opts.$orig ? opts.$orig.data("fancybox") : "");
+    ret = opts.hash || (opts.$orig ? opts.$orig.data("fancybox") || opts.$orig.data("fancybox-trigger") : "");
 
     return ret === "" ? false : ret;
   }
@@ -5000,7 +5183,7 @@
           return;
         }
 
-        if (!instance.origHash) {
+        if (firstRun && !instance.origHash) {
           instance.origHash = window.location.hash;
         }
 
@@ -5029,13 +5212,11 @@
       },
 
       "beforeClose.fb": function(e, instance, current) {
-        var gallery;
-
         if (current.opts.hash === false) {
           return;
         }
 
-        gallery = getGalleryID(instance);
+        clearTimeout(instance.hashTimer);
 
         // Goto previous history entry
         if (instance.currentHash && instance.hasCreatedHistory) {
@@ -5049,15 +5230,13 @@
         }
 
         instance.currentHash = null;
-
-        clearTimeout(instance.hashTimer);
       }
     });
 
     // Check if need to start/close after url has changed
     $(window).on("hashchange.fb", function() {
       var url = parseUrl(),
-        fb;
+        fb = null;
 
       // Find last fancyBox instance that has "hash"
       $.each(
@@ -5066,8 +5245,8 @@
           .reverse(),
         function(index, value) {
           var tmp = $(value).data("FancyBox");
-          //isClosing
-          if (tmp.currentHash) {
+
+          if (tmp && tmp.currentHash) {
             fb = tmp;
             return false;
           }
@@ -5076,7 +5255,7 @@
 
       if (fb) {
         // Now, compare hash values
-        if (fb.currentHash && fb.currentHash !== url.gallery + "-" + url.index && !(url.index === 1 && fb.currentHash == url.gallery)) {
+        if (fb.currentHash !== url.gallery + "-" + url.index && !(url.index === 1 && fb.currentHash == url.gallery)) {
           fb.currentHash = null;
 
           fb.close();
@@ -5093,7 +5272,7 @@
       }
     }, 50);
   });
-})(document, window, window.jQuery || jQuery);
+})(window, document, jQuery);
 
 // ==========================================================================
 //
@@ -5135,4 +5314,4 @@
       });
     }
   });
-})(document, window.jQuery || jQuery);
+})(document, jQuery);
