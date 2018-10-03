@@ -41,9 +41,9 @@ class ThemeOptions {
 		setThemeOptionDefault('zpB_show_exif', true);
 
 		if (class_exists('cacheManager')) {
-			cacheManager::deleteThemeCacheSizes($me);
-			cacheManager::addThemeCacheSize($me, getThemeOption('thumb_size'), NULL, NULL, getThemeOption('thumb_crop_width'), getThemeOption('thumb_crop_height'), NULL, NULL, true);
-			cacheManager::addThemeCacheSize($me, getThemeOption('image_size'), NULL, NULL, NULL, NULL, NULL, NULL, false);
+			cacheManager::deleteCacheSizes($me);
+			cacheManager::addDefaultThumbSize();
+			cacheManager::addDefaultSizedImageSize();
 		}
 	}
 
