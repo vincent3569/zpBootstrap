@@ -151,9 +151,9 @@ $(document).ready( function() {
 
 	/* contact */
 	if ($('#mailform').length) {
+		$('.post p:first-child strong:first-child').css('color', 'red');
 		$('#mailform, #confirm, #discard').addClass('form-horizontal');
 		$('#mailform input[type="reset"]').addClass('margin-left-small');
-		$('#discard input[type="submit"]').addClass('margin-left');
 		$('#mailform label + input')
 			.addClass('form-control')
 			.wrap('<div class="col-sm-6"></div>')
@@ -173,11 +173,11 @@ $(document).ready( function() {
 			.wrapInner('<div class="col-sm-offset-3 col-sm-6"></div>')
 			.wrapInner('<div class="form-group"></div>');
 		$('#mailform label[for="username"]').parent().addClass('hidden');
-		$('.form-group').unwrap();
-		$('#confirm, #discard')
+		$('#mailform .form-group').unwrap();
+		$('#discard input[type="submit"]').addClass('margin-left');
+		$('form#confirm, form#discard')
 			.wrapAll('<div class="row"></div>')
 			.wrapAll('<div class="col-sm-offset-3 col-sm-6"></div>');
-		$('.post p:first-child strong:first-child').css('color', 'red');
 	}
 
 	/* search and archives */
