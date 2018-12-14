@@ -116,6 +116,10 @@ require_once (SERVERPATH . '/' . ZENFOLDER . '/' . PLUGIN_FOLDER . '/tag_extras.
 			<?php include('inc_print_googlemap.php'); ?>
 		<?php } ?>
 
+		<?php if (extensionEnabled('openstreetmap')) { ?>
+			<?php include('inc_print_osm.php'); ?>
+		<?php } ?>
+
 		<?php if (extensionEnabled('comment_form')) { ?>
 			<?php include('inc_print_comment.php'); ?>
 		<?php } ?>
