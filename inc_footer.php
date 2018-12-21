@@ -7,7 +7,7 @@
 					printCustomPageURL(gettext('Archive View'), 'archive', '', ' | ');
 				}
 				$data = getDataUsageNotice();
-				if(!empty($data['url'])) {
+				if (!empty($data['url'])) {
 					echo ' | '; printLinkHTML($data['url'], $data['linktext'], $data['linktext'], null, null);
 				}
 				?>

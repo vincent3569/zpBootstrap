@@ -368,13 +368,20 @@ iframe {
 #map_canvas {
 	height: 600px;
 }
-.hidden_map {
+
+/*------------------------------------
+	openstreetmap overwriting
+-------------------------------------- */
+/*.osm_panel {
 	position: absolute;
 	top: -50000px;
 	width: 940px;
 	height: 500px;
 	display: block;
 }
+.osm_panel .panel-body{
+	padding: 0;
+}*/
 
 /*------------------------------------
 	comments
