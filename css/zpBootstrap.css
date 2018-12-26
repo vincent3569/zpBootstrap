@@ -478,7 +478,7 @@ div.buttons button {
 	border: 4px solid #337ab7;
 }
 .fancybox-progress {
-    background: #337ab7;
+	background: #337ab7;
 }
 @media (max-width: 767px) {
 	.fancybox-button--thumbs {
