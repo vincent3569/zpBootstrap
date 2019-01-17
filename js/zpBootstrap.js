@@ -1,5 +1,5 @@
 /*------------------------------------
-		zenphoto overwriting for theme, zenphoto and bootstrap 3.x being compliant all together
+ zenphoto overwriting for theme, zenphoto and bootstrap 3.x being compliant all together
 -------------------------------------- */
 
 $(document).ready( function() {
@@ -215,6 +215,15 @@ $(document).ready( function() {
 		}
 	}
 
+	/* video players */
+	$('.jp-video').addClass('center-block');
+	$('.jp-video-play-icon').removeClass('btn btn-default')
+	$('nav.nav_photo + video').addClass('center-block');
+	$('nav.nav_photo + audio').addClass('center-block');
+	if ($('span.textobject > .embed-responsive').length) {
+		$('div.embed-responsive').unwrap();
+	}
+
 	/* comment form */
 	if ($('#comment_accordion').length) {
 		$('#commentcontent h3').remove();
@@ -246,12 +255,12 @@ $(document).ready( function() {
 			.parent().wrap('<div class="form-group"></div>');
 		$('#commentform input[type="submit"]').addClass('btn btn-default');
 		$('.commentinfo h4').addClass('margin-bottom-reset');
-		if ($('#commentform .alert').length) {
-			$('#comment_collapse').collapse('show');
-		}
-		/* if ($('#guestbook').length) {
+		/* if ($('#commentform .alert').length) {
 			$('#comment_collapse').collapse('show');
 		} */
+		/* if ($('#guestbook').length) {
+			$('#comment_collapse').collapse('show');
+		 } */
 		// fix no focus when oppening comments
 		$('#comment_collapse').on('shown.bs.collapse', function() {
 			$(this).find('#name').focus();
@@ -279,7 +288,7 @@ $(document).ready( function() {
 		$('html, body').animate({scrollTop: offsetTop}, 500, 'linear');
 	}
 
-	// full height for main div (windows height - "header" height - "footer" height)
+	// full height for main div (windows height - "header" height - "footer" height - "admin" height)
 	$(window).resize(function() {
 		$('#main').css('min-height', $(window).height() - $('#menu').outerHeight() - $('#footer').outerHeight() - $('#zp__admin_module').outerHeight() - 1);
 	}).resize();
