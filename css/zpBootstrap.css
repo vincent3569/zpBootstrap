@@ -370,20 +370,6 @@ iframe {
 }
 
 /*------------------------------------
-	openstreetmap overwriting
--------------------------------------- */
-/*.osm_panel {
-	position: absolute;
-	top: -50000px;
-	width: 940px;
-	height: 500px;
-	display: block;
-}
-.osm_panel .panel-body{
-	padding: 0;
-}*/
-
-/*------------------------------------
 	comments
 -------------------------------------- */
 #comment_accordion.panel-group .panel {
@@ -479,6 +465,11 @@ div.buttons button {
 }
 .fancybox-progress {
 	background: #337ab7;
+}
+.fancybox-slide--iframe .fancybox-content {
+	max-width : 80%;
+	max-height : 10%;
+	margin: 0;
 }
 @media (max-width: 767px) {
 	.fancybox-button--thumbs {
