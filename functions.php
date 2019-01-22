@@ -148,4 +148,24 @@ function zpB_printNextNewsPageURL($text, $class = NULL) {
 		echo '<span class="disabledlink">' . html_encode($text) . '</span>';
 	}
 }
+
+/**
+ * Returns the source link of the video in the txt/htm/html file
+ *
+ * @param string $content content of a text file supposed to describe a link to an online video
+ * @return string or false is there is no iframe with a link
+ */
+function zpB_getLink($content) {
+
+	$link = false;
+	$iframepattern = '/<iframe/';
+	$urlpattern = '/src="([^"]+)"/';
+	if (preg_match($iframepattern, $content)) {
+		if (preg_match ($urlpattern, $content, $result)) {
+			$link = pathurlencode($result[1]);
+		}
+	}
+	return $link;
+}
+
 ?>
