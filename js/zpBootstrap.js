@@ -220,8 +220,11 @@ $(document).ready( function() {
 	$('.jp-video-play-icon').removeClass('btn btn-default')
 	$('nav.nav_photo + video').addClass('center-block');
 	$('nav.nav_photo + audio').addClass('center-block');
-	if ($('span.textobject > .embed-responsive').length) {
-		$('div.embed-responsive').unwrap();
+	$('nav.nav_photo + iframe')
+	    .removeAttr('width')
+	    .attr('width', '100%');
+    if ($('span.textobject').length) {
+		$('span.textobject').replaceWith('<span>' + $('span.textobject').html() + '</span>');
 	}
 
 	/* comment form */
