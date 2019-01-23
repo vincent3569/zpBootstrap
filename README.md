@@ -1,7 +1,7 @@
 zpBootstrap 
 ============
 
-zpBootstrap is a « Responsive » theme for [Zenphoto CMS](http://www.zenphoto.org), based on [Bootstrap framework](http://getbootstrap.com/).
+zpBootstrap is a « Responsive » theme for [Zenphoto CMS](https://www.zenphoto.org), based on [Bootstrap framework](https://getbootstrap.com/docs/3.4/).
 
 Feel free to download and use it, and thanks in advance for your feedback!
 
@@ -9,7 +9,7 @@ Feel free to download and use it, and thanks in advance for your feedback!
 To use the release **2.2** of the theme, you must have **ZenPhoto 1.5.1 or more**.
 If you use another release of ZenPhoto, see [archives of zpBootstrape on Github](https://github.com/vincent3569/zpBootstrap/releases).
 
-You can report bugs on the [Zenphoto forum](http://www.zenphoto.org/support/) or by creating an issue on [GitHub](https://github.com/vincent3569/zpBootstrap/issues), I will fix it as soon as possible (only the latest version is supported). You can also improve theme via [Pull requests](https://github.com/vincent3569/zpBootstrap/pulls).
+You can report bugs on the [Zenphoto forum](https://forum.zenphoto.org/) or by creating an issue on [GitHub](https://github.com/vincent3569/zpBootstrap/issues), I will fix it as soon as possible (only the latest version is supported). You can also improve theme via [Pull requests](https://github.com/vincent3569/zpBootstrap/pulls).
 
 Please note that the Zenphoto team advise to regulary upgrade with the latest version of Zenphoto to benefit from the latest features of the application, to solve the various security holes, and to benefit from the support of the Zenphoto team.
 
