@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: zpBootstrap\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-06-05 08:21+0200\n"
-"PO-Revision-Date: 2018-06-05 08:22+0200\n"
+"POT-Creation-Date: 2019-01-23 21:42+0100\n"
+"PO-Revision-Date: 2019-01-23 21:45+0100\n"
 "Last-Translator: Vincent Bourganel <vincent_bourganel@yahoo.fr>\n"
 "Language-Team: vincent3569 <vincent_bourganel@yahoo.fr>\n"
 "Language: fr_FR\n"
@@ -13,14 +13,14 @@ msgstr ""
 "X-Poedit-KeywordsList: ;gettext_th\n"
 "X-Poedit-Basepath: ../../..\n"
 "X-Poedit-SourceCharset: UTF-8\n"
-"X-Generator: Poedit 2.0.8\n"
+"X-Generator: Poedit 2.2.1\n"
 "X-Poedit-SearchPath-0: .\n"
 
 #: home.php:60
 msgid "Latest news"
 msgstr "Dernière actualité"
 
-#: inc_header.php:110
+#: inc_header.php:111
 msgid "thumbnails"
 msgstr "miniatures"
 
@@ -55,12 +55,12 @@ msgstr "Pas d'autres actualités à afficher"
 #: theme_description.php:10
 msgid ""
 "A responsive Zenphoto theme ready for desktop to mobile device, using <a "
-"href=\"http://getbootstrap.com/\" title=\"Boostrap\" target=\"_blank"
-"\">Boostrap 3.3.7</a> framework."
+"href=\"https://getbootstrap.com/docs/3.4/\" title=\"Boostrap\" target="
+"\"_blank\">Boostrap 3.4.0</a> framework."
 msgstr ""
-"Un thème \"responsive\" pour Zenphoto theme, s'adaptant des ordinateurs aux "
-"smartphones, utilisant le Framework <a href=\"http://getbootstrap.com/\" "
-"title=\"Boostrap\" target=\"_blank\">Boostrap 3.3.7</a>."
+"Un thème responsive pour Zenphoto, s'adaptant des ordinateurs aux "
+"smartphones, utilisant le Framework <a href=\"https://getbootstrap.com/"
+"docs/3.4/\" title=\"Boostrap\" target=\"_blank\">Boostrap 3.4.0</a>."
 
 #: theme_description.php:11
 msgid "Please read"
@@ -247,6 +247,45 @@ msgstr ""
 "Affiche les données EXIF sur la page Image. Rappelez-vous que vous devez "
 "choisir les données EXIF que vous voulez afficher sur la page "
 "Options>Image>Métadonnées."
+
+#~ msgid "Demo site"
+#~ msgstr "Site de démo"
+
+#~ msgid "Creation and maintenance of themes and plugins take a lot of time."
+#~ msgstr ""
+#~ "La création et la maintenance de thèmes et plugins prend beaucoup de "
+#~ "temps."
+
+#~ msgid "Thanks to donate to help zpBoostrap."
+#~ msgstr "Merci de votre don pour aider le thème zpBoostrap."
+
+#~ msgid "Thanks to donate to help zpArdoise."
+#~ msgstr "Merci de votre don pour aider le thème zpArdoise."
+
+#~ msgid "Thanks to donate to help i-feel-dirty."
+#~ msgstr "Merci de votre don pour aider le thème i-feel-dirty."
+
+#~ msgid "Thanks to donate to help akismet plugin."
+#~ msgstr "Merci de votre don pour aider le plugin akismet."
+
+#~ msgid ""
+#~ "A responsive Zenphoto theme ready for desktop to mobile device, using <a "
+#~ "href=\"http://getbootstrap.com/\" title=\"Boostrap\" target=\"_blank"
+#~ "\">Boostrap 3.3.7</a> framework."
+#~ msgstr ""
+#~ "Un thème \"responsive\" pour Zenphoto theme, s'adaptant des ordinateurs "
+#~ "aux smartphones, utilisant le Framework <a href=\"http://getbootstrap.com/"
+#~ "\" title=\"Boostrap\" target=\"_blank\">Boostrap 3.3.7</a>."
+
+#~ msgid ""
+#~ "Creation and maintenance of themes and plugins take a lot of work and "
+#~ "time."
+#~ msgstr "La création et la maintenance de thèmes et plugins néce"
+
+#~ msgid ""
+#~ "Creation and maintenance of themes and plugins takes a lot of work and "
+#~ "time."
+#~ msgstr "La création et la maintenance de thèmes et plugins "
 
 #~ msgid "Exerpt length"
 #~ msgstr "Longueur de l'extrait"

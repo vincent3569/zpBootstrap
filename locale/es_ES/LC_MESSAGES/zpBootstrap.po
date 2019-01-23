@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: zpBootstrap\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-07-31 18:08+0200\n"
-"PO-Revision-Date: 2017-07-31 18:15+0200\n"
+"POT-Creation-Date: 2019-01-23 21:41+0100\n"
+"PO-Revision-Date: 2019-01-23 21:43+0100\n"
 "Last-Translator: Vincent Bourganel <vincent_bourganel@yahoo.fr>\n"
 "Language-Team: vincent3569 <vincent_bourganel@yahoo.fr>\n"
 "Language: es_ES\n"
@@ -13,71 +13,197 @@ msgstr ""
 "X-Poedit-KeywordsList: ;gettext_th\n"
 "X-Poedit-Basepath: ../../..\n"
 "X-Poedit-SourceCharset: UTF-8\n"
-"X-Generator: Poedit 2.0.1\n"
+"X-Generator: Poedit 2.2.1\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: home.php:61
+#: home.php:60
 msgid "Latest news"
 msgstr "Últimas noticias"
 
-#: themeoptions.php:62
+#: inc_header.php:111
+msgid "thumbnails"
+msgstr "miniaturas"
+
+#: inc_print_googlemap.php:2
+msgid "The theme doesn't support colorbox option for googlemap plugin."
+msgstr ""
+
+#: inc_print_infinitescroll.php:5
+msgid "View more albums"
+msgstr ""
+
+#: inc_print_infinitescroll.php:6
+msgid "No more albums to display"
+msgstr ""
+
+#: inc_print_infinitescroll.php:10
+msgid "View more images"
+msgstr ""
+
+#: inc_print_infinitescroll.php:11
+msgid "No more images to display"
+msgstr ""
+
+#: inc_print_infinitescroll_news.php:7
+msgid "View more news"
+msgstr ""
+
+#: inc_print_infinitescroll_news.php:17
+msgid "No more news to display"
+msgstr ""
+
+#: theme_description.php:10
+msgid ""
+"A responsive Zenphoto theme ready for desktop to mobile device, using <a "
+"href=\"https://getbootstrap.com/docs/3.4/\" title=\"Boostrap\" target="
+"\"_blank\">Boostrap 3.4.0</a> framework."
+msgstr ""
+
+#: theme_description.php:11
+msgid "Please read"
+msgstr ""
+
+#: theme_description.php:11
+msgid "and"
+msgstr ""
+
+#: theme_description.php:12
+msgid ""
+"To design your content to be responsive using Boostrap framework, you can "
+"have a look on"
+msgstr ""
+
+#: theme_description.php:12
+msgid "Bootstrap Grid System"
+msgstr ""
+
+#: themeoptions.php:68
 msgid ""
 "Display a home page, with a slider of random pictures, the gallery "
 "description and the latest news."
 msgstr ""
 
-#: themeoptions.php:71
+#: themeoptions.php:69
+msgid "Latest news on Homepage"
+msgstr ""
+
+#: themeoptions.php:73
+msgid ""
+"Display the latest news on the home page (Homepage option have to be "
+"selected too)."
+msgstr ""
+
+#: themeoptions.php:74
+msgid "Homepage slider"
+msgstr ""
+
+#: themeoptions.php:82
 msgid ""
 "Select the Album to use for the homepage slider (Dynamic albums may used)."
 msgstr ""
 
-#: themeoptions.php:72
+#: themeoptions.php:83
 msgid "If Gallery is selected, the whole gallery will be used for the slider."
 msgstr ""
 
-#: themeoptions.php:73
+#: themeoptions.php:84
+msgid "Random pictures for homepage slider"
+msgstr ""
+
+#: themeoptions.php:89
 msgid "Number of random pictures to use for the homepage slider."
 msgstr ""
 
-#: themeoptions.php:80
+#: themeoptions.php:90
+msgid "Use infinite scroll"
+msgstr ""
+
+#: themeoptions.php:99
+msgid ""
+"Check pages which use <a href=\"https://infinite-scroll.com/\" target="
+"\"_blank\">infinite-scroll jQuery plugin</a>. This layout will automatically "
+"load items of next page (albums, images or news) without pagination."
+msgstr ""
+
+#: themeoptions.php:100
+msgid ""
+"The behavior is \"manual first\": it requires visitor to click a button the "
+"first time to load new items and then, it automatically load after."
+msgstr ""
+
+#: themeoptions.php:101
+msgid ""
+"Rather than using infinite-scroll layout for all albums, you may also allow "
+"\"multiple_layouts\" plugin and then choose \"album_infinitescroll\" as "
+"layout for specific albums of your gallery."
+msgstr ""
+
+#: themeoptions.php:103
+msgid ""
+"<strong>Note:</strong> This album layout does not manage albums with images "
+"and sub-albums (in that case, standard album layout is automatically used)."
+msgstr ""
+
+#: themeoptions.php:104
+msgid "Use isotope"
+msgstr ""
+
+#: themeoptions.php:109
 msgid ""
 "Use <a href=\"https://isotope.metafizzy.co/\" target=\"_blank\">isotope "
-"jQuery plugin</a> for all albums pages rather than standard albums page. "
-"This album layout allows to filter pictures based on their tags."
+"jQuery plugin</a> for albums pages. This layout allows to display uncropped "
+"thumbnails and to filter them based on their tags."
 msgstr ""
 
-#: themeoptions.php:81
-msgid ""
-"This album layout does not manage sub-albums (in that case, only pictures of "
-"the album are shown and you cant not access on sub-albums!)."
-msgstr ""
-
-#: themeoptions.php:82
+#: themeoptions.php:110
 msgid ""
 "Rather than use isotope layout for all albums, you may also allow "
 "\"multiple_layouts\" plugin and then choice \"album_isotope\" as layout for "
 "specific albums of your gallery."
 msgstr ""
 
-#: themeoptions.php:83
+#: themeoptions.php:112
+msgid ""
+"<strong>Notes:</strong> This album layout does not manage sub-albums (in "
+"that case, only pictures of the album are shown and you cant not access on "
+"sub-albums)."
+msgstr ""
+
+#: themeoptions.php:113
+msgid "This option overwrites the infinite scroll on album option above."
+msgstr ""
+
+#: themeoptions.php:115
+msgid "Social Links"
+msgstr ""
+
+#: themeoptions.php:119
 msgid "Check to show some social links."
 msgstr ""
 
-#: themeoptions.php:85
+#: themeoptions.php:125
+msgid "Excerpt length"
+msgstr ""
+
+#: themeoptions.php:129
+msgid "Excerpt length for news and pages lists in search page"
+msgstr ""
+
+#: themeoptions.php:134
 msgid "Display a link to the Archive list."
 msgstr "Muestra un enlace a los archivos."
 
-#: themeoptions.php:86
+#: themeoptions.php:139
 msgid ""
 "Check to show a tag cloud in Archive list, with all the tags of the gallery."
 msgstr ""
 "Muestra una nube de etiquetas en los archivos, con todas las etiquetas de la "
 "galería."
 
-#: themeoptions.php:87
+#: themeoptions.php:144
 msgid ""
-"Show the EXIF Data on Image page. Remember you have to check EXIFs data you "
-"want to show on options>image>information EXIF."
+"Show the EXIFs Data on Image page. Remember you have to check EXIFs data you "
+"want to show on Options>Image>Metadata."
 msgstr ""
 
 #~ msgid ""
