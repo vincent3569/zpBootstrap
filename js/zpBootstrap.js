@@ -216,14 +216,15 @@ $(document).ready( function() {
 	}
 
 	/* video players */
+	$('.jp-audio').addClass('center-block');
 	$('.jp-video').addClass('center-block');
 	$('.jp-video-play-icon').removeClass('btn btn-default')
 	$('nav.nav_photo + video').addClass('center-block');
 	$('nav.nav_photo + audio').addClass('center-block');
 	$('nav.nav_photo + iframe')
-	    .removeAttr('width')
-	    .attr('width', '100%');
-    if ($('span.textobject').length) {
+		.removeAttr('width')
+		.attr('width', '100%');
+	if ($('span.textobject').length) {
 		$('span.textobject').replaceWith('<span>' + $('span.textobject').html() + '</span>');
 	}
 
