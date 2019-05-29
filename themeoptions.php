@@ -39,11 +39,22 @@ class ThemeOptions {
 		setThemeOptionDefault('zpB_show_tags', true);
 		setThemeOptionDefault('zpB_social_links', true);
 		setThemeOptionDefault('zpB_show_exif', true);
+		setThemeOptionDefault('zpB_custom_menu', false);
 
 		if (class_exists('cacheManager')) {
 			cacheManager::deleteCacheSizes($me);
 			cacheManager::addDefaultThumbSize();
 			cacheManager::addDefaultSizedImageSize();
+		}
+
+		if (class_exists('menu_manager')) {
+			$menuitems = array(
+				array('type' => 'homepage', 'title' => gettext('Home'), 'link' => '', 'show' => 1, 'nesting' => 0),
+				array('type' => 'zenpagenewsindex', 'title' => gettext('News'), 'link' => '', 'show' => 1, 'nesting' => 0),
+				array('type' => 'galleryindex', 'title' => gettext('Gallery'), 'link' => '', 'show' => 1, 'nesting' => 0),
+				array('type' => 'menufunction', 'title' => gettext('Pages'), 'link' => 'printPageMenu("list-top", "", "active", "", "", "", 0, false);', 'show' => 1, 'nesting' => 0),
+			);
+			createMenuIfNotExists($menuitems, 'zpBootstrap');
 		}
 	}
 
@@ -99,7 +110,6 @@ class ThemeOptions {
 					gettext_th('Check pages which use <a href="https://infinite-scroll.com/" target="_blank">infinite-scroll jQuery plugin</a>. This layout will automatically load items of next page (albums, images or news) without pagination.', $me) . '<br />' .
 					gettext_th('The behavior is "manual first": it requires visitor to click a button the first time to load new items and then, it automatically load after.', $me) . '<br />' .
 					gettext_th('Rather than using infinite-scroll layout for all albums, you may also allow "multiple_layouts" plugin and then choose "album_infinitescroll" as layout for specific albums of your gallery.', $me) .
-					
 					'<p class="notebox">' . gettext_th('<strong>Note:</strong> This album layout does not manage albums with images and sub-albums (in that case, standard album layout is automatically used).', $me) . '</p>'),
 			gettext_th('Use isotope', $me) => array(
 				'order' => 6,
@@ -108,8 +118,8 @@ class ThemeOptions {
 				'desc' =>
 					gettext_th('Use <a href="https://isotope.metafizzy.co/" target="_blank">isotope jQuery plugin</a> for albums pages. This layout allows to display uncropped thumbnails and to filter them based on their tags.', $me) . '<br />' .
 					gettext_th('Rather than use isotope layout for all albums, you may also allow "multiple_layouts" plugin and then choice "album_isotope" as layout for specific albums of your gallery.', $me) .
-					'<p class="notebox">' . 
-						gettext_th('<strong>Notes:</strong> This album layout does not manage sub-albums (in that case, only pictures of the album are shown and you cant not access on sub-albums).', $me) . '<br />' .
+					'<p class="notebox">' .
+						gettext_th('<strong>Note:</strong> This album layout does not manage sub-albums (in that case, only pictures of the album are shown and you cant not access on sub-albums).', $me) . '<br />' .
 						gettext_th('This option overwrites the infinite scroll on album option above.', $me) .
 					'</p>'),
 			gettext_th('Social Links', $me) => array(
@@ -141,7 +151,14 @@ class ThemeOptions {
 				'order' => 16,
 				'key' => 'zpB_show_exif',
 				'type' => OPTION_TYPE_CHECKBOX,
-				'desc' => gettext_th('Show the EXIFs Data on Image page. Remember you have to check EXIFs data you want to show on Options>Image>Metadata.', $me))
+				'desc' => gettext_th('Show the EXIFs Data on Image page. Remember you have to check EXIFs data you want to show on Options>Image>Metadata.', $me)),
+			gettext('Use custom menu') => array(
+				'order' => 4.5,
+				'key' => 'zpB_custom_menu',
+				'type' => OPTION_TYPE_CHECKBOX,
+				'desc' =>
+					gettext_th('Check this if you want to use the "menu_manager" plugin if enabled to use a custom menu instead of the standard one.', $me) .
+					'<p class="notebox">' . gettext_th('<strong>Note:</strong> A custom menu named "zpBootstrap" is used automatically. You can change this custom menu in "menu" tab.', $me) . '</p>'),
 		);
 	}
 

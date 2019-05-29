@@ -196,24 +196,29 @@ if (!defined('WEBPATH')) die();
 			</div>
 			<div id="navbar" class="collapse navbar-collapse">
 				<ul class="nav navbar-nav pull-right">
-				<?php if (getOption('zpB_homepage')) { ?>
-					<li<?php if ((isset($isHomePage)) && ($isHomePage)) { ?> class="active"<?php } ?>>
-						<a href="<?php echo html_encode(getSiteHomeURL()); ?>" title="<?php echo gettext('Home'); ?>"><?php echo gettext('Home'); ?></a>
-					</li>
-				<?php } ?>
+				<?php if ((extensionEnabled('menu_manager')) && (getThemeOption('zpB_custom_menu'))) { ?>
+					<?php printCustomMenu('zpBootstrap', 'list-top', '', 'active'); ?>
+				<?php } else { ?>
 
-					<li<?php if ($galleryactive) { ?> class="active"<?php } ?>>
-						<?php printCustomPageURL(gettext('Gallery'), 'gallery'); ?>
-					</li>
+					<?php if (getOption('zpB_homepage')) { ?>
+						<li<?php if ((isset($isHomePage)) && ($isHomePage)) { ?> class="active"<?php } ?>>
+							<a href="<?php echo html_encode(getSiteHomeURL()); ?>" title="<?php echo gettext('Home'); ?>"><?php echo gettext('Home'); ?></a>
+						</li>
+					<?php } ?>
 
-				<?php if ($_zenpage_news_enabled && (getNumNews(true) > 0)) { ?>
-					<li<?php if ($_zp_gallery_page == 'news.php') { ?> class="active"<?php } ?>>
-						<?php printNewsIndexURL(gettext('News'), '', gettext('News')); ?>
-					</li>
-				<?php } ?>
+						<li<?php if ($galleryactive) { ?> class="active"<?php } ?>>
+							<?php printCustomPageURL(gettext('Gallery'), 'gallery'); ?>
+						</li>
 
-				<?php if ($_zenpage_pages_enabled) { ?>
-					<?php printPageMenu('list-top', '', 'active', '', '', '', 0, false); ?>
+					<?php if ($_zenpage_news_enabled && (getNumNews(true) > 0)) { ?>
+						<li<?php if ($_zp_gallery_page == 'news.php') { ?> class="active"<?php } ?>>
+							<?php printNewsIndexURL(gettext('News'), '', gettext('News')); ?>
+						</li>
+					<?php } ?>
+
+					<?php if ($_zenpage_pages_enabled) { ?>
+						<?php printPageMenu('list-top', '', 'active', '', '', '', 0, false); ?>
+					<?php } ?>
 				<?php } ?>
 
 				<?php if ((zp_loggedin()) && (extensionEnabled('favoritesHandler'))) { ?>

@@ -39,6 +39,8 @@ $(document).ready( function() {
 	$('.navbar .nav li > a.active')
 		.removeClass('active')
 		.parent().addClass('active');
+	$('.navbar .nav li[class^="menu_"]').unwrap();
+	$('.navbar .nav li[class^="menu_"].active').wrapInner('<a href="#"></a>');
 	$('div.pagination ul.pagination').unwrap();
 	$('ul.pagination').wrap('<nav></nav>');
 	$('ul.pagination li.current')
