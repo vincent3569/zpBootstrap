@@ -8,6 +8,7 @@ if (!OFFSET_PATH) {
 	setOption('comment_form_pagination', false, true);
 	setOption('tinymce4_comments', null, true);
 	setOption('user_logout_login_form', 1, true);
+	setOption('gmap_display', 'show', true);
 
 	// Check for mobile and tablets, and set some options
 	require_once (SERVERPATH . '/' . ZENFOLDER . '/' . PLUGIN_FOLDER . '/mobileTheme/Mobile_Detect.php');
