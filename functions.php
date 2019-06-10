@@ -60,12 +60,14 @@ if (!OFFSET_PATH) {
 }
 
 function my_checkPageValidity($request, $gallery_page, $page) {
-	if (($gallery_page == 'gallery.php') || ($gallery_page == 'home.php')) {
+	if (($gallery_page == 'index.php') && (isset($isHomePage)) && ($isHomePage) && ($page != 1)) {
+		return false;
+	}
+	if ($gallery_page == 'gallery.php') {
 		$gallery_page = 'index.php';
 	}
 	return checkPageValidity($request, $gallery_page, $page);
 }
-
 
 /**
  * Returns different random pictures from gallery or an album
