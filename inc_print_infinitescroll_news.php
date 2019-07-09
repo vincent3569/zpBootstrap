@@ -4,7 +4,7 @@
 		</div>
 
 		<div class="margin-top-double margin-bottom-double view-more">
-			<button class="btn btn-default center-block"><?php echo gettext_th('View more news', $me); ?></button>
+			<button class="btn btn-default center-block"><?php echo gettext_th('View more news'); ?></button>
 		</div>
 
 		<div class="page-load-status margin-top-double margin-bottom-double">
@@ -14,7 +14,7 @@
 				<span class="loader-ellips-dot"></span>
 				<span class="loader-ellips-dot"></span>
 			</div>
-			<div class="infinite-scroll-last infinite-scroll-error"><?php echo gettext_th('No more news to display', $me); ?></div>
+			<div class="infinite-scroll-last infinite-scroll-error"><?php echo gettext_th('No more news to display'); ?></div>
 		</div>
 
 		<script type="text/javascript" src="<?php echo $_zp_themeroot; ?>/js/infinite-scroll.pkgd.min.js"></script>
@@ -33,13 +33,6 @@
 					hideNav : '.infinite-pagination',
 					status : '.page-load-status',
 					loadOnScroll : false,
-				});
-
-				$container.on( 'append.infiniteScroll', function( event, response, path, newElements ) {
-					var $newElems = $(newElements);
-					$newElems.imagesLoaded( function() {
-						$('.swipebox').attr('data-fancybox', 'images');
-					});
 				});
 
 				$viewMoreButton.on( 'click', function() {

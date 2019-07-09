@@ -17,15 +17,6 @@
 			<?php printAlbumDesc(); ?>
 		</div>
 
-		<!-- TO DO : à revoir -->
-		<?php if (extensionEnabled('slideshow')) { ?>
-		<ul class="pager pull-right hidden-phone margin-bottom-reset"> <!--hidden-phone -->
-			<li>
-				<?php printSlideShowLink(gettext('Slideshow')); ?>
-			</li>
-		</ul>
-		<?php } ?>
-
 		<?php
 		printPageListWithNav('«', '»', false, true, 'pagination pagination-sm', NULL, true, 7);
 
@@ -47,6 +38,10 @@
 
 		<?php if (extensionEnabled('GoogleMap')) { ?>
 			<?php include('inc_print_googlemap.php'); ?>
+		<?php } ?>
+
+		<?php if (extensionEnabled('openstreetmap')) { ?>
+			<?php include('inc_print_osm.php'); ?>
 		<?php } ?>
 
 		<?php if (extensionEnabled('comment_form')) { ?>

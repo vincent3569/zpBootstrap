@@ -1,3 +1,45 @@
+* 2.2
+- css/zpBootstrap.css, js/zpBootstrap.js
+	- code cleaning (no more use of swipebox script)
+- css/zpBootstrap.css
+	- iframe attributes are now managed by css rules (no borders and no scrollbars)
+- js/zpB_fancybox_config.js, album_isotope.php
+	- fancyBox shows only filtered items with Isotope
+	- isotope, fancybox and css image sizing use their own classes
+- js/zpBootstrap.js
+	- jquery theming for new GDPR options in comment, contact and register forms (follow zenphoto commit https://github.com/zenphoto/zenphoto/commit/7c0127a82bd30011490c52ebbe2265e3a1be17aa)
+	- isotope, fancybox and css image sizing use their own classes
+	- fix an issue on contact form : message was not sent with required confirmation
+- album_isotope.php
+	- fix issue : use full image as in inc_print_image_thumb.php (common file for album_infinitescroll.php and album_standard.php)
+- album_standard.php, favorites.php, images.php, search.php
+	zpBootstrap definitivly doesn't manage slideshow plugin
+- album_standard.php, album_infinitescroll.php, album_isotope.php, inc_header.php.php, inc_print_osm.php.php
+	- management of openstreetmap plugin
+- archive.php, functions.php, home.php, inc_header.php, news.php, pages.php, search.php
+	- better blocking of pages and news if these items are disabled (follow zenphoto commit https://github.com/zenphoto/zenphoto/commit/3672cda4acacfb6ca99464209aeb04819e2d9278
+- inc_header.php, images.php
+	- fix translation issues
+- inc_footer.php
+	- add a link to a Data Usage Notice in footer (new GDPR option)
+- search.php, themeoptions.php
+	- new option to manage excerpt length for news and pages lists in search pages
+- theme_description.php
+	- using locale strings
+- themeoptions.php
+	- remove disabling of some plugin
+	- cacheManager improvements (follow zenphoto commit https://github.com/zenphoto/zenphoto/commit/e61ecd53dc4b98dac4435c8a5c2a2453727291d4)
+- upgrade to fancyBox v3.5.6 (support of mouse wheel since v3.2.10)
+	- update css and js files
+	- update css/zpBootstrap.css and js/zpB_fancybox_config.js
+- upgrade to Infinite Scroll v3.0.4 (js file)
+- upgrade to imagesLoaded v4.1.4 (js file)
+- upgrade to Isotope v3.0.6 (js file)
+- upgrade to Packery layout mode v2.0.1 (js file)
+- upgrade to FlexSlider v2.7.1 (css and js files)
+- new bootstrap compiled files to use "Responsive embed" behavior (see config file _boostrap_3.3.7/bootstrap-compiled/config.json)
+
+
 * 2.1
 - upgrade to flexSlider 2.6.4
 	- hacks VBO to avoid horizontal scrollbar and to be consistant with bootstrap breakpoints
@@ -5,11 +47,11 @@
 - album_isotope.php
 	- use global $_zp_themeroot to load js script (https://github.com/vincent3569/zpBootstrap/pull/6)
 - archives.php, functions.php, home.php, inc_header.php, news.php, pages.php, search.php :
-	- use new variables $_zenpage_and_news_enabled and $_zenpage_and_pages_enabled to manage ZP_NEWS_ENABLED and ZP_PAGES_ENABLED
+	- use new variables $_zenpage_news_enabled and $_zenpage_pages_enabled to manage ZP_NEWS_ENABLED and ZP_PAGES_ENABLED
 - album.php, album_infinitescroll.php, functions.php, gallery.php, inc_print_infinitescroll.php, inc_print_infinitescroll_news.php, news.php, themeoptions.php, css/zpBootstrap.css, js/infinite-scroll.pkgd.min.js:
 	- management of inifite-scroll plugin on gallery, albums and news pages
 - album_standard.php, album_isotope.php, inc_print_googlemap.php :
-	- googlemap managment in only one php file
+	- googlemap management in only one php file
 - contact.php, favorites.php, news.php, pages.php, register.php
 	- page 404 managmement if plugins are not enabled
 - favorites.php

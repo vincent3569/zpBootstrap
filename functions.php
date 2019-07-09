@@ -8,6 +8,7 @@ if (!OFFSET_PATH) {
 	setOption('comment_form_pagination', false, true);
 	setOption('tinymce4_comments', null, true);
 	setOption('user_logout_login_form', 1, true);
+	setOption('gmap_display', 'show', true);
 
 	// Check for mobile and tablets, and set some options
 	require_once (SERVERPATH . '/' . ZENFOLDER . '/' . PLUGIN_FOLDER . '/mobileTheme/Mobile_Detect.php');
@@ -50,22 +51,23 @@ if (!OFFSET_PATH) {
 
 	$_zp_page_check = 'my_checkPageValidity';
 
-	$me = basename(dirname(__FILE__));
 	$_zenpage_enabled = extensionEnabled('zenpage');
-	$_zenpage_and_news_enabled = extensionEnabled('zenpage') && ZP_NEWS_ENABLED;
-	$_zenpage_and_pages_enabled = extensionEnabled('zenpage') && ZP_PAGES_ENABLED;
-	/* if ($_zenpage_and_pages_enabled && is_Pages() && (getPageTitleLink() == 'guestbook')) {
+	$_zenpage_news_enabled = ZP_NEWS_ENABLED;
+	$_zenpage_pages_enabled = ZP_PAGES_ENABLED;
+	/* if ($_zenpage_pages_enabled && is_Pages() && (getPageTitleLink() == 'guestbook')) {
 		setOption('comment_form_addresses', 1, false);
 	} */
 }
 
 function my_checkPageValidity($request, $gallery_page, $page) {
-	if (($gallery_page == 'gallery.php') || ($gallery_page == 'home.php')) {
+	if (($gallery_page == 'index.php') && (isset($isHomePage)) && ($isHomePage) && ($page != 1)) {
+		return false;
+	}
+	if ($gallery_page == 'gallery.php') {
 		$gallery_page = 'index.php';
 	}
 	return checkPageValidity($request, $gallery_page, $page);
 }
-
 
 /**
  * Returns different random pictures from gallery or an album
@@ -149,4 +151,24 @@ function zpB_printNextNewsPageURL($text, $class = NULL) {
 		echo '<span class="disabledlink">' . html_encode($text) . '</span>';
 	}
 }
+
+/**
+ * Returns the source link of the video in the txt/htm/html file
+ *
+ * @param string $content content of a text file supposed to describe a link to an online video
+ * @return string or false is there is no iframe with a link
+ */
+function zpB_getLink($content) {
+
+	$link = false;
+	$iframepattern = '/<iframe/';
+	$urlpattern = '/src="([^"]+)"/';
+	if (preg_match($iframepattern, $content)) {
+		if (preg_match ($urlpattern, $content, $result)) {
+			$link = pathurlencode($result[1]);
+		}
+	}
+	return $link;
+}
+
 ?>

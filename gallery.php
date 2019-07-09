@@ -9,7 +9,13 @@
 
 		<div class="breadcrumb">
 			<h4>
-				<?php printGalleryIndexURL(' » ', getGalleryTitle(), false); ?>
+				<?php
+				if ((isset($isHomePage)) && (!$isHomePage)) {
+					printSiteHomeURL(NULL, getGalleryTitle());
+				} else {
+					printGalleryIndexURL(' » ', getGalleryTitle(), false);
+				}
+				?>
 			</h4>
 		</div>
 

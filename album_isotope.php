@@ -38,34 +38,37 @@ require_once (SERVERPATH . '/' . ZENFOLDER . '/' . PLUGIN_FOLDER . '/tag_extras.
 		<div class="gutter-sizer"></div>
 		<?php
 		while (next_image(true)) {
-			$image_item_size_2 = '';
-			if (getFullWidth() > getFullHeight()) {
-				$image_item_size_2 = ' image-item-width2';
-			} else if (getFullWidth() < getFullHeight()) {
-				$image_item_size_2 = ' image-item-height2';
-			}
+			$fullimage = getFullImageURL();
+			if (!empty($fullimage)) {
+				$image_item_size_2 = '';
+				if (getFullWidth() > getFullHeight()) {
+					$image_item_size_2 = ' image-item-width2';
+				} else if (getFullWidth() < getFullHeight()) {
+					$image_item_size_2 = ' image-item-height2';
+				}
+	
+				$tags_image = getTags();
+				$tags_list = implode(' ', $tags_image);
+	
+				if ($tags_list <> '') {
+					$class = $image_item_size_2 . ' ' . $tags_list;
+				} else {
+					$class = $image_item_size_2;
+				} ?>
 
-			$tags_image = getTags();
-			$tags_list = implode(' ', $tags_image);
-
-			if ($tags_list <> '') {
-				$class = $image_item_size_2 . ' ' . $tags_list;
-			} else {
-				$class = $image_item_size_2;
-			}
-			?>
-			<div class="image-item<?php echo $class; ?>">
-				<a class="thumb" href="<?php echo html_encode(getUnprotectedImageURL()); ?>" title="<?php echo getBareImageTitle(); ?>" data-fancybox="images">
-					<?php
-					if (getFullWidth() > getFullHeight()) {
-						printCustomSizedImage(getBareImageTitle(), NULL, 235, 150, 235, 150, NULL, NULL, 'remove-attributes img-responsive', NULL, true);
-					} else if (getFullWidth() < getFullHeight()) {
-						printCustomSizedImage(getBareImageTitle(), NULL, 150, 235, 150, 235, NULL, NULL, 'remove-attributes img-responsive', NULL, true);
-					} else {
-						printCustomSizedImage(getBareImageTitle(), NULL, 150, 150, NULL, NULL, NULL, NULL, 'remove-attributes img-responsive', NULL, true);
-					} ?>
-				</a>
-			</div>
+				<div class="isotope-item image-item<?php echo $class; ?>">
+					<a class="thumb" href="<?php echo html_encode(pathurlencode($fullimage)); ?>" title="<?php echo html_encode(getBareImageTitle()); ?>" data-fancybox="images">
+						<?php
+						if (getFullWidth() > getFullHeight()) {
+							printCustomSizedImage(getBareImageTitle(), NULL, 235, 150, 235, 150, NULL, NULL, 'remove-attributes img-responsive', NULL, true);
+						} else if (getFullWidth() < getFullHeight()) {
+							printCustomSizedImage(getBareImageTitle(), NULL, 150, 235, 150, 235, NULL, NULL, 'remove-attributes img-responsive', NULL, true);
+						} else {
+							printCustomSizedImage(getBareImageTitle(), NULL, 150, 150, NULL, NULL, NULL, NULL, 'remove-attributes img-responsive', NULL, true);
+						} ?>
+					</a>
+				</div>
+			<?php } ?>
 		<?php } ?>
 		</div>
 
@@ -77,7 +80,7 @@ require_once (SERVERPATH . '/' . ZENFOLDER . '/' . PLUGIN_FOLDER . '/tag_extras.
 			// init Isotope after all images have loaded
 			var $containter = $('#isotope-wrap').imagesLoaded( function() {
 				$containter.isotope({
-					itemSelector: '.image-item',
+					itemSelector: '.isotope-item',
 					layoutMode: 'packery',
 					// packery layout
 					packery: {
@@ -111,6 +114,10 @@ require_once (SERVERPATH . '/' . ZENFOLDER . '/' . PLUGIN_FOLDER . '/tag_extras.
 
 		<?php if (extensionEnabled('GoogleMap')) { ?>
 			<?php include('inc_print_googlemap.php'); ?>
+		<?php } ?>
+
+		<?php if (extensionEnabled('openstreetmap')) { ?>
+			<?php include('inc_print_osm.php'); ?>
 		<?php } ?>
 
 		<?php if (extensionEnabled('comment_form')) { ?>

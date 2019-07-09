@@ -21,10 +21,10 @@
 
 			$numnews = $numpages = 0;
 			if ($_zenpage_enabled && !isArchive()) {
-				if ($_zenpage_and_news_enabled) {
+				if ($_zenpage_news_enabled) {
 					$numnews = getNumNews();
 				}
-				if ($_zenpage_and_pages_enabled) {
+				if ($_zenpage_pages_enabled) {
 					$numpages = getNumPages();
 				}
 			}
@@ -69,17 +69,6 @@
 				}
 			}
 
-			/* TO DO : à revoir */
-			if (extensionEnabled('slideshow')) {
-			?>
-			<ul class="pager pull-right margin-top-reset hidden-phone"> <!--hidden-phone -->
-				<li>
-					<?php printSlideShowLink(gettext('Slideshow')); ?>
-				</li>
-			</ul>
-			<?php
-			}
-
 			printPageListWithNav('«', '»', false, true, 'pagination pagination-sm', NULL, true, 7);
 
 			if (getNumAlbums() > 0) {
@@ -92,26 +81,26 @@
 			printPageListWithNav('«', '»', false, true, 'pagination pagination-sm margin-top-reset', NULL, true, 7);
 
 			if (($_zenpage_enabled) /*&& ($_zp_page == 1)*/) {		//test of zenpage searches
-				if ($_zenpage_and_news_enabled && ($numnews > 0)) { ?>
+				if ($_zenpage_news_enabled && ($numnews > 0)) { ?>
 					<h4 class="margin-top-double margin-bottom-double"><strong><?php printf(gettext('Articles (%s)'), $numnews); ?></strong></h4>
 					<?php while (next_news()) { ?>
 					<div class="list-post clearfix">
 						<h4 class="post-title"><?php printNewsURL(); ?></h4>
 						<div class="post-content clearfix">
-							<?php echo shortenContent(getBare(getNewsContent()), 200, getOption("zenpage_textshorten_indicator")); ?>
+							<?php echo shortenContent(getBare(getNewsContent()), getOption("zpB_exerpt_length"), getOption("zenpage_textshorten_indicator")); ?>
 						</div>
 					</div>
 					<?php
 					}
 				}
 
-				if ($_zenpage_and_pages_enabled && ($numpages > 0)) { ?>
+				if ($_zenpage_pages_enabled && ($numpages > 0)) { ?>
 					<h4 class="margin-top-double margin-bottom-double"><strong><?php printf(gettext('Pages (%s)'), $numpages); ?></strong></h4>
 					<?php while (next_page()) { ?>
 					<div class="list-post clearfix">
 						<h4 class="post-title"><?php printPageURL(); ?></h4>
 						<div class="post-content clearfix">
-							<?php echo shortenContent(getBare(getPageContent()), 200, getOption("zenpage_textshorten_indicator")); ?>
+							<?php echo shortenContent(getBare(getPageContent()), getOption("zpB_exerpt_length"), getOption("zenpage_textshorten_indicator")); ?>
 						</div>
 					</div>
 					<?php

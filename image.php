@@ -21,11 +21,6 @@
 				<li class="disabled"><a href="#">&larr; <?php echo gettext('prev'); ?></a></li>
 			<?php } ?>
 
-			<!-- TO DO : à revoir -->
-			<?php if (($isMobile) && (extensionEnabled('slideshow'))) { ?>
-				<?php printSlideShowLink(gettext('Slideshow')); ?>
-			<?php } ?>
-
 			<?php if (hasNextImage()) { ?>
 				<li><a href="<?php echo html_encode(getNextImageURL()); ?>" title="<?php echo gettext('Next Image'); ?>"><?php echo gettext('next'); ?> &rarr;</a></li>
 			<?php } else { ?>
@@ -57,7 +52,7 @@
 							<?php printImageMetadata(NULL, false); ?>
 						</div>
 						<div class="modal-footer">
-							<button type="button" class="btn btn-default" data-dismiss="modal"><?php echo gettext('Close'); ?></button>
+							<button type="button" class="btn btn-default" data-dismiss="modal"><?php echo gettext('close'); ?></button>
 						</div>
 					</div>
 				</div>

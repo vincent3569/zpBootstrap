@@ -1,7 +1,4 @@
-<?php 
-if ($_zenpage_and_news_enabled) {
-	include ('inc_header.php');
-?>
+<?php include('inc_header.php'); ?>
 
 	<!-- .container main -->
 		<!-- .page-header -->
@@ -88,9 +85,4 @@ if ($_zenpage_and_news_enabled) {
 
 	</div><!-- /.container main -->
 
-<?php
-	include('inc_footer.php');
-} else {
-	include(SERVERPATH . '/' . ZENFOLDER . '/404.php');
-}
-?>
+<?php include('inc_footer.php'); ?>

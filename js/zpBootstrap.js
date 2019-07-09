@@ -1,5 +1,5 @@
 /*------------------------------------
-		zenphoto overwriting for theme, zenphoto and bootstrap 3.x being compliant all together
+ zenphoto overwriting for theme, zenphoto and bootstrap 3.x being compliant all together
 -------------------------------------- */
 
 $(document).ready( function() {
@@ -12,12 +12,6 @@ $(document).ready( function() {
 		.removeAttr('width')
 		.removeAttr('height')
 		.addClass('img-responsive');
-
-	/* add attribute for fancybox called elsewhere than gallery */
-	$('.swipebox').each(function() {
-		$(this)
-			.attr('data-fancybox', 'images');
-	});
 
 	/* add icon to links going out of the site, except links with pictures */
 	$('a[target=_blank]').each(function() {
@@ -45,6 +39,8 @@ $(document).ready( function() {
 	$('.navbar .nav li > a.active')
 		.removeClass('active')
 		.parent().addClass('active');
+	$('.navbar .nav li[class^="menu_"]').unwrap();
+	$('.navbar .nav li[class^="menu_"].active').wrapInner('<a href="#"></a>');
 	$('div.pagination ul.pagination').unwrap();
 	$('ul.pagination').wrap('<nav></nav>');
 	$('ul.pagination li.current')
@@ -106,6 +102,11 @@ $(document).ready( function() {
 			.parent().parent().wrapInner('<div class="form-group"></div>');
 		$('#registration_form label').addClass('col-sm-4 control-label');
 		$('#registration_form #disclose_password').removeClass('form-control');
+		$('#registration_form label[for="admin_dataconfirmation"]')
+			.removeClass('col-sm-4 control-label')
+			.parent().wrapInner('<div class="checkbox"></div>')
+			.wrapInner('<div class="col-sm-offset-4 col-sm-8"></div>')
+			.wrapInner('<div class="form-group"></div>');
 		$('#registration_form p > strong')
 			.parent().wrapInner('<div class="form-control-static"></div>')
 			.wrapInner('<div class="col-sm-push-4 col-sm-6"></div>')
@@ -152,8 +153,9 @@ $(document).ready( function() {
 
 	/* contact */
 	if ($('#mailform').length) {
+		$('.post p:first-child strong:first-child').css('color', 'red');
 		$('#mailform, #confirm, #discard').addClass('form-horizontal');
-				$('#mailform input[type="reset"], #confirm input[type="reset"]').addClass('margin-left-small');
+		$('#mailform input[type="reset"]').addClass('margin-left-small');
 		$('#mailform label + input')
 			.addClass('form-control')
 			.wrap('<div class="col-sm-6"></div>')
@@ -164,15 +166,20 @@ $(document).ready( function() {
 			.attr('rows', '8')
 			.wrap('<div class="col-sm-8"></div>')
 			.parent().parent().wrapInner('<div class="form-group"></div>');
+		$('#mailform label[for="dataconfirmation"]')
+			.removeClass('col-sm-3 control-label')
+			.parent().wrapInner('<div class="checkbox"></div>')
+			.wrapInner('<div class="col-sm-offset-3 col-sm-9"></div>')
+			.wrapInner('<div class="form-group"></div>');
 		$('#mailform input[type="submit"]').parent()
 			.wrapInner('<div class="col-sm-offset-3 col-sm-6"></div>')
 			.wrapInner('<div class="form-group"></div>');
 		$('#mailform label[for="username"]').parent().addClass('hidden');
-		$('.form-group').unwrap();
-		$('#confirm, #discard')
+		$('#mailform .form-group').unwrap();
+		$('#discard input[type="submit"]').addClass('margin-left');
+		$('form#confirm, form#discard')
 			.wrapAll('<div class="row"></div>')
 			.wrapAll('<div class="col-sm-offset-3 col-sm-6"></div>');
-		$('.post p:first-child strong:first-child').css('color', 'red');
 	}
 
 	/* search and archives */
@@ -210,6 +217,19 @@ $(document).ready( function() {
 		}
 	}
 
+	/* video players */
+	$('.jp-audio').addClass('center-block');
+	$('.jp-video').addClass('center-block');
+	$('.jp-video-play-icon').removeClass('btn btn-default')
+	$('nav.nav_photo + video').addClass('center-block');
+	$('nav.nav_photo + audio').addClass('center-block');
+	$('nav.nav_photo + iframe')
+		.removeAttr('width')
+		.attr('width', '100%');
+	if ($('span.textobject').length) {
+		$('span.textobject').replaceWith('<span>' + $('span.textobject').html() + '</span>');
+	}
+
 	/* comment form */
 	if ($('#comment_accordion').length) {
 		$('#commentcontent h3').remove();
@@ -224,6 +244,11 @@ $(document).ready( function() {
 			.parent().parent().wrapInner('<div class="form-group"></div>');
 		$('#commentform label').addClass('col-sm-4 control-label');
 		$('#commentform label[for="username"]').parent().addClass('hidden');
+		$('#commentform label[for="comment_dataconfirmation"]')
+			.removeClass('col-sm-4 control-label')
+			.parent().wrapInner('<div class="checkbox"></div>')
+			.wrapInner('<div class="col-sm-offset-4 col-sm-8"></div>')
+			.wrapInner('<div class="form-group"></div>');
 		$('#commentform p > strong')
 			.parent().wrapInner('<div class="form-control-static"></div>')
 			.wrapInner('<div class="col-sm-push-4 col-sm-7"></div>')
@@ -236,12 +261,12 @@ $(document).ready( function() {
 			.parent().wrap('<div class="form-group"></div>');
 		$('#commentform input[type="submit"]').addClass('btn btn-default');
 		$('.commentinfo h4').addClass('margin-bottom-reset');
-		if ($('#commentform .alert').length) {
-			$('#comment_collapse').collapse('show');
-		}
-		/* if ($('#guestbook').length) {
+		/* if ($('#commentform .alert').length) {
 			$('#comment_collapse').collapse('show');
 		} */
+		/* if ($('#guestbook').length) {
+			$('#comment_collapse').collapse('show');
+		 } */
 		// fix no focus when oppening comments
 		$('#comment_collapse').on('shown.bs.collapse', function() {
 			$(this).find('#name').focus();
@@ -269,7 +294,7 @@ $(document).ready( function() {
 		$('html, body').animate({scrollTop: offsetTop}, 500, 'linear');
 	}
 
-	// full height for main div (windows height - "header" height - "footer" height)
+	// full height for main div (windows height - "header" height - "footer" height - "admin" height)
 	$(window).resize(function() {
 		$('#main').css('min-height', $(window).height() - $('#menu').outerHeight() - $('#footer').outerHeight() - $('#zp__admin_module').outerHeight() - 1);
 	}).resize();

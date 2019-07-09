@@ -6,10 +6,14 @@
 				if (getOption('zpB_show_archive')) {
 					printCustomPageURL(gettext('Archive View'), 'archive', '', ' | ');
 				}
+				$data = getDataUsageNotice();
+				if (!empty($data['url'])) {
+					echo ' | '; printLinkHTML($data['url'], $data['linktext'], $data['linktext'], null, null);
+				}
 				?>
 			</div>
 			<div>
-				<?php printZenphotoLink(); ?> & <a href="http://getbootstrap.com/" target="_blank" title="Bootstrap">Bootstrap</a>
+				<?php printZenphotoLink(); ?> & <a href="https://getbootstrap.com/docs/3.4/" target="_blank" title="Bootstrap">Bootstrap</a>
 			</div>
 		</div>
 	</footer>
@@ -18,4 +22,4 @@
 
 	</body>
 </html>
-<!-- zpBootstrap 2.1 - a Zenphoto theme by Vincent3569 -->
+<!-- zpBootstrap 2.2 - a Zenphoto theme by Vincent3569 -->
