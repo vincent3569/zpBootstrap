@@ -451,6 +451,13 @@ div.buttons button {
 }
 
 /*------------------------------------
+	flexslider overwriting
+-------------------------------------- */
+.flexslider {
+	border: 0;
+}
+
+/*------------------------------------
 	Fancybox overwriting
 -------------------------------------- */
 .fancybox-is-open .fancybox-bg {
