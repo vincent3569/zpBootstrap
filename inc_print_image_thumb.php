@@ -72,7 +72,6 @@
 					<div style="display: none;" id="item<?php echo $_zp_current_image->getIndex();?>">
 							<?php echo $_zp_current_image->getContent(); ?>
 					</div>
-					
 					<?php		// other media object not displayed in fancybox
 					} else { ?>
 					<a class="thumb" href="<?php echo html_encode(pathurlencode($fullimage)); ?>" title="<?php echo html_encode(getBareImageTitle()); ?>">
