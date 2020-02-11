@@ -77,6 +77,7 @@
 					} else { ?>
 					<a class="thumb" href="<?php echo html_encode(pathurlencode($fullimage)); ?>" title="<?php echo html_encode(getBareImageTitle()); ?>">
 						<?php printImageThumb(getBareImageTitle(), 'remove-attributes img-responsive'); ?>
+						<div class="hidden caption">
 							<h4><?php printBareImageTitle(); ?></h4>
 							<?php echo printImageDesc(); ?>
 						</div>
