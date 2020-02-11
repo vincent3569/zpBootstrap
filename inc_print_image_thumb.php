@@ -28,7 +28,7 @@
 					if ($isImagePhoto) { ?>
 					<a class="thumb" href="<?php echo html_encode(pathurlencode($fullimage)); ?>" title="<?php echo html_encode(getBareImageTitle()); ?>" data-fancybox="images">
 						<?php printImageThumb(getBareImageTitle(), 'remove-attributes img-responsive'); ?>
-						<div class="hide caption">
+						<div class="hidden caption">
 							<h4><?php printBareImageTitle(); ?></h4>
 							<?php echo printImageDesc(); ?>
 						</div>
@@ -37,7 +37,7 @@
 					} else if ($isImageVideo && $isAudio) { ?>
 					<a class="thumb" href="javascript:;" data-type="iframe" data-src="<?php echo html_encode(pathurlencode($fullimage)); ?>" title="<?php echo html_encode(getBareImageTitle()); ?>" data-fancybox="images">
 						<?php printImageThumb(getBareImageTitle(), 'remove-attributes img-responsive'); ?>
-						<div class="hide caption">
+						<div class="hidden caption">
 							<h4><?php printBareImageTitle(); ?></h4>
 							<?php echo printImageDesc(); ?>
 						</div>
@@ -47,7 +47,7 @@
 					<a class="thumb" href="<?php echo html_encode(pathurlencode($fullimage)); ?>" title="<?php echo html_encode(getBareImageTitle()); ?>" data-fancybox="images">
 						<?php printImageThumb(getBareImageTitle(), 'remove-attributes img-responsive'); ?>
 					</a>
-						<div class="hide caption">
+						<div class="hidden caption">
 							<h4><?php printBareImageTitle(); ?></h4>
 							<?php echo printImageDesc(); ?>
 						</div>
@@ -55,7 +55,7 @@
 					} else if ($isTextObject && $isEmbedVideo) { ?>
 					<a class="thumb" href="<?php echo html_encode(pathurlencode($link)); ?>" title="<?php echo html_encode(getBareImageTitle()); ?>" data-fancybox="images">
 						<?php printImageThumb(getBareImageTitle(), 'remove-attributes img-responsive'); ?>
-						<div class="hide caption">
+						<div class="hidden caption">
 							<h4><?php printBareImageTitle(); ?></h4>
 							<?php echo printImageDesc(); ?>
 						</div>
@@ -64,7 +64,7 @@
 					} else if ($isTextObject && !$isEmbedVideo) { ?>
 					<a class="thumb" href="javascript:;" data-src="#item<?php echo $_zp_current_image->getIndex(); ?>" title="<?php echo html_encode(getBareImageTitle()); ?>" data-fancybox="images">
 						<?php printImageThumb(getBareImageTitle(), 'remove-attributes img-responsive'); ?>
-						<div class="hide caption">
+						<div class="hidden caption">
 							<h4><?php printBareImageTitle(); ?></h4>
 							<?php echo printImageDesc(); ?>
 						</div>
@@ -72,11 +72,11 @@
 					<div style="display: none;" id="item<?php echo $_zp_current_image->getIndex();?>">
 							<?php echo $_zp_current_image->getContent(); ?>
 					</div>
-					
 					<?php		// other media object not displayed in fancybox
 					} else { ?>
 					<a class="thumb" href="<?php echo html_encode(pathurlencode($fullimage)); ?>" title="<?php echo html_encode(getBareImageTitle()); ?>">
 						<?php printImageThumb(getBareImageTitle(), 'remove-attributes img-responsive'); ?>
+						<div class="hidden caption">
 							<h4><?php printBareImageTitle(); ?></h4>
 							<?php echo printImageDesc(); ?>
 						</div>
