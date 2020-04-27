@@ -1,3 +1,35 @@
+* 2.3
+- css/zpBootstrap.css
+	- code cleanup
+	- fix issue with FlexSlider
+- css/zpBootstrap.css, js/zpBootstrap.js, functions.php, inc_print_image_thumb.php
+	- better displaying of audio/video player and better displaying of online video through hack of class-text
+- js/zpBootstrap.js, inc_header.php, themeoptions.php
+	- management of menu_manager plugin
+- images/
+	- default images for class-AnyFile, class-textobject, class-video and class-WEBdocs
+- locale/
+	- update translations
+- functions.php
+	- fix an issue with googlemap plugin : always show map
+	- fix an issue on my_checkPageValidity()
+- gallery.php
+	- fix an issue on breadcrumb if there is no homepage
+- inc_footer.php, theme_description.php
+	- update links
+- inc_header.php
+	- code cleanup
+- inc_print_image_thumb
+	- allways use "hidden" class
+	- fix an issue: missing div start tag for unknown media files (thanks to arvidtp : https://github.com/vincent3569/zpBootstrap/commit/66630bfcf3686c63d28d25c4e4fc98c7b042c407)
+- themeoptions.php
+	- use 1000px as default image size
+- upgrade to Bootstrap v3.4.1
+- upgrade to Infinite Scroll v3.0.6 (js file)
+- upgrade to fancyBox v3.5.7 (css and js files)
+- upgrade to FlexSlider v2.7.2 (css and js files)
+
+
 * 2.2
 - css/zpBootstrap.css, js/zpBootstrap.js
 	- code cleaning (no more use of swipebox script)
