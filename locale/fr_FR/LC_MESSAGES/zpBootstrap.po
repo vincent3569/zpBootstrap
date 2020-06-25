@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: zpBootstrap\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-23 21:42+0100\n"
-"PO-Revision-Date: 2019-01-23 21:45+0100\n"
+"POT-Creation-Date: 2020-06-25 10:15+0200\n"
+"PO-Revision-Date: 2020-06-25 10:20+0200\n"
 "Last-Translator: Vincent Bourganel <vincent_bourganel@yahoo.fr>\n"
 "Language-Team: vincent3569 <vincent_bourganel@yahoo.fr>\n"
 "Language: fr_FR\n"
@@ -13,7 +13,7 @@ msgstr ""
 "X-Poedit-KeywordsList: ;gettext_th\n"
 "X-Poedit-Basepath: ../../..\n"
 "X-Poedit-SourceCharset: UTF-8\n"
-"X-Generator: Poedit 2.2.1\n"
+"X-Generator: Poedit 2.3.1\n"
 "X-Poedit-SearchPath-0: .\n"
 
 #: home.php:60
@@ -23,6 +23,31 @@ msgstr "Dernière actualité"
 #: inc_header.php:111
 msgid "thumbnails"
 msgstr "miniatures"
+
+#: inc_locale.php:2
+msgid "Demo site"
+msgstr "Site de démo"
+
+#: inc_locale.php:3
+msgid "Creation and maintenance of themes and plugins take a lot of time."
+msgstr ""
+"La création et la maintenance de thèmes et plugins prend beaucoup de temps."
+
+#: inc_locale.php:4
+msgid "Thanks to donate to help zpBoostrap."
+msgstr "Merci de votre don pour aider le thème zpBoostrap."
+
+#: inc_locale.php:5
+msgid "Thanks to donate to help zpArdoise."
+msgstr "Merci de votre don pour aider le thème zpArdoise."
+
+#: inc_locale.php:6
+msgid "Thanks to donate to help i-feel-dirty."
+msgstr "Merci de votre don pour aider le thème i-feel-dirty."
+
+#: inc_locale.php:7
+msgid "Thanks to donate to help akismet plugin."
+msgstr "Merci de votre don pour aider le plugin akismet."
 
 #: inc_print_googlemap.php:2
 msgid "The theme doesn't support colorbox option for googlemap plugin."
@@ -56,11 +81,11 @@ msgstr "Pas d'autres actualités à afficher"
 msgid ""
 "A responsive Zenphoto theme ready for desktop to mobile device, using <a "
 "href=\"https://getbootstrap.com/docs/3.4/\" title=\"Boostrap\" target="
-"\"_blank\">Boostrap 3.4.0</a> framework."
+"\"_blank\">Boostrap 3.4</a> framework."
 msgstr ""
 "Un thème responsive pour Zenphoto, s'adaptant des ordinateurs aux "
 "smartphones, utilisant le Framework <a href=\"https://getbootstrap.com/"
-"docs/3.4/\" title=\"Boostrap\" target=\"_blank\">Boostrap 3.4.0</a>."
+"docs/3.4/\" title=\"Boostrap\" target=\"_blank\">Boostrap 3.4</a>."
 
 #: theme_description.php:11
 msgid "Please read"
@@ -82,7 +107,7 @@ msgstr ""
 msgid "Bootstrap Grid System"
 msgstr "Système de Grille Bootstrap"
 
-#: themeoptions.php:68
+#: themeoptions.php:80
 msgid ""
 "Display a home page, with a slider of random pictures, the gallery "
 "description and the latest news."
@@ -90,11 +115,11 @@ msgstr ""
 "Affiche une page d'accueil, avec un diaporama d'images choisies "
 "aléatoirement, la description de la galerie et la dernière actualité."
 
-#: themeoptions.php:69
+#: themeoptions.php:81
 msgid "Latest news on Homepage"
 msgstr "Dernière actualité sur la page d'Accueil"
 
-#: themeoptions.php:73
+#: themeoptions.php:85
 msgid ""
 "Display the latest news on the home page (Homepage option have to be "
 "selected too)."
@@ -102,37 +127,37 @@ msgstr ""
 "Affiche la dernière actualité sur la page d'accueil (L'option Accueil doit "
 "aussi être sélectionnée)."
 
-#: themeoptions.php:74
+#: themeoptions.php:86
 msgid "Homepage slider"
 msgstr "Slider sur la page d'Accueil"
 
-#: themeoptions.php:82
+#: themeoptions.php:94
 msgid ""
 "Select the Album to use for the homepage slider (Dynamic albums may used)."
 msgstr ""
 "Choisissez l'album a utiliser pour le diaporama de la page d'accueil (les "
 "albums dynamiques peuvent être utilisés)."
 
-#: themeoptions.php:83
+#: themeoptions.php:95
 msgid "If Gallery is selected, the whole gallery will be used for the slider."
 msgstr ""
 "Si Galerie est sélectionné, l'ensemble de la galerie sera utilisée pour le "
 "diaporama."
 
-#: themeoptions.php:84
+#: themeoptions.php:96
 msgid "Random pictures for homepage slider"
 msgstr "Nombre d'image sur le slider de la page d'Accueil"
 
-#: themeoptions.php:89
+#: themeoptions.php:101
 msgid "Number of random pictures to use for the homepage slider."
 msgstr ""
 "Nombre d'images aléatoires à utiliser pour le diaporama de la page d'accueil."
 
-#: themeoptions.php:90
+#: themeoptions.php:102
 msgid "Use infinite scroll"
 msgstr "Utilise infinite scroll"
 
-#: themeoptions.php:99
+#: themeoptions.php:111
 msgid ""
 "Check pages which use <a href=\"https://infinite-scroll.com/\" target="
 "\"_blank\">infinite-scroll jQuery plugin</a>. This layout will automatically "
@@ -143,7 +168,7 @@ msgstr ""
 "Cette présentation chargera automatiquement les items de la page suivante "
 "(albums, images ou actualités), sans pagination."
 
-#: themeoptions.php:100
+#: themeoptions.php:112
 msgid ""
 "The behavior is \"manual first\": it requires visitor to click a button the "
 "first time to load new items and then, it automatically load after."
@@ -152,7 +177,7 @@ msgstr ""
 "items requière de cliquer sur un bouton, et ensuite, le chargement se fait "
 "automatiquement."
 
-#: themeoptions.php:101
+#: themeoptions.php:113
 msgid ""
 "Rather than using infinite-scroll layout for all albums, you may also allow "
 "\"multiple_layouts\" plugin and then choose \"album_infinitescroll\" as "
@@ -163,7 +188,7 @@ msgstr ""
 "\"album_infinitescroll\" comme présentation pour des albums spécifiques de "
 "votre galerie."
 
-#: themeoptions.php:103
+#: themeoptions.php:114
 msgid ""
 "<strong>Note:</strong> This album layout does not manage albums with images "
 "and sub-albums (in that case, standard album layout is automatically used)."
@@ -172,11 +197,11 @@ msgstr ""
 "avec des images et des sous-albums (dans ce cas, la présentation standard "
 "des albums est automatiquement utilisée)."
 
-#: themeoptions.php:104
+#: themeoptions.php:115
 msgid "Use isotope"
 msgstr "Utilise isotope"
 
-#: themeoptions.php:109
+#: themeoptions.php:120
 msgid ""
 "Use <a href=\"https://isotope.metafizzy.co/\" target=\"_blank\">isotope "
 "jQuery plugin</a> for albums pages. This layout allows to display uncropped "
@@ -187,7 +212,7 @@ msgstr ""
 "permet d'afficher des vignettes non redimensionnées et des les filtrer à "
 "partir de leurs tags."
 
-#: themeoptions.php:110
+#: themeoptions.php:121
 msgid ""
 "Rather than use isotope layout for all albums, you may also allow "
 "\"multiple_layouts\" plugin and then choice \"album_isotope\" as layout for "
@@ -197,49 +222,49 @@ msgstr ""
 "utilisez le plugin \"multiple_layouts\", et alors choisir \"album_isotope\" "
 "comme mise en page d’albums particuliers de votre galeries."
 
-#: themeoptions.php:112
+#: themeoptions.php:123
 msgid ""
-"<strong>Notes:</strong> This album layout does not manage sub-albums (in "
-"that case, only pictures of the album are shown and you cant not access on "
-"sub-albums)."
+"<strong>Note:</strong> This album layout does not manage sub-albums (in that "
+"case, only pictures of the album are shown and you cant not access on sub-"
+"albums)."
 msgstr ""
-"<strong>Notes: </strong>Cette présentation des albums ne gère pas les sous-"
+"<strong>Note :</strong> Cette présentation des albums ne gère pas les sous-"
 "albums (dans ce cas, seules les images sont affichées et vous ne pourrez pas "
 "accéder aux sous-albums)."
 
-#: themeoptions.php:113
+#: themeoptions.php:124
 msgid "This option overwrites the infinite scroll on album option above."
 msgstr "Cette option supplante l'option infinite scroll pour albums ci-dessus."
 
-#: themeoptions.php:115
+#: themeoptions.php:126
 msgid "Social Links"
 msgstr "Média sociaux"
 
-#: themeoptions.php:119
+#: themeoptions.php:130
 msgid "Check to show some social links."
 msgstr "Affiche des liens vers les sites sociaux."
 
-#: themeoptions.php:125
+#: themeoptions.php:136
 msgid "Excerpt length"
 msgstr "Longueur de l'extrait"
 
-#: themeoptions.php:129
+#: themeoptions.php:140
 msgid "Excerpt length for news and pages lists in search page"
 msgstr ""
 "Longueur de l'extrait des listes d'actualités et de pages dans la page de "
 "recherche"
 
-#: themeoptions.php:134
+#: themeoptions.php:145
 msgid "Display a link to the Archive list."
 msgstr "Affiche un lien vers les Archives."
 
-#: themeoptions.php:139
+#: themeoptions.php:150
 msgid ""
 "Check to show a tag cloud in Archive list, with all the tags of the gallery."
 msgstr ""
 "Affiche un nuage de tags dans les Archives, avec tous les tags de la galerie."
 
-#: themeoptions.php:144
+#: themeoptions.php:155
 msgid ""
 "Show the EXIFs Data on Image page. Remember you have to check EXIFs data you "
 "want to show on Options>Image>Metadata."
@@ -248,25 +273,59 @@ msgstr ""
 "choisir les données EXIF que vous voulez afficher sur la page "
 "Options>Image>Métadonnées."
 
-#~ msgid "Demo site"
-#~ msgstr "Site de démo"
+#: themeoptions.php:161
+msgid ""
+"Check this if you want to use the \"menu_manager\" plugin if enabled to use "
+"a custom menu instead of the standard one."
+msgstr ""
+"Cochez cette case si vous souhaitez utiliser le plugin \"menu_manager\" s’il "
+"est activé, afin utiliser un menu personnalisé au lieu du menu standard."
 
-#~ msgid "Creation and maintenance of themes and plugins take a lot of time."
+#: themeoptions.php:162
+msgid ""
+"<strong>Note:</strong> A custom menu named \"zpBootstrap\" is used "
+"automatically. You can change this custom menu in \"menu\" tab."
+msgstr ""
+"<strong>Note :</strong> Un menu personnalisé nommé \"zpBootstrap\" est "
+"utilisé automatiquement. Vous pouvez modifier ce menu personnalisé dans "
+"l’onglet \"menu\"."
+
+#~ msgid ""
+#~ "A responsive Zenphoto theme ready for desktop to mobile device, using <a "
+#~ "href=\"https://getbootstrap.com/docs/3.4/\" title=\"Boostrap\" target="
+#~ "\"_blank\">Boostrap 3.4.0</a> framework."
 #~ msgstr ""
-#~ "La création et la maintenance de thèmes et plugins prend beaucoup de "
-#~ "temps."
+#~ "Un thème responsive pour Zenphoto, s'adaptant des ordinateurs aux "
+#~ "smartphones, utilisant le Framework <a href=\"https://getbootstrap.com/"
+#~ "docs/3.4/\" title=\"Boostrap\" target=\"_blank\">Boostrap 3.4.0</a>."
 
-#~ msgid "Thanks to donate to help zpBoostrap."
-#~ msgstr "Merci de votre don pour aider le thème zpBoostrap."
+#~ msgid ""
+#~ "<strong>Notes:</strong> This album layout does not manage sub-albums (in "
+#~ "that case, only pictures of the album are shown and you cant not access "
+#~ "on sub-albums)."
+#~ msgstr ""
+#~ "<strong>Notes :</strong> Cette présentation des albums ne gère pas les "
+#~ "sous-albums (dans ce cas, seules les images sont affichées et vous ne "
+#~ "pourrez pas accéder aux sous-albums)."
 
-#~ msgid "Thanks to donate to help zpArdoise."
-#~ msgstr "Merci de votre don pour aider le thème zpArdoise."
+#~ msgid ""
+#~ "<strong>Note:</strong> A custom menu named \"zpBootstrap\" is used "
+#~ "automatically. You can change this custom menu in \"menu\" tab"
+#~ msgstr ""
+#~ "<strong>Remarque :</strong> Un menu personnalisé nommé «zpBootstrap» est "
+#~ "utilisé automatiquement. Vous pouvez modifier ce menu personnalisé dans "
+#~ "l’onglet \"menu\""
 
-#~ msgid "Thanks to donate to help i-feel-dirty."
-#~ msgstr "Merci de votre don pour aider le thème i-feel-dirty."
-
-#~ msgid "Thanks to donate to help akismet plugin."
-#~ msgstr "Merci de votre don pour aider le plugin akismet."
+#~ msgid ""
+#~ "Check this if you want to use the \"menu_manager\" plugin if enabled to "
+#~ "build a custom menu instead of the standard one."
+#~ msgstr ""
+#~ "Cochez cette case si vous souhaitez utiliser le plugin \"menu_manager\" "
+#~ "s’il est activé pour créer un menu personnalisé au lieu de celui "
+#~ "standard.\n"
+#~ "Cocher si vous souhaitez utiliser l’extension de gestion de menus "
+#~ "menu_manager. Si elle est activée, vous pouvez définir un menu "
+#~ "personnalisé et l’utiliser au lieu du menu standard"
 
 #~ msgid ""
 #~ "A responsive Zenphoto theme ready for desktop to mobile device, using <a "
