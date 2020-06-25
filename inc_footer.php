@@ -22,4 +22,4 @@
 
 	</body>
 </html>
-<!-- zpBootstrap 2.2 - a Zenphoto theme by Vincent3569 -->
+<!-- zpBootstrap 2.3 - a Zenphoto theme by Vincent3569 -->
