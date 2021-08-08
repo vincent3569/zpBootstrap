@@ -67,7 +67,8 @@ class ThemeOptions {
 
 		$me = basename(dirname(__FILE__));
 		$albums = $album_list = array();
-		genAlbumList($album_list, NULL, ALL_ALBUMS_RIGHTS);
+		global $_zp_gallery;
+		$album_list = $_zp_gallery->getAllAlbums(NULL, ALL_ALBUMS_RIGHTS, true);
 		foreach ($album_list as $fullfolder => $albumtitle) {
 			$albums[$fullfolder] = $fullfolder;
 		}
