@@ -95,25 +95,19 @@ function zpB_getRandomImages ($number = 5, $option = 'all', $album_filename = ''
 	$number = min($number, $number_max);
 	$randomImageList = array();
 
-	$i = 1;
-	while ($i <= $number) {
-		switch ($option) {
-			case "all" :
-				$randomImages = getImageStatistic($number, 'random', '');
-				break;
-			case "album" :
-				$randomImages = getImageStatistic($number, 'random', $album_filename);
-				break;
-		}
-		if ( isset($randomImages) ) {
-			foreach($randomImages as $randomImage) {
-				$randomImageList[] = $randomImage;
-				$i++;
-			}
-		} else {
+	switch ($option) {
+		case "all" :
+			$randomImages = getImageStatistic($number, 'random', '');
 			break;
-		}
+		case "album" :
+			$randomImages = getImageStatistic($number, 'random', $album_filename);
+			break;
 	}
+	if ( isset($randomImages) ) {
+		foreach($randomImages as $randomImage) {
+			$randomImageList[] = $randomImage;
+		}
+	} 
 	if (!empty($randomImageList)) {
 		return $randomImageList;
 	} else {
