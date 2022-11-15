@@ -1,8 +1,8 @@
 				<div class="<?php echo $news_class; ?> margin-bottom-double clearfix">
 					<div class="post-date">
-						<span class="month"><?php echo strftime('%b', strtotime($_zp_current_zenpage_news->getDateTime())); ?></span>
-						<span class="day"><?php echo strftime('%d', strtotime($_zp_current_zenpage_news->getDateTime())); ?></span>
-						<span class="year"><?php echo strftime('%Y', strtotime($_zp_current_zenpage_news->getDateTime())); ?></span>
+						<span class="month"><?php echo zpFormattedDate('M', strtotime($_zp_current_zenpage_news->getDateTime())); ?></span>
+						<span class="day"><?php echo zpFormattedDate('d', strtotime($_zp_current_zenpage_news->getDateTime())); ?></span>
+						<span class="year"><?php echo zpFormattedDate('Y', strtotime($_zp_current_zenpage_news->getDateTime())); ?></span>
 					</div>
 					<h4 class="post-title">
 						<?php

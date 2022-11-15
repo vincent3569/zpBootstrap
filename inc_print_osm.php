@@ -21,7 +21,7 @@
 						</h4>
 					</div>
 					<div class="panel-body">
-						<?php printOpenStreetMap(); ?>
+						<?php openStreetMap::printOpenStreetMap(); ?>
 					</div>
 				</div>
 				<?php
