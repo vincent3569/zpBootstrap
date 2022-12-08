@@ -23,18 +23,18 @@ $(document).ready( function() {
 		clickContent : function( current, event ) {
 			return current.type === 'image' ? 'toggleControls' : false;
 		},
+		dblclickContent : function( current, event ) {
+			return current.type === 'image' ? 'zoom' : false;
+		},
 		clickSlide : false,
 		clickOutside : false,
-		dblclickContent : function( current, event ) {
-			return current.type === 'image' ? 'next' : false;
-		},
 
 		caption : function( instance, item ) {
 			if ($(this).find('.caption').length) {
 				return $(this).find('.caption').html();
 			} else {
 				return $(this).attr('title');
-			};
+			}
 		},
 
 		mobile : {
