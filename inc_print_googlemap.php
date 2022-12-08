@@ -6,7 +6,7 @@
 				$images = $album->getImages();
 
 				foreach ($images as $an_image) {
-					$image = newImage($album, $an_image);
+					$image = Image::newImage($album, $an_image);
 					$exif = $image->getMetaData();
 					if ((!empty($exif['EXIFGPSLatitude'])) && (!empty($exif['EXIFGPSLongitude']))) {
 						$hasAlbumGeodata = true; // at least one image has geodata
