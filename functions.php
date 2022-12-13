@@ -79,14 +79,14 @@ function my_checkPageValidity($request, $gallery_page, $page) {
  */
 function zpB_getRandomImages ($number = 5, $option = 'all', $album_filename = '') {
 	global $_zp_gallery;
-
+	
 	switch ($option) {
 			case "all" :
 				$number_max = $_zp_gallery->getNumImages(2);
 				break;
 			case "album" :
 				if (!empty($album_filename)) {
-					$album = newAlbum($album_filename);
+					$album = AlbumBase::newAlbum($album_filename);
 					$number_max = $album->getNumImages();
 				}
 				break;
@@ -95,25 +95,19 @@ function zpB_getRandomImages ($number = 5, $option = 'all', $album_filename = ''
 	$number = min($number, $number_max);
 	$randomImageList = array();
 
-	$i = 1;
-	while ($i <= $number) {
-		switch ($option) {
-			case "all" :
-				$randomImage = getRandomImages();
-				break;
-			case "album" :
-				$randomImage = getRandomImagesAlbum($album_filename);
-				break;
-		}
-		if ((is_object($randomImage)) && ($randomImage->exists)) {
-			if (array_search($randomImage, $randomImageList) === false) {
-				$randomImageList[] = $randomImage;
-				$i++;
-			}
-		} else {
+	switch ($option) {
+		case "all" :
+			$randomImages = getImageStatistic($number, 'random', '');
 			break;
-		}
+		case "album" :
+			$randomImages = getImageStatistic($number, 'random', $album_filename);
+			break;
 	}
+	if ( isset($randomImages) ) {
+		foreach($randomImages as $randomImage) {
+			$randomImageList[] = $randomImage;
+		}
+	} 
 	if (!empty($randomImageList)) {
 		return $randomImageList;
 	} else {

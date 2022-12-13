@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: zpBootstrap\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-01-23 21:46+0100\n"
-"PO-Revision-Date: 2020-07-12 18:24+0200\n"
+"PO-Revision-Date: 2022-07-09 14:44+0200\n"
 "Last-Translator: fretzl\n"
 "Language-Team: vincent3569 <vincent_bourganel@yahoo.fr>\n"
 "Language: nl_NL\n"
@@ -13,7 +13,7 @@ msgstr ""
 "X-Poedit-KeywordsList: ;gettext_th\n"
 "X-Poedit-Basepath: ../../..\n"
 "X-Poedit-SourceCharset: UTF-8\n"
-"X-Generator: Poedit 2.3.1\n"
+"X-Generator: Poedit 3.1.1\n"
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: _bootstrap_3.4.1\n"
 
@@ -61,24 +61,30 @@ msgid ""
 "href=\"https://getbootstrap.com/docs/3.4/\" title=\"Boostrap\" target="
 "\"_blank\">Boostrap 3.4.0</a> framework."
 msgstr ""
+"Een responsive Zenphoto thema voor desktop en mobiel. Maakt gebruik van het "
+"<a href=“https://getbootstrap.com/docs/3.4/“ title=“Boostrap” "
+"target=“_blank”>Boostrap 3.4.0</a> framework."
 
 #: theme_description.php:11
 msgid "Please read"
-msgstr ""
+msgstr "Lees a.u.b."
 
 #: theme_description.php:11
 msgid "and"
-msgstr ""
+msgstr "en"
 
 #: theme_description.php:12
 msgid ""
 "To design your content to be responsive using Boostrap framework, you can "
 "have a look on"
 msgstr ""
+"Om je inhoud optimaal te ontwerpen voor Bootstrap zie <a href “http://"
+"localhost/zenphoto3-test/themes/zpBootstrap/bootstrap_grid_system."
+"htm”>Bootstrap Grid System</a>."
 
 #: theme_description.php:12
 msgid "Bootstrap Grid System"
-msgstr ""
+msgstr "Bootstrap Grid System"
 
 #: themeoptions.php:68
 msgid ""
@@ -218,11 +224,11 @@ msgstr "Vink aan om een aantal “Social Links\" te tonen."
 
 #: themeoptions.php:125
 msgid "Excerpt length"
-msgstr ""
+msgstr "Lengte uittreksel"
 
 #: themeoptions.php:129
 msgid "Excerpt length for news and pages lists in search page"
-msgstr ""
+msgstr "Lengte uittreksel voor nieuwsartikelen en pagina’s in zoekresultaten."
 
 #: themeoptions.php:134
 msgid "Display a link to the Archive list."
