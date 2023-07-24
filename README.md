@@ -3,7 +3,7 @@ zpBootstrap
 
 ## Note about this fork
 
-**The original theme lacks some compatibility for ZenphotoCMS 1.6.x and PHP 8+. Since it is a widely used theme the ZenphotoCMS team decided to forked to make it generally compatible. We hope the original developer picks it up again in the future.** 
+**The original theme lacks some compatibility for ZenphotoCMS 1.6.x and PHP 8+. Since it is a widely used theme the ZenphotoCMS team decided to fork it and make it generally compatible. We hope the original developer picks it up again in the future.** 
 
 **Download the master via the green "Code" button and "Download ZIP as there are no "versions" for our changes.**
 
