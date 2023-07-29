@@ -490,6 +490,10 @@ div.buttons button {
 	}
 }
 @media (min-width: 768px) {
+	.container {
+	  width: 1030px;
+	}
+
 	.fancybox-thumbs {
 		top: 0;
 		width: 230px;
