@@ -1,5 +1,5 @@
 <?php
-// force UTF-8 Ø
+// force UTF-8
 
 if (!OFFSET_PATH) {
 
@@ -11,18 +11,22 @@ if (!OFFSET_PATH) {
 	setOption('gmap_display', 'show', true);
 
 	// Check for mobile and tablets, and set some options
-	require_once (SERVERPATH . '/' . ZENFOLDER . '/' . PLUGIN_FOLDER . '/mobileTheme/Mobile_Detect.php');
-	$detect = new Mobile_Detect;
-
-	if ($detect->isTablet()) {
-		$isTablet = true;
-	} else {
-		$isTablet = false;
+	if (!extensionEnabled('mobileTheme')) {
+		enableExtension('mobileTheme');
 	}
-	if (($detect->isMobile()) && (!$detect->isTablet())) {
-		$isMobile = true;
-	} else {
-		$isMobile = false;
+	$isMobile = false;
+	if (class_exists('mobile')) {
+		$detect = new Mobile();
+		if ($detect->isTablet()) {
+			$isTablet = true;
+		} else {
+			$isTablet = false;
+		}
+		if (($detect->isMobile()) && (!$detect->isTablet())) {
+			$isMobile = true;
+		} else {
+			$isMobile = false;
+		}
 	}
 
 	if ($isMobile) {
