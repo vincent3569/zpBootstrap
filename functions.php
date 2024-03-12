@@ -10,25 +10,20 @@ if (!OFFSET_PATH) {
 	setOption('user_logout_login_form', 1, true);
 	setOption('gmap_display', 'show', true);
 
-	// Check for mobile and tablets, and set some options
+	// Check for mobile and set some options
 	if (!extensionEnabled('mobileTheme')) {
-		enableExtension('mobileTheme');
+		enableExtension('mobileTheme', 9999);
 	}
 	$isMobile = false;
 	if (class_exists('mobile')) {
 		$detect = new Mobile();
-		if ($detect->isTablet()) {
-			$isTablet = true;
-		} else {
-			$isTablet = false;
-		}
 		if (($detect->isMobile()) && (!$detect->isTablet())) {
 			$isMobile = true;
 		} else {
 			$isMobile = false;
 		}
 	}
-
+	
 	if ($isMobile) {
 		// set album thumb size and album thumb size for mobile device
 		setOption('zpB_album_thumb_width', 720, false);
@@ -52,7 +47,7 @@ if (!OFFSET_PATH) {
 		// set shorten title size
 		$zpB_shorten_title_size = 50;
 	}
-
+	
 	$_zp_page_check = 'my_checkPageValidity';
 
 	$_zenpage_enabled = extensionEnabled('zenpage');
