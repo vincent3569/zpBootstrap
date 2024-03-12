@@ -46,6 +46,10 @@ class ThemeOptions {
 			cacheManager::deleteCacheSizes($me);
 			cacheManager::addDefaultThumbSize();
 			cacheManager::addDefaultSizedImageSize();
+			$img_wmk = getOption('fullimage_watermark') ? getOption('fullimage_watermark') : null;
+			$thumb_wmk = getOption('Image_watermark') ? getOption('Image_watermark') : null;
+			cacheManager::addCacheSize($me, NULL, getOption('zpB_album_thumb_width'), getOption('zpB_album_thumb_height'), getOption('zpB_album_thumb_width'), getOption('zpB_album_thumb_height'), NULL, NULL, NULL, $thumb_wmk, $img_effect, false);
+			cacheManager::addCacheSize($me, NULL, 1000, 500, 1000, 500, NULL, NULL, NULL, $img_wmk, $img_effect, false);
 		}
 
 		if (class_exists('menu_manager')) {
@@ -67,7 +71,8 @@ class ThemeOptions {
 
 		$me = basename(dirname(__FILE__));
 		$albums = $album_list = array();
-		genAlbumList($album_list, NULL, ALL_ALBUMS_RIGHTS);
+		global $_zp_gallery;
+		$album_list = $_zp_gallery->getAllAlbums(NULL, ALL_ALBUMS_RIGHTS, true);
 		foreach ($album_list as $fullfolder => $albumtitle) {
 			$albums[$fullfolder] = $fullfolder;
 		}

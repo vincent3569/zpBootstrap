@@ -2,11 +2,11 @@
 			<?php while (next_image()) { ?>
 				<?php
 				$fullimage = getFullImageURL();
-				$isImagePhoto = isImagePhoto($_zp_current_image);
-				$isImageVideo = isImageVideo($_zp_current_image);
+				$isPhoto = $_zp_current_image->isPhoto();
+				$isVideo = $_zp_current_image->isVideo();
 				$isAudio = false;
-				if ($isImageVideo) {
-					$suffix = strtolower(getSuffix($_zp_current_image->getFileName()));
+				if ($isVideo) {
+					$suffix = strtolower(getSuffix($_zp_current_image->getName()));
 					if ($suffix == 'mp3' || $suffix == 'm4a') {
 						$isAudio = true;
 					}
@@ -25,7 +25,7 @@
 				<?php if (!empty($fullimage)) { ?>
 				<div class="col-xs-6 col-sm-3 image-thumb">
 					<?php		// image file
-					if ($isImagePhoto) { ?>
+					if ($isPhoto) { ?>
 					<a class="thumb" href="<?php echo html_encode(pathurlencode($fullimage)); ?>" title="<?php echo html_encode(getBareImageTitle()); ?>" data-fancybox="images">
 						<?php printImageThumb(getBareImageTitle(), 'remove-attributes img-responsive'); ?>
 						<div class="hidden caption">
@@ -34,7 +34,7 @@
 						</div>
 					</a>
 					<?php		// audio file
-					} else if ($isImageVideo && $isAudio) { ?>
+					} else if ($isVideo && $isAudio) { ?>
 					<a class="thumb" href="javascript:;" data-type="iframe" data-src="<?php echo html_encode(pathurlencode($fullimage)); ?>" title="<?php echo html_encode(getBareImageTitle()); ?>" data-fancybox="images">
 						<?php printImageThumb(getBareImageTitle(), 'remove-attributes img-responsive'); ?>
 						<div class="hidden caption">
@@ -43,7 +43,7 @@
 						</div>
 					</a>
 					<?php		// video file
-					} else if ($isImageVideo && !$isAudio) { ?>
+					} else if ($isVideo && !$isAudio) { ?>
 					<a class="thumb" href="<?php echo html_encode(pathurlencode($fullimage)); ?>" title="<?php echo html_encode(getBareImageTitle()); ?>" data-fancybox="images">
 						<?php printImageThumb(getBareImageTitle(), 'remove-attributes img-responsive'); ?>
 					</a>

@@ -16,7 +16,7 @@ if (!defined('WEBPATH')) die();
 	?>
 	<title>
 	<?php
-	echo getMainSiteName() . ' | ';
+	echo getParentSiteTitle() . ' | ';
 	switch ($_zp_gallery_page) {
 		case 'index.php':
 			if ($isHomePage) { echo gettext('Home'); } else { echo gettext('Gallery'); }; break;
@@ -192,7 +192,7 @@ if (!defined('WEBPATH')) die();
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="<?php echo html_encode(getSiteHomeURL()); ?>" title="<?php echo gettext('Home'); ?>"><?php echo getMainSiteName(); ?></a>
+				<a class="navbar-brand" href="<?php echo html_encode(getSiteHomeURL()); ?>" title="<?php echo gettext('Home'); ?>"><?php echo getParentSiteTitle(); ?></a>
 			</div>
 			<div id="navbar" class="collapse navbar-collapse">
 				<ul class="nav navbar-nav pull-right">

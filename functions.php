@@ -1,5 +1,5 @@
 <?php
-// force UTF-8 Ø
+// force UTF-8
 
 if (!OFFSET_PATH) {
 
@@ -10,21 +10,20 @@ if (!OFFSET_PATH) {
 	setOption('user_logout_login_form', 1, true);
 	setOption('gmap_display', 'show', true);
 
-	// Check for mobile and tablets, and set some options
-	require_once (SERVERPATH . '/' . ZENFOLDER . '/' . PLUGIN_FOLDER . '/mobileTheme/Mobile_Detect.php');
-	$detect = new Mobile_Detect;
-
-	if ($detect->isTablet()) {
-		$isTablet = true;
-	} else {
-		$isTablet = false;
+	// Check for mobile and set some options
+	if (!extensionEnabled('mobileTheme')) {
+		enableExtension('mobileTheme', 9999);
 	}
-	if (($detect->isMobile()) && (!$detect->isTablet())) {
-		$isMobile = true;
-	} else {
-		$isMobile = false;
+	$isMobile = false;
+	if (class_exists('mobile')) {
+		$detect = new Mobile();
+		if (($detect->isMobile()) && (!$detect->isTablet())) {
+			$isMobile = true;
+		} else {
+			$isMobile = false;
+		}
 	}
-
+	
 	if ($isMobile) {
 		// set album thumb size and album thumb size for mobile device
 		setOption('zpB_album_thumb_width', 720, false);
@@ -48,7 +47,7 @@ if (!OFFSET_PATH) {
 		// set shorten title size
 		$zpB_shorten_title_size = 50;
 	}
-
+	
 	$_zp_page_check = 'my_checkPageValidity';
 
 	$_zenpage_enabled = extensionEnabled('zenpage');
@@ -79,14 +78,14 @@ function my_checkPageValidity($request, $gallery_page, $page) {
  */
 function zpB_getRandomImages ($number = 5, $option = 'all', $album_filename = '') {
 	global $_zp_gallery;
-
+	
 	switch ($option) {
 			case "all" :
 				$number_max = $_zp_gallery->getNumImages(2);
 				break;
 			case "album" :
 				if (!empty($album_filename)) {
-					$album = newAlbum($album_filename);
+					$album = AlbumBase::newAlbum($album_filename);
 					$number_max = $album->getNumImages();
 				}
 				break;
@@ -95,25 +94,19 @@ function zpB_getRandomImages ($number = 5, $option = 'all', $album_filename = ''
 	$number = min($number, $number_max);
 	$randomImageList = array();
 
-	$i = 1;
-	while ($i <= $number) {
-		switch ($option) {
-			case "all" :
-				$randomImage = getRandomImages();
-				break;
-			case "album" :
-				$randomImage = getRandomImagesAlbum($album_filename);
-				break;
-		}
-		if ((is_object($randomImage)) && ($randomImage->exists)) {
-			if (array_search($randomImage, $randomImageList) === false) {
-				$randomImageList[] = $randomImage;
-				$i++;
-			}
-		} else {
+	switch ($option) {
+		case "all" :
+			$randomImages = getImageStatistic($number, 'random', '');
 			break;
-		}
+		case "album" :
+			$randomImages = getImageStatistic($number, 'random', $album_filename);
+			break;
 	}
+	if ( isset($randomImages) ) {
+		foreach($randomImages as $randomImage) {
+			$randomImageList[] = $randomImage;
+		}
+	} 
 	if (!empty($randomImageList)) {
 		return $randomImageList;
 	} else {

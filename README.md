@@ -1,6 +1,14 @@
 zpBootstrap 
 ============
 
+## Note about this fork
+
+**The original theme lacks some compatibility for ZenphotoCMS 1.6.x and PHP 8+. Since it is a widely used theme the ZenphotoCMS team decided to fork it and make it generally compatible. We hope the original developer picks it up again in the future.** 
+
+**Download the master via the green "Code" button and "Download ZIP as there are no "versions" for our changes.**
+
+## General
+
 zpBootstrap is a « Responsive » theme for [Zenphoto CMS](https://www.zenphoto.org), based on [Bootstrap framework](https://getbootstrap.com/docs/3.4/).
 
 Feel free to download and use it, and thanks in advance for your feedback!

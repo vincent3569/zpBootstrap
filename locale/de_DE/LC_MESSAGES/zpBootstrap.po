@@ -2,19 +2,19 @@ msgid ""
 msgstr ""
 "Project-Id-Version: zpBootstrap\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-23 21:40+0100\n"
-"PO-Revision-Date: 2019-01-23 21:41+0100\n"
-"Last-Translator: Vincent Bourganel <vincent_bourganel@yahoo.fr>\n"
+"POT-Creation-Date: 2022-12-20 18:06+0100\n"
+"PO-Revision-Date: 2022-12-20 18:07+0100\n"
+"Last-Translator: Malte Müller (acrylian) <wartgart@gmx.net>\n"
 "Language-Team: vincent3569 <vincent_bourganel@yahoo.fr>\n"
 "Language: de_DE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-KeywordsList: ;gettext_th\n"
 "X-Poedit-Basepath: ../../..\n"
 "X-Poedit-SourceCharset: UTF-8\n"
-"X-Generator: Poedit 2.2.1\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.2.2\n"
 "X-Poedit-SearchPath-0: .\n"
 
 #: home.php:60
@@ -58,29 +58,34 @@ msgstr "Keine weiteren Neuigkeiten anzuzeigen"
 #: theme_description.php:10
 msgid ""
 "A responsive Zenphoto theme ready for desktop to mobile device, using <a "
-"href=\"https://getbootstrap.com/docs/3.4/\" title=\"Boostrap\" target="
-"\"_blank\">Boostrap 3.4.0</a> framework."
+"href=\"https://getbootstrap.com/docs/3.4/\" title=\"Boostrap\" "
+"target=\"_blank\">Boostrap 3.4</a> framework."
 msgstr ""
+"Ein responsives Zenphoto-Theme für Desktop und Mobile, das das <a "
+"href=„https://getbootstrap.com/docs/3.4/„ title=„Boostrap“ "
+"target=„_blank“>Boostrap 3.4</a>Framework verwendet."
 
 #: theme_description.php:11
 msgid "Please read"
-msgstr ""
+msgstr "Bitte lesen Sie"
 
 #: theme_description.php:11
 msgid "and"
-msgstr ""
+msgstr "und"
 
 #: theme_description.php:12
 msgid ""
 "To design your content to be responsive using Boostrap framework, you can "
 "have a look on"
 msgstr ""
+"Um Ihren Inhalt responsiv mit dem Boostrap-Framework zu gestalten, schauen "
+"Sie bitte hier unter"
 
 #: theme_description.php:12
 msgid "Bootstrap Grid System"
-msgstr ""
+msgstr "Bootstrap-Raster-System"
 
-#: themeoptions.php:68
+#: themeoptions.php:81
 msgid ""
 "Display a home page, with a slider of random pictures, the gallery "
 "description and the latest news."
@@ -88,11 +93,11 @@ msgstr ""
 "Zeigt eine Homepage mit einem Slider mit Zufallsbildern, der Galerie-"
 "Beschreibung und den neusten Neuigkeiten an."
 
-#: themeoptions.php:69
+#: themeoptions.php:82
 msgid "Latest news on Homepage"
 msgstr "Neuste Nachrichten auf der Homepage"
 
-#: themeoptions.php:73
+#: themeoptions.php:86
 msgid ""
 "Display the latest news on the home page (Homepage option have to be "
 "selected too)."
@@ -100,45 +105,46 @@ msgstr ""
 "Zeigt die neusten Neuigkeiten auf der Homepage an (Die Homepage-Einstellung "
 "muss ebenfalls ausgewählt sein)."
 
-#: themeoptions.php:74
+#: themeoptions.php:87
 msgid "Homepage slider"
 msgstr "Homepage-Slider"
 
-#: themeoptions.php:82
+#: themeoptions.php:95
 msgid ""
 "Select the Album to use for the homepage slider (Dynamic albums may used)."
 msgstr ""
 "Wählen Sie das Album für den Homepage-Slider (Dynamische Alben können "
 "genutzt werden)"
 
-#: themeoptions.php:83
+#: themeoptions.php:96
 msgid "If Gallery is selected, the whole gallery will be used for the slider."
 msgstr ""
 "Wenn Gallie ausgewählt, wird die komplette Galerie für den Slider verwendet."
 
-#: themeoptions.php:84
+#: themeoptions.php:97
 msgid "Random pictures for homepage slider"
 msgstr "Zufallsbilder für den Homepage-Slider"
 
-#: themeoptions.php:89
+#: themeoptions.php:102
 msgid "Number of random pictures to use for the homepage slider."
 msgstr "Anzahl der Zufallsbilder im Homepage-Slider."
 
-#: themeoptions.php:90
+#: themeoptions.php:103
 msgid "Use infinite scroll"
 msgstr "Infinite Scrolling nutzen"
 
-#: themeoptions.php:99
+#: themeoptions.php:112
 msgid ""
-"Check pages which use <a href=\"https://infinite-scroll.com/\" target="
-"\"_blank\">infinite-scroll jQuery plugin</a>. This layout will automatically "
-"load items of next page (albums, images or news) without pagination."
+"Check pages which use <a href=\"https://infinite-scroll.com/\" "
+"target=\"_blank\">infinite-scroll jQuery plugin</a>. This layout will "
+"automatically load items of next page (albums, images or news) without "
+"pagination."
 msgstr ""
-"Wählen Sie Seiten, die das <a href=\"https://infinite-scroll.com/\" target="
-"\"_blank“>infinite scoll-jQuery-Plugin</a> nutzen sollen. Dies Layout lädt "
-"automatisch Einträge der nächsten Seite ohne Paginierung."
+"Wählen Sie Seiten, die das <a href=\"https://infinite-scroll.com/\" "
+"target=\"_blank“>infinite scoll-jQuery-Plugin</a> nutzen sollen. Dies Layout "
+"lädt automatisch Einträge der nächsten Seite ohne Paginierung."
 
-#: themeoptions.php:100
+#: themeoptions.php:113
 msgid ""
 "The behavior is \"manual first\": it requires visitor to click a button the "
 "first time to load new items and then, it automatically load after."
@@ -147,7 +153,7 @@ msgstr ""
 "Button klickt, damit die Bilder das erste Mal nachgeladen werden. Danach "
 "werden sie automatisch geladen."
 
-#: themeoptions.php:101
+#: themeoptions.php:114
 msgid ""
 "Rather than using infinite-scroll layout for all albums, you may also allow "
 "\"multiple_layouts\" plugin and then choose \"album_infinitescroll\" as "
@@ -157,7 +163,7 @@ msgstr ""
 "auch das multiple_layouts-Plugin verwenden und dann einzelnen Alben das "
 "\"album_infinitscroll“-Layout zuweisen."
 
-#: themeoptions.php:103
+#: themeoptions.php:115
 msgid ""
 "<strong>Note:</strong> This album layout does not manage albums with images "
 "and sub-albums (in that case, standard album layout is automatically used)."
@@ -166,21 +172,22 @@ msgstr ""
 "und Unteralben anzeigen (in diesem Fall wird das Standard-Albumlayout "
 "automatisch genutzt)."
 
-#: themeoptions.php:104
+#: themeoptions.php:116
 msgid "Use isotope"
 msgstr "Isotope verwenden"
 
-#: themeoptions.php:109
+#: themeoptions.php:121
 msgid ""
 "Use <a href=\"https://isotope.metafizzy.co/\" target=\"_blank\">isotope "
 "jQuery plugin</a> for albums pages. This layout allows to display uncropped "
 "thumbnails and to filter them based on their tags."
 msgstr ""
-"Verwendet das <a href=\"https://isotope.metafizzy.co/\" target=\"_blank"
-"\">isotope jQuery plugin</a> für Albumseiten. Diese Layout erlaubt die "
-"Verwendung von unbeschittenen Thumbnails und das Filtern nach Schlagwörtern."
+"Verwendet das <a href=\"https://isotope.metafizzy.co/\" "
+"target=\"_blank\">isotope jQuery plugin</a> für Albumseiten. Diese Layout "
+"erlaubt die Verwendung von unbeschittenen Thumbnails und das Filtern nach "
+"Schlagwörtern."
 
-#: themeoptions.php:110
+#: themeoptions.php:122
 msgid ""
 "Rather than use isotope layout for all albums, you may also allow "
 "\"multiple_layouts\" plugin and then choice \"album_isotope\" as layout for "
@@ -190,50 +197,50 @@ msgstr ""
 "multiple_layouts-Plugin verwenden und dann einzelnen Alben das "
 "„album_isotope“-Layout zuweisen."
 
-#: themeoptions.php:112
+#: themeoptions.php:124
 msgid ""
-"<strong>Notes:</strong> This album layout does not manage sub-albums (in "
-"that case, only pictures of the album are shown and you cant not access on "
-"sub-albums)."
+"<strong>Note:</strong> This album layout does not manage sub-albums (in that "
+"case, only pictures of the album are shown and you cant not access on sub-"
+"albums)."
 msgstr ""
-"<strong>Hinweise:</strong> Dieses Albumlayout kann keine Unteralben anzeigen "
+"<strong>Hinweis:</strong> Dieses Albumlayout kann keine Unteralben anzeigen "
 "(In dem Fall werde nur die Bilder des Albums anzeigt und SIe können nicht "
 "auf Unteralben zugreifen)."
 
-#: themeoptions.php:113
+#: themeoptions.php:125
 msgid "This option overwrites the infinite scroll on album option above."
 msgstr ""
 "Diese Einstellung überschreibt das Infinit-Scrollen der obigen Album-"
 "Einsteillung."
 
-#: themeoptions.php:115
+#: themeoptions.php:127
 msgid "Social Links"
 msgstr "Social-Links"
 
-#: themeoptions.php:119
+#: themeoptions.php:131
 msgid "Check to show some social links."
 msgstr "Auswählen, um Social-Media-Links anzuzeigen."
 
-#: themeoptions.php:125
+#: themeoptions.php:137
 msgid "Excerpt length"
-msgstr ""
+msgstr "Auszuglänge"
 
-#: themeoptions.php:129
+#: themeoptions.php:141
 msgid "Excerpt length for news and pages lists in search page"
-msgstr ""
+msgstr "Auszuglänge für Neuigkeiten- und Seitenlisten auf der Suchseite"
 
-#: themeoptions.php:134
+#: themeoptions.php:146
 msgid "Display a link to the Archive list."
 msgstr "Zeigt einen Link zum Archiv."
 
-#: themeoptions.php:139
+#: themeoptions.php:151
 msgid ""
 "Check to show a tag cloud in Archive list, with all the tags of the gallery."
 msgstr ""
 "Zeigt eine Schlagwortwolke mit allen Schlagwörtern der Galerie auf der "
 "Archiv-Seite."
 
-#: themeoptions.php:144
+#: themeoptions.php:156
 msgid ""
 "Show the EXIFs Data on Image page. Remember you have to check EXIFs data you "
 "want to show on Options>Image>Metadata."
@@ -242,12 +249,28 @@ msgstr ""
 "EXIF-Daten, die Sie anzeigen möchten, unter Einstellungen > Bild > EXIF "
 "auswählen können."
 
+#: themeoptions.php:162
+msgid ""
+"Check this if you want to use the \"menu_manager\" plugin if enabled to use "
+"a custom menu instead of the standard one."
+msgstr ""
+"Aktivieren Sie dies, wenn Sie das menu_manager-Plugin, sofern aktiviert, für "
+"ein benutzerdefiniertes Menü anstatt des Standardmenüs verwenden möchte."
+
+#: themeoptions.php:163
+msgid ""
+"<strong>Note:</strong> A custom menu named \"zpBootstrap\" is used "
+"automatically. You can change this custom menu in \"menu\" tab."
+msgstr ""
+"<strong>Hinweis:</strong> Ein benutzerdefiniertes Menü \"zpBootstrap\" wird "
+"automatisch verwendet. Sie können das Menü im „Menü“-Tab änndern."
+
 #~ msgid "Use infinit scroll"
 #~ msgstr "Infinite Scrolling nutzen"
 
 #~ msgid ""
-#~ "Check pages which use <a href=\"https://infinite-scroll.com/\" target="
-#~ "\"_blank\">infinit scoll jQuery plugin</a>. This layout will "
+#~ "Check pages which use <a href=\"https://infinite-scroll.com/\" "
+#~ "target=\"_blank\">infinit scoll jQuery plugin</a>. This layout will "
 #~ "automatically load items of next page (albums, images or news) without "
 #~ "pagination."
 #~ msgstr ""

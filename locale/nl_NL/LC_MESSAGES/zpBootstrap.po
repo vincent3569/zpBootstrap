@@ -2,20 +2,20 @@ msgid ""
 msgstr ""
 "Project-Id-Version: zpBootstrap\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-23 21:46+0100\n"
-"PO-Revision-Date: 2020-07-12 18:24+0200\n"
+"POT-Creation-Date: 2023-01-17 09:24+0100\n"
+"PO-Revision-Date: 2023-01-17 09:28+0100\n"
 "Last-Translator: fretzl\n"
 "Language-Team: vincent3569 <vincent_bourganel@yahoo.fr>\n"
 "Language: nl_NL\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-KeywordsList: ;gettext_th\n"
 "X-Poedit-Basepath: ../../..\n"
 "X-Poedit-SourceCharset: UTF-8\n"
-"X-Generator: Poedit 2.3.1\n"
+"X-Generator: Poedit 3.2.2\n"
 "X-Poedit-SearchPath-0: .\n"
-"X-Poedit-SearchPathExcluded-0: _bootstrap_3.4.1\n"
 
 #: home.php:60
 msgid "Latest news"
@@ -58,29 +58,35 @@ msgstr "Geen artikelen meer"
 #: theme_description.php:10
 msgid ""
 "A responsive Zenphoto theme ready for desktop to mobile device, using <a "
-"href=\"https://getbootstrap.com/docs/3.4/\" title=\"Boostrap\" target="
-"\"_blank\">Boostrap 3.4.0</a> framework."
+"href=\"https://getbootstrap.com/docs/3.4/\" title=\"Boostrap\" "
+"target=\"_blank\">Boostrap 3.4</a> framework."
 msgstr ""
+"Een responsive Zenphoto thema voor desktop en mobile, gebruikmakend van het "
+"<a href=\"https://getbootstrap.com/docs/3.4/\" title=\"Boostrap\" "
+"target=\"_blank\">Boostrap 3.4</a> framework."
 
 #: theme_description.php:11
 msgid "Please read"
-msgstr ""
+msgstr "Lees a.u.b."
 
 #: theme_description.php:11
 msgid "and"
-msgstr ""
+msgstr "en"
 
 #: theme_description.php:12
 msgid ""
 "To design your content to be responsive using Boostrap framework, you can "
 "have a look on"
 msgstr ""
+"Om je inhoud optimaal te ontwerpen voor Bootstrap zie <a href “http://"
+"localhost/zenphoto3-test/themes/zpBootstrap/bootstrap_grid_system."
+"htm”>Bootstrap Grid System</a>."
 
 #: theme_description.php:12
 msgid "Bootstrap Grid System"
-msgstr ""
+msgstr "Bootstrap Grid System"
 
-#: themeoptions.php:68
+#: themeoptions.php:81
 msgid ""
 "Display a home page, with a slider of random pictures, the gallery "
 "description and the latest news."
@@ -88,11 +94,11 @@ msgstr ""
 "Toon een homepage met een slider met willekeurige afbeeldingen, de "
 "beschrijving van de galerij en de laatste artikelen."
 
-#: themeoptions.php:69
+#: themeoptions.php:82
 msgid "Latest news on Homepage"
 msgstr "Laatste nieuws op homepage"
 
-#: themeoptions.php:73
+#: themeoptions.php:86
 msgid ""
 "Display the latest news on the home page (Homepage option have to be "
 "selected too)."
@@ -100,47 +106,48 @@ msgstr ""
 "Toon het laatste nieuws op de homepage (de optie <em>Homepage</em> moet ook "
 "aangevinkt zijn)"
 
-#: themeoptions.php:74
+#: themeoptions.php:87
 msgid "Homepage slider"
 msgstr "Homepage slider"
 
-#: themeoptions.php:82
+#: themeoptions.php:95
 msgid ""
 "Select the Album to use for the homepage slider (Dynamic albums may used)."
 msgstr ""
 "Selecteer het album met de afbeeldingen voor de slider op de homepage "
 "(dynamische albums mogen ook worden gebruikt)."
 
-#: themeoptions.php:83
+#: themeoptions.php:96
 msgid "If Gallery is selected, the whole gallery will be used for the slider."
 msgstr ""
 "Als <em>*Galerij*</em> is geselecteerd worden alle afbeeldingen in de "
 "galerij gebruikt voor de homepage slider."
 
-#: themeoptions.php:84
+#: themeoptions.php:97
 msgid "Random pictures for homepage slider"
 msgstr "Aantal afbeeldingen"
 
-#: themeoptions.php:89
+#: themeoptions.php:102
 msgid "Number of random pictures to use for the homepage slider."
 msgstr ""
 "Het aantal willekeurige afbeeldingen dat voor de homepage slider gebruikt "
 "wordt."
 
-#: themeoptions.php:90
+#: themeoptions.php:103
 msgid "Use infinite scroll"
 msgstr "Gebruik <em>Infinite Scroll</em>"
 
-#: themeoptions.php:99
+#: themeoptions.php:112
 msgid ""
-"Check pages which use <a href=\"https://infinite-scroll.com/\" target="
-"\"_blank\">infinite-scroll jQuery plugin</a>. This layout will automatically "
-"load items of next page (albums, images or news) without pagination."
+"Check pages which use <a href=\"https://infinite-scroll.com/\" "
+"target=\"_blank\">infinite-scroll jQuery plugin</a>. This layout will "
+"automatically load items of next page (albums, images or news) without "
+"pagination."
 msgstr ""
 "Vink aan voor welke pagina’s je de <a href=“https://infinite-scroll.com/“ "
 "target=“_blank”>infinite-scroll jQuery plugin</a> wilt gebruiken."
 
-#: themeoptions.php:100
+#: themeoptions.php:113
 msgid ""
 "The behavior is \"manual first\": it requires visitor to click a button the "
 "first time to load new items and then, it automatically load after."
@@ -149,7 +156,7 @@ msgstr ""
 "keer op een knop moet klikken om nieuwe items te laden. Daarna gaat het "
 "vanzelf."
 
-#: themeoptions.php:101
+#: themeoptions.php:114
 msgid ""
 "Rather than using infinite-scroll layout for all albums, you may also allow "
 "\"multiple_layouts\" plugin and then choose \"album_infinitescroll\" as "
@@ -159,7 +166,7 @@ msgstr ""
 "<em>multiple_layouts<em> plugin activeren en <em>album_infinitescroll</em> "
 "selecteren als layout voor een bepaald album."
 
-#: themeoptions.php:103
+#: themeoptions.php:115
 msgid ""
 "<strong>Note:</strong> This album layout does not manage albums with images "
 "and sub-albums (in that case, standard album layout is automatically used)."
@@ -168,21 +175,22 @@ msgstr ""
 "zowel afbeeldingen als subalbums aanwezig zijn.\n"
 "In dat geval wordt de standaard album layout gebruikt."
 
-#: themeoptions.php:104
+#: themeoptions.php:116
 msgid "Use isotope"
 msgstr "Gebruik <em>Isotope</em>"
 
-#: themeoptions.php:109
+#: themeoptions.php:121
 msgid ""
 "Use <a href=\"https://isotope.metafizzy.co/\" target=\"_blank\">isotope "
 "jQuery plugin</a> for albums pages. This layout allows to display uncropped "
 "thumbnails and to filter them based on their tags."
 msgstr ""
-"Gebruik de <a href=\"https://isotope.metafizzy.co/\" target=\"_blank"
-"\">Isotope jQuery plugin</a> voor album's. Deze layout maakt het mogelijk om "
-"(niet bijgesneden) afbeeldingen te tonen en te filteren op hun tags."
+"Gebruik de <a href=\"https://isotope.metafizzy.co/\" "
+"target=\"_blank\">Isotope jQuery plugin</a> voor album's. Deze layout maakt "
+"het mogelijk om (niet bijgesneden) afbeeldingen te tonen en te filteren op "
+"hun tags."
 
-#: themeoptions.php:110
+#: themeoptions.php:122
 msgid ""
 "Rather than use isotope layout for all albums, you may also allow "
 "\"multiple_layouts\" plugin and then choice \"album_isotope\" as layout for "
@@ -192,50 +200,50 @@ msgstr ""
 "em> plugin activeren en <em>album_isotope</em> selecteren als layout voor "
 "een bepaald album."
 
-#: themeoptions.php:112
+#: themeoptions.php:124
 msgid ""
-"<strong>Notes:</strong> This album layout does not manage sub-albums (in "
-"that case, only pictures of the album are shown and you cant not access on "
-"sub-albums)."
+"<strong>Note:</strong> This album layout does not manage sub-albums (in that "
+"case, only pictures of the album are shown and you cant not access on sub-"
+"albums)."
 msgstr ""
 "<strong>Opmerking:</strong> Deze album layout werkt niet als er sub-albums "
 "aanwezig zijn. In dat geval worden alleen de afbeeldingen in het top-level "
 "album getoond."
 
-#: themeoptions.php:113
+#: themeoptions.php:125
 msgid "This option overwrites the infinite scroll on album option above."
 msgstr ""
 "Deze optie heeft voorrang op de <em>Infinite Scroll</em> optie voor albums "
 "hierboven."
 
-#: themeoptions.php:115
+#: themeoptions.php:127
 msgid "Social Links"
 msgstr "Social Links"
 
-#: themeoptions.php:119
+#: themeoptions.php:131
 msgid "Check to show some social links."
 msgstr "Vink aan om een aantal “Social Links\" te tonen."
 
-#: themeoptions.php:125
+#: themeoptions.php:137
 msgid "Excerpt length"
-msgstr ""
+msgstr "Lengte uittreksel"
 
-#: themeoptions.php:129
+#: themeoptions.php:141
 msgid "Excerpt length for news and pages lists in search page"
-msgstr ""
+msgstr "Lengte uittreksel voor nieuwsartikelen en pagina’s in zoekresultaten."
 
-#: themeoptions.php:134
+#: themeoptions.php:146
 msgid "Display a link to the Archive list."
 msgstr "Toon een link naar de Archief pagina."
 
-#: themeoptions.php:139
+#: themeoptions.php:151
 msgid ""
 "Check to show a tag cloud in Archive list, with all the tags of the gallery."
 msgstr ""
 "Vink aan om een “Tag Cloud\" op de Archief pagina te tonen met alle tags van "
 "de galerij."
 
-#: themeoptions.php:144
+#: themeoptions.php:156
 msgid ""
 "Show the EXIFs Data on Image page. Remember you have to check EXIFs data you "
 "want to show on Options>Image>Metadata."
@@ -243,6 +251,22 @@ msgstr ""
 "Toon de EXIF informatie op de afbeeldingen pagina (<em>image.php</em>) "
 "Vergeet niet de gewenste EXIF informatie te selecteren in Admin => Opties => "
 "Afbeelding => Metadata."
+
+#: themeoptions.php:162
+msgid ""
+"Check this if you want to use the \"menu_manager\" plugin if enabled to use "
+"a custom menu instead of the standard one."
+msgstr ""
+"Vink aan om de <code>menu_manager</code> plugin te gebruiken voor een custom "
+"menu."
+
+#: themeoptions.php:163
+msgid ""
+"<strong>Note:</strong> A custom menu named \"zpBootstrap\" is used "
+"automatically. You can change this custom menu in \"menu\" tab."
+msgstr ""
+"<strong>Opmerking:</strong> Een custom menu met de naam \"zpBootstrap\" "
+"wordt automatisch aangemaakt. Je kunt dit aanpassen onder de “Menu\" tab."
 
 #~ msgid ""
 #~ "Rather than using infinite scoll layout for all albums, you may also "

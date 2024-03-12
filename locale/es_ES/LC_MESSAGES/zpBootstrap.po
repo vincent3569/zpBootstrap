@@ -1,11 +1,11 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: zpBootstrap\n"
+"Project-Id-Version: zpBootstrap - p/zp V. 1.6\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-23 21:41+0100\n"
-"PO-Revision-Date: 2019-01-23 21:43+0100\n"
-"Last-Translator: Vincent Bourganel <vincent_bourganel@yahoo.fr>\n"
-"Language-Team: vincent3569 <vincent_bourganel@yahoo.fr>\n"
+"POT-Creation-Date: 2022-12-19 16:25-0300\n"
+"PO-Revision-Date: 2022-12-19 16:45-0300\n"
+"Last-Translator: Guillermo R. Lapolla <guirala@gmail.com>\n"
+"Language-Team: Guirala <guirala@gmail.com>\n"
 "Language: es_ES\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -13,7 +13,7 @@ msgstr ""
 "X-Poedit-KeywordsList: ;gettext_th\n"
 "X-Poedit-Basepath: ../../..\n"
 "X-Poedit-SourceCharset: UTF-8\n"
-"X-Generator: Poedit 2.2.1\n"
+"X-Generator: Poedit 3.2.2\n"
 "X-Poedit-SearchPath-0: .\n"
 
 #: home.php:60
@@ -27,184 +27,248 @@ msgstr "miniaturas"
 #: inc_print_googlemap.php:2
 msgid "The theme doesn't support colorbox option for googlemap plugin."
 msgstr ""
+"El tema no es compatible con las opciones de Colorbox en el complemento "
+"googlemap."
 
 #: inc_print_infinitescroll.php:5
 msgid "View more albums"
-msgstr ""
+msgstr "Ver más álbumes"
 
 #: inc_print_infinitescroll.php:6
 msgid "No more albums to display"
-msgstr ""
+msgstr "No hay más álbumes para mostrar"
 
 #: inc_print_infinitescroll.php:10
 msgid "View more images"
-msgstr ""
+msgstr "Ver más imágenes"
 
 #: inc_print_infinitescroll.php:11
 msgid "No more images to display"
-msgstr ""
+msgstr "No hay más imágenes para mostrar"
 
 #: inc_print_infinitescroll_news.php:7
 msgid "View more news"
-msgstr ""
+msgstr "Ver más noticias"
 
 #: inc_print_infinitescroll_news.php:17
 msgid "No more news to display"
-msgstr ""
+msgstr "No hay más noticias para mostrar"
 
 #: theme_description.php:10
 msgid ""
 "A responsive Zenphoto theme ready for desktop to mobile device, using <a "
-"href=\"https://getbootstrap.com/docs/3.4/\" title=\"Boostrap\" target="
-"\"_blank\">Boostrap 3.4.0</a> framework."
+"href=\"https://getbootstrap.com/docs/3.4/\" title=\"Boostrap\" "
+"target=\"_blank\">Boostrap 3.4</a> framework."
 msgstr ""
+"Un tema de Zenphoto, sensible listo para escritorio y móviles, usando el "
+"marco <a href=\"https://getbootstrap.com/docs/3.4/\" title=\"Boostrap\" "
+"target=\"_blank\">Boostrap 3.4</a>."
 
 #: theme_description.php:11
 msgid "Please read"
-msgstr ""
+msgstr "Por favor leer"
 
 #: theme_description.php:11
 msgid "and"
-msgstr ""
+msgstr "y"
 
 #: theme_description.php:12
 msgid ""
 "To design your content to be responsive using Boostrap framework, you can "
 "have a look on"
 msgstr ""
+"Para diseñar su contenido para que sea sensible usando el marco de "
+"Bootstrap, puede echar un vistazo a"
 
 #: theme_description.php:12
 msgid "Bootstrap Grid System"
-msgstr ""
+msgstr "Sistema de Grilla de Bootstrap"
 
-#: themeoptions.php:68
+#: themeoptions.php:81
 msgid ""
 "Display a home page, with a slider of random pictures, the gallery "
 "description and the latest news."
 msgstr ""
+"Muestra la página de Inicio, con un control deslizante de imágenes "
+"aleatorias, la descripción de la Galería y las últimas noticias."
 
-#: themeoptions.php:69
+#: themeoptions.php:82
 msgid "Latest news on Homepage"
-msgstr ""
+msgstr "Últimas noticias en Página Inicio"
 
-#: themeoptions.php:73
+#: themeoptions.php:86
 msgid ""
 "Display the latest news on the home page (Homepage option have to be "
 "selected too)."
 msgstr ""
+"Muestra las últimas noticias en la página de Inicio (la Opción Página de "
+"Inicio también tiene que estar seleccionada)."
 
-#: themeoptions.php:74
+#: themeoptions.php:87
 msgid "Homepage slider"
-msgstr ""
+msgstr "Control deslizante en Inicio"
 
-#: themeoptions.php:82
+#: themeoptions.php:95
 msgid ""
 "Select the Album to use for the homepage slider (Dynamic albums may used)."
 msgstr ""
+"Seleccione el Álbum a usar para el control deslizante en página de inicio "
+"(puede usar álbumes dinámicos)."
 
-#: themeoptions.php:83
+#: themeoptions.php:96
 msgid "If Gallery is selected, the whole gallery will be used for the slider."
 msgstr ""
+"Si está seleccionado Galería, la galería entera puede ser usada por el "
+"control deslizante."
 
-#: themeoptions.php:84
+#: themeoptions.php:97
 msgid "Random pictures for homepage slider"
-msgstr ""
+msgstr "Imágenes aleatorias para el control deslizante en Inicio"
 
-#: themeoptions.php:89
+#: themeoptions.php:102
 msgid "Number of random pictures to use for the homepage slider."
 msgstr ""
+"Cantidad de Imágenes aleatorias para usar en el control deslizante en Inicio."
 
-#: themeoptions.php:90
+#: themeoptions.php:103
 msgid "Use infinite scroll"
-msgstr ""
+msgstr "Usar desplazamiento Infinito"
 
-#: themeoptions.php:99
+#: themeoptions.php:112
 msgid ""
-"Check pages which use <a href=\"https://infinite-scroll.com/\" target="
-"\"_blank\">infinite-scroll jQuery plugin</a>. This layout will automatically "
-"load items of next page (albums, images or news) without pagination."
+"Check pages which use <a href=\"https://infinite-scroll.com/\" "
+"target=\"_blank\">infinite-scroll jQuery plugin</a>. This layout will "
+"automatically load items of next page (albums, images or news) without "
+"pagination."
 msgstr ""
+"Verifique las páginas <a href=\"https://infinite-scroll.com/\" "
+"target=\"_blank\">para usar el complemento jQuery de desplazamiento "
+"infinito</a>. Este diseño cargará automáticamente elementos de la página "
+"siguiente (álbumes, imágenes o noticias) sin paginación."
 
-#: themeoptions.php:100
+#: themeoptions.php:113
 msgid ""
 "The behavior is \"manual first\": it requires visitor to click a button the "
 "first time to load new items and then, it automatically load after."
 msgstr ""
+"El comportamiento es \"primero manual\": esto requiere que el visitante haga "
+"click en un botón la primera vez para cargar nuevos elementos y luego se "
+"cargará automáticamente."
 
-#: themeoptions.php:101
+#: themeoptions.php:114
 msgid ""
 "Rather than using infinite-scroll layout for all albums, you may also allow "
 "\"multiple_layouts\" plugin and then choose \"album_infinitescroll\" as "
 "layout for specific albums of your gallery."
 msgstr ""
+"En lugar de utilizar un diseño de desplazamiento infinito para todos los "
+"álbumes, también puede permitir el complemento \"multiple_layouts\" y luego "
+"elegir \"album_infinitescroll\" como diseño para álbumes específicos de su "
+"galería."
 
-#: themeoptions.php:103
+#: themeoptions.php:115
 msgid ""
 "<strong>Note:</strong> This album layout does not manage albums with images "
 "and sub-albums (in that case, standard album layout is automatically used)."
 msgstr ""
+"<strong>Nota:</strong> este diseño de álbum no maneja álbumes con imágenes y "
+"sub-álbumes (en ese caso, el diseño de álbum estándar es utilizado "
+"automáticamente)."
 
-#: themeoptions.php:104
+#: themeoptions.php:116
 msgid "Use isotope"
-msgstr ""
+msgstr "Usar Isotope"
 
-#: themeoptions.php:109
+#: themeoptions.php:121
 msgid ""
 "Use <a href=\"https://isotope.metafizzy.co/\" target=\"_blank\">isotope "
 "jQuery plugin</a> for albums pages. This layout allows to display uncropped "
 "thumbnails and to filter them based on their tags."
 msgstr ""
+"Utilice el <a href=\"https://isotope.metafizzy.co/\" "
+"target=\"_blank\">complemento jQuery de isótopos</a> para las páginas de "
+"álbumes. Este diseño permite mostrar miniaturas sin recortar y filtrarlas "
+"según sus etiquetas."
 
-#: themeoptions.php:110
+#: themeoptions.php:122
 msgid ""
 "Rather than use isotope layout for all albums, you may also allow "
 "\"multiple_layouts\" plugin and then choice \"album_isotope\" as layout for "
 "specific albums of your gallery."
 msgstr ""
+"En lugar de utilizar el diseño de isótopos para todos los álbumes, también "
+"puede permitir el complemento \"multiple_layouts\" y luego elegir "
+"\"album_isotope\" como diseño para álbumes específicos de su galería."
 
-#: themeoptions.php:112
+#: themeoptions.php:124
 msgid ""
-"<strong>Notes:</strong> This album layout does not manage sub-albums (in "
-"that case, only pictures of the album are shown and you cant not access on "
-"sub-albums)."
+"<strong>Note:</strong> This album layout does not manage sub-albums (in that "
+"case, only pictures of the album are shown and you cant not access on sub-"
+"albums)."
 msgstr ""
-
-#: themeoptions.php:113
-msgid "This option overwrites the infinite scroll on album option above."
-msgstr ""
-
-#: themeoptions.php:115
-msgid "Social Links"
-msgstr ""
-
-#: themeoptions.php:119
-msgid "Check to show some social links."
-msgstr ""
+"<strong>Nota:</strong> este diseño de álbum no maneja los sub-álbumes (en "
+"ese caso, solo se muestran las imágenes del álbum y no puede acceder a los "
+"sub-álbumes)."
 
 #: themeoptions.php:125
-msgid "Excerpt length"
+msgid "This option overwrites the infinite scroll on album option above."
 msgstr ""
+"Esta opción sobrescribe la opción anterior de desplazamiento infinito en el "
+"álbum."
 
-#: themeoptions.php:129
+#: themeoptions.php:127
+msgid "Social Links"
+msgstr "Enlaces a Redes sociales"
+
+#: themeoptions.php:131
+msgid "Check to show some social links."
+msgstr "Marque para mostrar algunos enlaces a redes sociales."
+
+#: themeoptions.php:137
+msgid "Excerpt length"
+msgstr "Longitud del extracto"
+
+#: themeoptions.php:141
 msgid "Excerpt length for news and pages lists in search page"
 msgstr ""
+"Longitud del extracto en las listas de páginas y noticias de la página de "
+"búsqueda"
 
-#: themeoptions.php:134
+#: themeoptions.php:146
 msgid "Display a link to the Archive list."
-msgstr "Muestra un enlace a los archivos."
+msgstr "Muestra un enlace a la Página de lista de archivos."
 
-#: themeoptions.php:139
+#: themeoptions.php:151
 msgid ""
 "Check to show a tag cloud in Archive list, with all the tags of the gallery."
 msgstr ""
-"Muestra una nube de etiquetas en los archivos, con todas las etiquetas de la "
-"galería."
+"Muestra una nube de etiquetas en la página de lista de archivos, con todas "
+"las etiquetas de la galería."
 
-#: themeoptions.php:144
+#: themeoptions.php:156
 msgid ""
 "Show the EXIFs Data on Image page. Remember you have to check EXIFs data you "
 "want to show on Options>Image>Metadata."
 msgstr ""
+"Muestra los datos EXIF en la página de imagen. Recuerde que debe verificar y "
+"marcar los datos EXIF que desea mostrar, en Opciones>Imagen>Metadatos."
+
+#: themeoptions.php:162
+msgid ""
+"Check this if you want to use the \"menu_manager\" plugin if enabled to use "
+"a custom menu instead of the standard one."
+msgstr ""
+"Marque esto si desea usar el complemento \"menu_manager\"; si está "
+"habilitado se usará un menú personalizado en lugar del estándar."
+
+#: themeoptions.php:163
+msgid ""
+"<strong>Note:</strong> A custom menu named \"zpBootstrap\" is used "
+"automatically. You can change this custom menu in \"menu\" tab."
+msgstr ""
+"<strong>Nota:</strong> un menú personalizado llamado \"zpBootstrap\" se "
+"utiliza automáticamente. Puede cambiar este menú personalizado en la pestaña "
+"\"menú\"."
 
 #~ msgid ""
 #~ "Display a home page, with a slider of 5 random picts, the gallery "

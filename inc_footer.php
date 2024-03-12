@@ -2,7 +2,7 @@
 		<div class="container">
 			<div id="copyright">
 				<?php
-				echo getMainSiteName();
+				echo getParentSiteTitle();
 				if (getOption('zpB_show_archive')) {
 					printCustomPageURL(gettext('Archive View'), 'archive', '', ' | ');
 				}
